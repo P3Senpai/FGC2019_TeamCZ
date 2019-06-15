@@ -1,0 +1,4 @@
+#Fri Jun 14 14:29:40 CEST 2019
+base.0=/Users/petr-konstantin/Desktop/robotics/Code/shit/TeamCode/build/intermediates/transforms/dexMerger/debug/0
+path.0=classes.dex
+renamed.0=classes.dex
