@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="Gradle: :Inspection-release:@aar">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/Inspection-release.aar/cb9b5be232c58d9b80b4d2aa9f96c243/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/Inspection-release.aar/cb9b5be232c58d9b80b4d2aa9f96c243/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

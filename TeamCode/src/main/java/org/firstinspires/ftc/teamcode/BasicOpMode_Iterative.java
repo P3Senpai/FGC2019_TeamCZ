@@ -52,7 +52,7 @@ import com.qualcomm.robotcore.util.Range;
  * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list
  */
 
-@TeleOp(name="FGC Pushbot Prototype v1", group="Iterative Opmode")
+@TeleOp(name="FGC 2019 Pushbot 1.0", group="Iterative Opmode")
 //@Disabled
 public class BasicOpMode_Iterative extends OpMode
 {
@@ -77,6 +77,7 @@ public class BasicOpMode_Iterative extends OpMode
         leftDrive = hardwareMap.get(DcMotor.class,"left_drive");
         rightDrive = hardwareMap.get(DcMotor.class, "right_drive");
         lift       = hardwareMap.get(DcMotor.class, "lift");
+
         leftDrive.setDirection(DcMotorSimple.Direction.FORWARD);
         rightDrive.setDirection(DcMotorSimple.Direction.REVERSE);
         lift.setDirection(DcMotorSimple.Direction.REVERSE);
@@ -101,12 +102,18 @@ public class BasicOpMode_Iterative extends OpMode
      */
     @Override
     public void init_loop() {
+
+        openLeft.setPosition(0.3);
+        openRight.setPosition(0.7);
+
+
     }
 
     /*
      * Code to run ONCE when the driver hits PLAY
      */
-    //TODO add wingtip/bulldozer init in this method
+
+    //TODO bulldozer init in this method
 
     @Override
     public void start() {
@@ -149,6 +156,7 @@ public class BasicOpMode_Iterative extends OpMode
         // servo stuffz
         double openLeftPos = openLeft.getPosition(); // TODO remove once ready and tested
         double openRightPos = openRight.getPosition(); // TODO remove once ready and tested
+        // tested and set at top (maybe remove)
         double wingtipLeftPos   = wingtipLeft.getPosition();
         double wingtipRightPos  = wingtipRight.getPosition();
 
