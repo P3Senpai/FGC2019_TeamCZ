@@ -137,8 +137,10 @@ public class BasicOpMode_Iterative extends OpMode
             speedLimitToggle = false;   // resets toggle once button is pressed
 
         // driving
-        double leftPower = Range.clip(gamepad1.left_stick_y, -1.0, 1.0);
-        double rightPower = Range.clip(gamepad1.right_stick_y, -1.0, 1.0);
+        double drive = -gamepad1.left_stick_y;
+        double turn  =  gamepad1.right_stick_x;
+        double leftPower    = Range.clip(drive + turn, -1.0, 1.0) ;
+        double rightPower   = Range.clip(drive - turn, -1.0, 1.0) ;
 
         leftDrive.setPower(leftPower * speedLimit);
         rightDrive.setPower(rightPower * speedLimit);
