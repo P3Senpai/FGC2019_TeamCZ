@@ -137,8 +137,8 @@ public class BasicOpMode_Iterative extends OpMode
             speedLimitToggle = false;   // resets toggle once button is pressed
 
         // driving
-        double drive = -gamepad1.left_stick_y;
-        double turn  =  gamepad1.right_stick_x;
+        double drive = gamepad1.left_stick_y;
+        double turn  =  -gamepad1.right_stick_x;
         double leftPower    = Range.clip(drive + turn, -1.0, 1.0) ;
         double rightPower   = Range.clip(drive - turn, -1.0, 1.0) ;
 
@@ -175,12 +175,16 @@ public class BasicOpMode_Iterative extends OpMode
         //endregion
 
         if(gamepad2.dpad_up){
-            wingtipLeft.setPosition(wingtipLeftPos + 0.001);
-            wingtipRight.setPosition(wingtipRightPos + 0.001);
+//            wingtipLeft.setPosition(wingtipLeftPos + 0.001);
+//            wingtipRight.setPosition(wingtipRightPos + 0.001);
+            wingtipLeft.setPosition(0.27);
+            wingtipRight.setPosition(0.67);
         }
         if(gamepad2.dpad_down){
-            wingtipLeft.setPosition(wingtipLeftPos - 0.001);
-            wingtipRight.setPosition(wingtipRightPos - 0.001);
+//            wingtipLeft.setPosition(wingtipLeftPos - 0.001);
+//            wingtipRight.setPosition(wingtipRightPos - 0.001);
+            wingtipLeft.setPosition(0.48);
+            wingtipRight.setPosition(0.45);
         }
 
         // Show the elapsed game time and wheel power.
@@ -193,10 +197,29 @@ public class BasicOpMode_Iterative extends OpMode
     }
 
     /*
-     * Code to run ONCE after the driver hits STOP
+     * Code to run ONCE after the driver hits STOP // todo find how this relates to rule E07 (
      */
     @Override
     public void stop() {
+        //todo do the test of this method
+        // region stop method test
+//        ElapsedTime time = new ElapsedTime();
+//        double totalTime = 5.0; // 5 seconds
+//        double runtimeSeconds = time.seconds();
+//        time.reset();
+//
+//        while (runtimeSeconds <= totalTime)
+//        {
+//            leftDrive.setPower(0.5);
+//            rightDrive.setPower(-0.5);
+//            telemetry.addLine("Houston we have a problem. \nThe driving motors just keep spinning");
+//            telemetry.addData("Count down", "%.2f seconds (%.2f total)",runtimeSeconds,totalTime);
+//            telemetry.update();
+//        }
+////        // todo if motors don't stop after the 5 seconds add manual stop
+////        leftDrive.setPower(0);
+////        rightDrive.setPower(0);
+        //endregion
     }
 
 }

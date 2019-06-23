@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="/Users/petr-konstantin/Desktop/robotics/Code/shit/FtcRobotController/src/main/jniLibs"/></dataSet><dataSet config="debug"><source path="/Users/petr-konstantin/Desktop/robotics/Code/shit/FtcRobotController/src/debug/jniLibs"/></dataSet></merger>
+<merger version="3"><dataSet config="main"><source path="/Users/petr-konstantin/Desktop/robotics/Code/FGC2018_TeamCZ/FtcRobotController/src/main/jniLibs"/></dataSet><dataSet config="debug"><source path="/Users/petr-konstantin/Desktop/robotics/Code/FGC2018_TeamCZ/FtcRobotController/src/debug/jniLibs"/></dataSet></merger>

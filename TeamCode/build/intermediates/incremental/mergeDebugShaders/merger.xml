@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="/Users/petr-konstantin/Desktop/robotics/Code/shit/TeamCode/src/main/shaders"/></dataSet><dataSet config="debug"><source path="/Users/petr-konstantin/Desktop/robotics/Code/shit/TeamCode/src/debug/shaders"/></dataSet></merger>
+<merger version="3"><dataSet config="main"><source path="/Users/petr-konstantin/Desktop/robotics/Code/FGC2018_TeamCZ/TeamCode/src/main/shaders"/></dataSet><dataSet config="debug"><source path="/Users/petr-konstantin/Desktop/robotics/Code/FGC2018_TeamCZ/TeamCode/src/debug/shaders"/></dataSet></merger>
