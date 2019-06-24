@@ -58,40 +58,17 @@ public class BasicOpMode_Iterative extends OpMode
 {
     // Declare OpMode members.
     private ElapsedTime runtime = new ElapsedTime();
-    private DcMotor leftDrive   = null;
-    private DcMotor rightDrive  = null;
-    private DcMotor lift        = null;
-    private Servo   openLeft    = null;
-    private Servo   openRight   = null;
-    private Servo   wingtipLeft = null;
-    private Servo   wingtipRight = null;
-    private double speedLimit   = 0.8;
+    private Bot robo = new Bot();
     private boolean speedLimitToggle = false;
     /*
      * Code to run ONCE when the driver hits INIT
      */
     @Override
     public void init() {
-        telemetry.addData("Status", "Initialized");
+        telemetry.addData("Status", "Initializing . . . ");
+        
         //  init of prototypes
-        leftDrive = hardwareMap.get(DcMotor.class,"left_drive");
-        rightDrive = hardwareMap.get(DcMotor.class, "right_drive");
-        lift       = hardwareMap.get(DcMotor.class, "lift");
-
-        leftDrive.setDirection(DcMotorSimple.Direction.FORWARD);
-        rightDrive.setDirection(DcMotorSimple.Direction.REVERSE);
-        lift.setDirection(DcMotorSimple.Direction.REVERSE);
-        lift.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE); //TODO Test if this stops the lift motor from moving
-
-        //init servos
-        openLeft    = hardwareMap.get(Servo.class, "open_left");
-        openRight   = hardwareMap.get(Servo.class, "open_right");
-        wingtipLeft = hardwareMap.get(Servo.class, "wing_tip_left");
-        wingtipRight = hardwareMap.get(Servo.class, "wing_tip_right");
-
-        // closed position for servo
-        openLeft.setPosition(0.7);  // open position is 0.3
-        openRight.setPosition(0.3); // open position is 0.7
+        robo.init();
 
         // Tell the driver that initialization is complete.
         telemetry.addData("Status", "Initialized");
@@ -103,8 +80,8 @@ public class BasicOpMode_Iterative extends OpMode
     @Override
     public void init_loop() {
 
-        openLeft.setPosition(0.3);
-        openRight.setPosition(0.7);
+        robo.openLeft.setPosition(0.3);
+        robo.openRight.setPosition(0.7);
 
 
     }
@@ -128,10 +105,10 @@ public class BasicOpMode_Iterative extends OpMode
 
         // changing speed limit with toggle controls
         if (!speedLimitToggle && gamepad1.dpad_up){
-            speedLimit += (speedLimit < 1.0)? 0.1 : 0; // increments by 0.1 if limit is under 1.0
+            robo.speedLimit += (robo.speedLimit < 1.0)? 0.1 : 0; // increments by 0.1 if limit is under 1.0
             speedLimitToggle = true;
         }else if(!speedLimitToggle && gamepad1.dpad_down){
-            speedLimit -= (speedLimit > 0.1)? 0.1 : 0; // increments by -0.1 if limit is above 0.1 //TODO test if 0.1 goes to 0.0 as when 0.0 went to -0.1
+            robo.speedLimit -= (robo.speedLimit > 0.1)? 0.1 : 0; // increments by -0.1 if limit is above 0.1 //TODO test if 0.1 goes to 0.0 as when 0.0 went to -0.1
             speedLimitToggle = true;
         }else if(speedLimitToggle && !gamepad1.dpad_up && !gamepad1.dpad_down)
             speedLimitToggle = false;   // resets toggle once button is pressed
@@ -142,57 +119,57 @@ public class BasicOpMode_Iterative extends OpMode
         double leftPower    = Range.clip(drive + turn, -1.0, 1.0) ;
         double rightPower   = Range.clip(drive - turn, -1.0, 1.0) ;
 
-        leftDrive.setPower(leftPower * speedLimit);
-        rightDrive.setPower(rightPower * speedLimit);
+        robo.leftDrive.setPower(leftPower * robo.speedLimit);
+        robo.rightDrive.setPower(rightPower * robo.speedLimit);
 
 
         // lifting
         if(gamepad1.a) // going down
-            lift.setPower(-0.5);
+            robo.lift.setPower(-0.5);
         else if(gamepad1.y)     // going up
-            lift.setPower(0.5);
+            robo.lift.setPower(0.5);
         else
-            lift.setPower(0);
+            robo.lift.setPower(0);
 
 
         // servo stuffz
-        double openLeftPos = openLeft.getPosition(); // TODO remove once ready and tested
-        double openRightPos = openRight.getPosition(); // TODO remove once ready and tested
+        double openLeftPos = robo.openLeft.getPosition(); // TODO remove once ready and tested
+        double openRightPos = robo.openRight.getPosition(); // TODO remove once ready and tested
         // tested and set at top (maybe remove)
-        double wingtipLeftPos   = wingtipLeft.getPosition();
-        double wingtipRightPos  = wingtipRight.getPosition();
+        double wingtipLeftPos   = robo.wingtipLeft.getPosition();
+        double wingtipRightPos  = robo.wingtipRight.getPosition();
 
         // region gates open and close for the wing tips
         // todo remove once region gets tested and is ready
         if(gamepad2.a) { // open
-            openLeft.setPosition(0.3);
-            openRight.setPosition(0.7);
+            robo.openLeft.setPosition(0.3);
+            robo.openRight.setPosition(0.7);
         }
         if(gamepad2.b){ // closed
-            openLeft.setPosition(0.7); // closed position
-            openRight.setPosition(0.3);
+            robo.openLeft.setPosition(0.7); // closed position
+            robo.openRight.setPosition(0.3);
         }
         //endregion
 
         if(gamepad2.dpad_up){
 //            wingtipLeft.setPosition(wingtipLeftPos + 0.001);
 //            wingtipRight.setPosition(wingtipRightPos + 0.001);
-            wingtipLeft.setPosition(0.27);
-            wingtipRight.setPosition(0.67);
+            robo.wingtipLeft.setPosition(0.27);
+            robo.wingtipRight.setPosition(0.67);
         }
         if(gamepad2.dpad_down){
 //            wingtipLeft.setPosition(wingtipLeftPos - 0.001);
 //            wingtipRight.setPosition(wingtipRightPos - 0.001);
-            wingtipLeft.setPosition(0.48);
-            wingtipRight.setPosition(0.45);
+            robo.wingtipLeft.setPosition(0.48);
+            robo.wingtipRight.setPosition(0.45);
         }
 
         // Show the elapsed game time and wheel power.
         telemetry.addData("Status", "Run Time: " + runtime.toString());
-        telemetry.addData("Speed Limit", "%.2f power", speedLimit);
+        telemetry.addData("Speed Limit", "%.2f power", robo.speedLimit);
         telemetry.addData("Drive Speed", "left(%.2f) right(%.2f)", leftPower, rightPower);
         telemetry.addData("Servo Position", "openL(%.2f) openR(%.2f) bulldozeL(%.2f) bulldozeR(%.2f)",openLeftPos,openRightPos,wingtipLeftPos,wingtipRightPos);
-        String openState = ((openLeft.getPosition() == 0.3) && (openRight.getPosition() == 0.7))?"The gates are open and ready for use":"The gates are closed";
+        String openState = ((robo.openLeft.getPosition() == 0.3) && (robo.openRight.getPosition() == 0.7))?"The gates are open and ready for use":"The gates are closed";
         telemetry.addLine(openState);
     }
 
