@@ -60,6 +60,7 @@ public class BasicOpMode_Iterative extends OpMode
     private ElapsedTime runtime = new ElapsedTime();
     private Bot robo = new Bot();
     private boolean speedLimitToggle = false;
+    private Gamepad gp1;
     /*
      * Code to run ONCE when the driver hits INIT
      */
@@ -124,7 +125,7 @@ public class BasicOpMode_Iterative extends OpMode
 
 
         // lifting
-        if(gamepad1.a) // going down
+        if(gamepad1.a || gp1.a) // going down // todo check if gp1 works
             robo.lift.setPower(-0.5);
         else if(gamepad1.y)     // going up
             robo.lift.setPower(0.5);
@@ -198,5 +199,7 @@ public class BasicOpMode_Iterative extends OpMode
 ////        rightDrive.setPower(0);
         //endregion
     }
-
 }
+
+
+
