@@ -51,7 +51,7 @@ ADDED from /Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/FtcRobotC
 		ADDED from /Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/FtcRobotController/src/main/AndroidManifest.xml:21:7-53
 	android:name
 		ADDED from /Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/FtcRobotController/src/main/AndroidManifest.xml:19:7-95
-intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
 ADDED from /Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/FtcRobotController/src/main/AndroidManifest.xml:25:7-28:23
 category#android.intent.category.LAUNCHER
 ADDED from /Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/FtcRobotController/src/main/AndroidManifest.xml:26:9-69
@@ -61,7 +61,7 @@ action#android.intent.action.MAIN
 ADDED from /Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/FtcRobotController/src/main/AndroidManifest.xml:27:9-61
 	android:name
 		ADDED from /Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/FtcRobotController/src/main/AndroidManifest.xml:27:17-58
-intent-filter#android.hardware.usb.action.USB_DEVICE_ATTACHED
+intent-filter#action:name:android.hardware.usb.action.USB_DEVICE_ATTACHED
 ADDED from /Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/FtcRobotController/src/main/AndroidManifest.xml:30:7-32:23
 action#android.hardware.usb.action.USB_DEVICE_ATTACHED
 ADDED from /Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/FtcRobotController/src/main/AndroidManifest.xml:31:9-82

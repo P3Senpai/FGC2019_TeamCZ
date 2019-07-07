@@ -80,10 +80,8 @@ public class BasicOpMode_Iterative extends OpMode
      */
     @Override
     public void init_loop() {
-
         robo.openLeft.setPosition(0.3);
         robo.openRight.setPosition(0.7);
-
 
     }
 
@@ -132,7 +130,7 @@ public class BasicOpMode_Iterative extends OpMode
         else
             robo.lift.setPower(0);
 
-
+        
         // servo stuffz
         double openLeftPos = robo.openLeft.getPosition(); // TODO remove once ready and tested
         double openRightPos = robo.openRight.getPosition(); // TODO remove once ready and tested

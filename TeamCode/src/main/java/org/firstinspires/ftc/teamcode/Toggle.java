@@ -1,27 +1,27 @@
 package org.firstinspires.ftc.teamcode;
 
+import com.qualcomm.robotcore.hardware.Gamepad;
+
 /**
  * Created by petr-konstantin on 6/24/19.
  */
 
 public class Toggle {
     private boolean button; // this variable also
-    private boolean pressed = false; // starting state of every controller
-    private String str = "afasfd";
+    private boolean state = false; // starting state of every controller
+
 
     /* Constructor */
-    public void Toggle( boolean button){
-        this.button = button;
-    }
+    public void Toggle(){}
 
-    public void toggle(){
+    public boolean toggle(boolean button){
         // this will only work in a while loop or as it is run asynchronously
-        if (button && !pressed){
+        if (button && !state){
             // double conditions
-
-            pressed = true;
-        }else if(!button && pressed){
-            pressed = false;
+            state = true;
+        }else if(!button && state){
+            state = false;
         }
+        return state;
     }
 }
