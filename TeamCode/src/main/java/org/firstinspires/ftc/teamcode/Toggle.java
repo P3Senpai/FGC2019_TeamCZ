@@ -1,27 +1,55 @@
 package org.firstinspires.ftc.teamcode;
 
-import com.qualcomm.robotcore.hardware.Gamepad;
+import java.util.ArrayList;
 
 /**
  * Created by petr-konstantin on 6/24/19.
  */
 
-public class Toggle {
-    private boolean button; // this variable also
-    private boolean state = false; // starting state of every controller
-
+class Toggle{
+    ArrayList<Boolean> previousState = new ArrayList<Boolean>();
 
     /* Constructor */
     public void Toggle(){}
 
-    public boolean toggle(boolean button){
-        // this will only work in a while loop or as it is run asynchronously
-        if (button && !state){
-            // double conditions
-            state = true;
-        }else if(!button && state){
-            state = false;
+    /* Main Method
+    *       doesn't allow for holding down a button to count as multiple presses
+    */
+
+    // arrayPosition parameter should be entered in incrementing order from 0 as used in your code
+    public boolean toggle(int arrayPosition, boolean button){
+        boolean previousPressed;
+        boolean action = false;
+
+        try {
+            previousPressed = getState(arrayPosition); // Checks if button with this array position already exists
+        }catch (IndexOutOfBoundsException e){
+            setState(arrayPosition,button);     // If it doesn't then it is created
+            previousPressed = getState(arrayPosition);
         }
-        return state;
+
+        // Main Logic
+        if (button && !previousPressed){
+            setState(arrayPosition,true);
+            action = true;
+        }else if(!button && previousPressed){
+            setState(arrayPosition,false);
+        }
+        return action;
+    }
+
+    private boolean getState(int arrayPosition){
+        return previousState.get(arrayPosition);
+    }
+    private void setState(int arrayPosition, boolean state){
+        previousState.add(arrayPosition,state);
     }
 }
+/* EXAMPLE
+*
+* if(obj.toggle(0, gamepad1.a)
+* {
+* // your code
+* }
+*
+*/

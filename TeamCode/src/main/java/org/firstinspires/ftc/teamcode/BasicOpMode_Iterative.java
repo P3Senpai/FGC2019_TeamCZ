@@ -59,6 +59,7 @@ public class BasicOpMode_Iterative extends OpMode
     // Declare OpMode members.
     private ElapsedTime runtime = new ElapsedTime();
     private Bot robo = new Bot();
+    private Toggle tgg = new Toggle();
     private boolean speedLimitToggle = false;
     private Gamepad gp1;
     /*
@@ -103,14 +104,11 @@ public class BasicOpMode_Iterative extends OpMode
     public void loop() {
 
         // changing speed limit with toggle controls
-        if (!speedLimitToggle && gamepad1.dpad_up){
+        if (tgg.toggle(0,gamepad1.dpad_up)){
             robo.speedLimit += (robo.speedLimit < 1.0)? 0.1 : 0; // increments by 0.1 if limit is under 1.0
-            speedLimitToggle = true;
-        }else if(!speedLimitToggle && gamepad1.dpad_down){
+        }else if(tgg.toggle(1,gamepad1.dpad_down)){
             robo.speedLimit -= (robo.speedLimit > 0.1)? 0.1 : 0; // increments by -0.1 if limit is above 0.1 //TODO test if 0.1 goes to 0.0 as when 0.0 went to -0.1
-            speedLimitToggle = true;
-        }else if(speedLimitToggle && !gamepad1.dpad_up && !gamepad1.dpad_down)
-            speedLimitToggle = false;   // resets toggle once button is pressed
+        }
 
         // driving
         double drive = gamepad1.left_stick_y;
