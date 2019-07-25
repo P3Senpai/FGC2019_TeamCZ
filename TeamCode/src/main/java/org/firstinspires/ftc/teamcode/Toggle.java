@@ -8,7 +8,6 @@ import java.util.ArrayList;
 
 class Toggle{
     ArrayList<Boolean> previousState = new ArrayList<Boolean>();
-    ArrayList<Boolean> automaticTogglePast = new ArrayList<Boolean>();
     static int counter;
 
     /* Constructor */
@@ -16,34 +15,8 @@ class Toggle{
         counter = 0;
     }
 
-    /* Main Method
-    *       doesn't allow for holding down a button to count as multiple presses
-    */
-
-    // arrayPosition parameter should be entered in incrementing order from 0 as used in your code
-    public boolean toggle(boolean button, int arrayPosition){
-        boolean previousPressed;
-        boolean action = false;
-
-        try {
-            previousPressed = getState(arrayPosition); // Checks if button with this array position already exists
-        }catch (IndexOutOfBoundsException e){
-            setState(arrayPosition,button);     // If it doesn't then it is created
-            previousPressed = getState(arrayPosition);
-        }
-
-        // Main Logic
-        if (button && !previousPressed){
-            setState(arrayPosition,true);
-            action = true;
-        }else if(!button && previousPressed){
-            setState(arrayPosition,false);
-        }
-        return action;
-    }
-
-    // description of the functionality of the automatic toggle
-    /* This toggle method works by automatically assigning a index to the method call inside your code.
+    // Description of the functionality of the automatic toggle
+    /** This toggle method works by automatically assigning a index to the method call inside your code.
     * For this toggle method to work it needs to be used in a loop which is always reset in the end,
     * otherwise you will not be able to read/write to previously stored items. If you want to do a toggle for
     * changing out put such as moving a servo from max to a min nest these conditional statements inside of a if
@@ -75,20 +48,20 @@ class Toggle{
         boolean result = false;
 
         try{
-            lastPress = automaticTogglePast.get(counter);
+            lastPress = previousState.get(counter);
         }catch(IndexOutOfBoundsException e){
-            automaticTogglePast.add(counter, button);
-            lastPress = automaticTogglePast.get(counter);
+            previousState.add(counter, button);
+            lastPress = previousState.get(counter);
         }
 
         if(button && !lastPress){
-            automaticTogglePast.remove(counter);
-            automaticTogglePast.add(counter, button);
+            previousState.remove(counter);
+            previousState.add(counter, button);
             result = true;
         }else if(!button && lastPress){
             // does not need to change result since default is false
-            automaticTogglePast.remove(counter);
-            automaticTogglePast.add(counter, button);
+            previousState.remove(counter);
+            previousState.add(counter, button);
         }
         counter++; // consider moving this under each if statement
         return result;
