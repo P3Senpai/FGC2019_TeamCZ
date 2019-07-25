@@ -29,6 +29,8 @@
 
 package org.firstinspires.ftc.teamcode;
 
+import android.speech.tts.TextToSpeech;
+
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
@@ -37,6 +39,8 @@ import com.qualcomm.robotcore.hardware.Gamepad;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
 import com.qualcomm.robotcore.util.Range;
+
+import java.util.Locale;
 
 /**
  * This file contains an example of an iterative (Non-Linear) "OpMode".
@@ -60,7 +64,8 @@ public class BasicOpMode_Iterative extends OpMode
     private ElapsedTime runtime = new ElapsedTime();
     private Bot robo = new Bot();
     private Toggle tgg = new Toggle();
-    private boolean speedLimitToggle = false;
+    // todo testing
+    private TextToSpeech tts;
     private Gamepad gp1;
     /*
      * Code to run ONCE when the driver hits INIT
@@ -71,6 +76,7 @@ public class BasicOpMode_Iterative extends OpMode
         
         //  init of prototypes
         robo.init();
+
 
         // Tell the driver that initialization is complete.
         telemetry.addData("Status", "Initialized");
