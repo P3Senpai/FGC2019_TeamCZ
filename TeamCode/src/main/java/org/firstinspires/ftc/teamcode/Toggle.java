@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 class Toggle{
     ArrayList<Boolean> previousState = new ArrayList<Boolean>();
+    ArrayList<Boolean> automaticTogglePast = new ArrayList<Boolean>();
     static int counter;
 
     /* Constructor */
@@ -44,13 +45,25 @@ class Toggle{
     // description of the functionality of the automatic toggle
     /* This toggle method works by automatically assigning a index to the method call inside your code.
     * For this toggle method to work it needs to be used in a loop which is always reset in the end,
-    * otherwise you will not be able to read/write to previously stored items. But this method does not
-    * work if you want get a value from two separate method calls.
+    * otherwise you will not be able to read/write to previously stored items. If you want to do a toggle for
+    * changing out put such as moving a servo from max to a min nest these conditional statements inside of a if
+    * statement calling the toggle method.
     *
     * e.g.
     * loop
-    *   method call 1
-    *   method call 2
+    *
+    *   if method call 1
+    *       // your code
+    *   end if
+    *
+    *   if method call 2
+    *       if condition1
+    *           // your code
+    *       end if
+    *       else if condition 2
+    *           // your code
+    *       end else if
+    *   end if
     *
     *   reset
     * end loop
@@ -62,20 +75,20 @@ class Toggle{
         boolean result = false;
 
         try{
-            lastPress = previousState.get(counter);
+            lastPress = automaticTogglePast.get(counter);
         }catch(IndexOutOfBoundsException e){
-            previousState.add(counter, button);
-            lastPress = previousState.get(counter);
+            automaticTogglePast.add(counter, button);
+            lastPress = automaticTogglePast.get(counter);
         }
 
         if(button && !lastPress){
-            previousState.remove(counter);
-            previousState.add(counter, button);
+            automaticTogglePast.remove(counter);
+            automaticTogglePast.add(counter, button);
             result = true;
         }else if(!button && lastPress){
             // does not need to change result since default is false
-            previousState.remove(counter);
-            previousState.add(counter, button);
+            automaticTogglePast.remove(counter);
+            automaticTogglePast.add(counter, button);
         }
         counter++; // consider moving this under each if statement
         return result;
