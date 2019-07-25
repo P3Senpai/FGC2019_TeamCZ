@@ -64,6 +64,7 @@ public class BasicOpMode_Iterative extends OpMode
     private ElapsedTime runtime = new ElapsedTime();
     private Bot robo = new Bot();
     private Toggle tgg = new Toggle();
+
     // todo testing
     private TextToSpeech tts;
     private Gamepad gp1;
@@ -110,10 +111,10 @@ public class BasicOpMode_Iterative extends OpMode
     public void loop() {
 
         // changing speed limit with toggle controls
-        if (tgg.toggle(0,gamepad1.dpad_up)){
+        if (tgg.toggle(gamepad1.dpad_up)){
             robo.speedLimit += (robo.speedLimit < 1.0)? 0.1 : 0; // increments by 0.1 if limit is under 1.0
-        }else if(tgg.toggle(1,gamepad1.dpad_down)){
-            robo.speedLimit -= (robo.speedLimit > 0.1)? 0.1 : 0; // increments by -0.1 if limit is above 0.1 //TODO test if 0.1 goes to 0.0 as when 0.0 went to -0.1
+        }else if(tgg.toggle(gamepad1.dpad_down)){
+            robo.speedLimit -= (robo.speedLimit > 0.1)? 0.1 : 0; // increments by -0.1 if limit is above 0.1
         }
 
         // driving
@@ -174,6 +175,9 @@ public class BasicOpMode_Iterative extends OpMode
         telemetry.addData("Servo Position", "openL(%.2f) openR(%.2f) bulldozeL(%.2f) bulldozeR(%.2f)",openLeftPos,openRightPos,wingtipLeftPos,wingtipRightPos);
         String openState = ((robo.openLeft.getPosition() == 0.3) && (robo.openRight.getPosition() == 0.7))?"The gates are open and ready for use":"The gates are closed";
         telemetry.addLine(openState);
+
+        // reset toggle values for next iteration
+        tgg.reset();
     }
 
     /*
