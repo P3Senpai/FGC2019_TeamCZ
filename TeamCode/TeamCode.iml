@@ -123,5 +123,8 @@
     <orderEntry type="library" name="Gradle: :WirelessP2p-release:@aar" level="project" />
     <orderEntry type="library" name="Gradle: :FtcCommon-release:@aar" level="project" />
     <orderEntry type="module" module-name="FtcRobotController" />
+    <orderEntry type="module" module-name="FtcRobotController" />
+    <orderEntry type="module" module-name="FtcRobotController" />
+    <orderEntry type="module" module-name="FtcRobotController" />
   </component>
 </module>

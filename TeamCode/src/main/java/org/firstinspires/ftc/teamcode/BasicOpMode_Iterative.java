@@ -34,9 +34,11 @@ import android.speech.tts.TextToSpeech;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorController;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.Gamepad;
 import com.qualcomm.robotcore.hardware.Servo;
+import com.qualcomm.robotcore.hardware.VoltageSensor;
 import com.qualcomm.robotcore.util.ElapsedTime;
 import com.qualcomm.robotcore.util.Range;
 
@@ -64,6 +66,45 @@ public class BasicOpMode_Iterative extends OpMode
     private ElapsedTime runtime = new ElapsedTime();
     private Bot robo = new Bot();
     private Toggle tgg = new Toggle();
+    //todo try using code below to get battery sensor for motor
+    private VoltageSensor vs = new VoltageSensor() {
+    @Override
+    public double getVoltage() {
+        return 0;
+    }
+
+    @Override
+    public Manufacturer getManufacturer() {
+        return null;
+    }
+
+    @Override
+    public String getDeviceName() {
+        return null;
+    }
+
+    @Override
+    public String getConnectionInfo() {
+        return null;
+    }
+
+    @Override
+    public int getVersion() {
+        return 0;
+    }
+
+    @Override
+    public void resetDeviceConfigurationForOpMode() {
+
+    }
+
+    @Override
+    public void close() {
+
+    }
+};
+    
+
 
     // todo testing
     private TextToSpeech tts;
@@ -77,6 +118,9 @@ public class BasicOpMode_Iterative extends OpMode
         
         //  init of prototypes
         robo.init();
+
+        //todo voltage sensor
+        VoltageSensor vs = hardwareMap.voltageSensor.get("lift"); //test with lift motor as voltage should change depending on strain
 
 
         // Tell the driver that initialization is complete.
@@ -168,7 +212,11 @@ public class BasicOpMode_Iterative extends OpMode
             robo.wingtipRight.setPosition(0.45);
         }
 
-        // Show the elapsed game time and wheel power.
+        //todo voltage test
+        double liftV = vs.getVoltage();
+
+        // Telemetry Data
+        telemetry.addData("Lift Voltage: ", "%.2f", liftV);
         telemetry.addData("Status", "Run Time: " + runtime.toString());
         telemetry.addData("Speed Limit", "%.2f power", robo.speedLimit);
         telemetry.addData("Drive Speed", "left(%.2f) right(%.2f)", leftPower, rightPower);
