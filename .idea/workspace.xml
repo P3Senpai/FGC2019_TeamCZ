@@ -34,11 +34,21 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/BasicOpMode_Iterative.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="148">
-              <caret line="208" column="64" lean-forward="true" selection-start-line="208" selection-start-column="64" selection-end-line="208" selection-end-column="64" />
+            <state relative-caret-position="420">
+              <caret line="193" column="68" lean-forward="true" selection-start-line="193" selection-start-column="68" selection-end-line="193" selection-end-column="68" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <marker date="1564607174000" expanded="true" signature="7943:7951" ph="{...}" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/SensorDigitalTouch.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-10">
+              <caret line="42" column="3" lean-forward="true" selection-start-line="42" selection-start-column="3" selection-end-line="42" selection-end-column="3" />
             </state>
           </provider>
         </entry>
@@ -91,7 +101,7 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="40" />
+    <option name="x" value="39" />
     <option name="y" value="22" />
     <option name="width" value="1400" />
     <option name="height" value="874" />
@@ -104,15 +114,57 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="AndroidView" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="FGC2019_TeamCZ" type="b2602c69:ProjectViewProjectNode" />
               <item name="FGC2019_TeamCZ" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+            <path>
+              <item name="FGC2019_TeamCZ" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FGC2019_TeamCZ" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="FtcRobotController" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+            <path>
+              <item name="FGC2019_TeamCZ" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FGC2019_TeamCZ" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="FtcRobotController" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FGC2019_TeamCZ" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FGC2019_TeamCZ" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="FtcRobotController" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FGC2019_TeamCZ" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FGC2019_TeamCZ" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="FtcRobotController" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FGC2019_TeamCZ" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FGC2019_TeamCZ" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="FtcRobotController" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="robotcontroller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FGC2019_TeamCZ" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FGC2019_TeamCZ" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="FtcRobotController" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="robotcontroller" type="462c0819:PsiDirectoryNode" />
+              <item name="samples" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="FGC2019_TeamCZ" type="b2602c69:ProjectViewProjectNode" />
@@ -153,6 +205,9 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -325,9 +380,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="40" y="22" width="1400" height="874" extended-state="0" />
+    <frame x="39" y="22" width="1400" height="874" extended-state="0" />
     <editor active="true" />
     <layout>
+      <window_info id="Resources Explorer" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2496318" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Designer" order="2" />
@@ -336,7 +392,7 @@
       <window_info id="Favorites" order="5" side_tool="true" />
       <window_info id="Captures" order="6" side_tool="true" />
       <window_info id="Capture Tool" order="7" />
-      <window_info id="Resources Explorer" order="8" />
+      <window_info anchor="bottom" id="Build" weight="0.32992327" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -350,8 +406,7 @@
       <window_info anchor="bottom" id="Logcat" order="10" />
       <window_info anchor="bottom" id="Version Control" order="11" />
       <window_info anchor="bottom" id="Terminal" order="12" />
-      <window_info anchor="bottom" id="Messages" order="13" weight="0.32908162" />
-      <window_info anchor="bottom" id="Build" order="14" visible="true" weight="0.32992327" />
+      <window_info anchor="bottom" id="Messages" order="13" visible="true" weight="0.32908162" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -444,9 +499,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
           <caret line="15" column="5" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
-          <folding>
-            <element signature="docComment;method#toggle#0;class#Toggle#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -454,18 +506,44 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="20" column="22" selection-start-line="20" selection-start-column="22" selection-end-line="20" selection-end-column="22" />
-          <folding>
-            <element signature="docComment;class#Bot#0" />
-          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/ConceptNullOp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="44" column="13" selection-start-line="44" selection-start-column="13" selection-end-line="44" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/SensorDIO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-79">
+          <caret line="47" column="10" lean-forward="true" selection-start-line="47" selection-start-column="10" selection-end-line="47" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/ConceptDIMAsIndicator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="116">
+          <caret line="55" column="13" selection-start-line="55" selection-start-column="13" selection-end-line="55" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/SensorDigitalTouch.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-10">
+          <caret line="42" column="3" lean-forward="true" selection-start-line="42" selection-start-column="3" selection-end-line="42" selection-end-column="3" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/BasicOpMode_Iterative.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
-          <caret line="208" column="64" lean-forward="true" selection-start-line="208" selection-start-column="64" selection-end-line="208" selection-end-column="64" />
+        <state relative-caret-position="420">
+          <caret line="193" column="68" lean-forward="true" selection-start-line="193" selection-start-column="68" selection-end-line="193" selection-end-column="68" />
           <folding>
             <element signature="imports" expanded="true" />
+            <marker date="1564607174000" expanded="true" signature="7943:7951" ph="{...}" />
           </folding>
         </state>
       </provider>

@@ -33,14 +33,13 @@ import android.speech.tts.TextToSpeech;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
-import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.hardware.DcMotorController;
-import com.qualcomm.robotcore.hardware.DcMotorSimple;
+import com.qualcomm.robotcore.hardware.DigitalChannel;
+import com.qualcomm.robotcore.hardware.DigitalChannelController;
 import com.qualcomm.robotcore.hardware.Gamepad;
-import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.hardware.VoltageSensor;
 import com.qualcomm.robotcore.util.ElapsedTime;
 import com.qualcomm.robotcore.util.Range;
+
 
 import java.util.Locale;
 
@@ -67,43 +66,9 @@ public class BasicOpMode_Iterative extends OpMode
     private Bot robo = new Bot();
     private Toggle tgg = new Toggle();
     //todo try using code below to get battery sensor for motor
-    private VoltageSensor vs = new VoltageSensor() {
-    @Override
-    public double getVoltage() {
-        return 0;
-    }
+    private VoltageSensor vs;
+    private DigitalChannel limitSwitch;
 
-    @Override
-    public Manufacturer getManufacturer() {
-        return null;
-    }
-
-    @Override
-    public String getDeviceName() {
-        return null;
-    }
-
-    @Override
-    public String getConnectionInfo() {
-        return null;
-    }
-
-    @Override
-    public int getVersion() {
-        return 0;
-    }
-
-    @Override
-    public void resetDeviceConfigurationForOpMode() {
-
-    }
-
-    @Override
-    public void close() {
-
-    }
-};
-    
 
 
     // todo testing
@@ -120,8 +85,9 @@ public class BasicOpMode_Iterative extends OpMode
         robo.init();
 
         //todo voltage sensor
-        VoltageSensor vs = hardwareMap.voltageSensor.get("lift"); //test with lift motor as voltage should change depending on strain
-
+        vs = hardwareMap.get(VoltageSensor.class,"lift"); //test with lift motor as voltage should change depending on strain
+        limitSwitch = hardwareMap.get(DigitalChannel.class, "limit switch"); // coded as a touch sensor
+        limitSwitch.setMode(DigitalChannel.Mode.INPUT);
 
         // Tell the driver that initialization is complete.
         telemetry.addData("Status", "Initialized");
@@ -153,6 +119,8 @@ public class BasicOpMode_Iterative extends OpMode
      */
     @Override
     public void loop() {
+
+
 
         // changing speed limit with toggle controls
         if (tgg.toggle(gamepad1.dpad_up)){
@@ -223,6 +191,7 @@ public class BasicOpMode_Iterative extends OpMode
         telemetry.addData("Servo Position", "openL(%.2f) openR(%.2f) bulldozeL(%.2f) bulldozeR(%.2f)",openLeftPos,openRightPos,wingtipLeftPos,wingtipRightPos);
         String openState = ((robo.openLeft.getPosition() == 0.3) && (robo.openRight.getPosition() == 0.7))?"The gates are open and ready for use":"The gates are closed";
         telemetry.addLine(openState);
+        telemetry.addData("Limit switch: ", limitSwitch.getState());
 
         // reset toggle values for next iteration
         tgg.reset();
