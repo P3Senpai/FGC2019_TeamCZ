@@ -1,9 +1,12 @@
 package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorController;
+import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
+import com.qualcomm.robotcore.hardware.configuration.typecontainers.MotorConfigurationType;
 
 /**
  * Created by petr-konstantin on 6/24/19.
@@ -11,7 +14,7 @@ import com.qualcomm.robotcore.hardware.Servo;
 
 public class Bot {
     /* Protected Op Mode variables */
-    protected DcMotor leftDrive   = null;
+    protected DcMotorEx leftDrive   = null; // todo test extended version of motor on this one
     protected DcMotor rightDrive  = null;
     protected DcMotor lift        = null;
     protected Servo   openLeft    = null;
@@ -34,7 +37,7 @@ public class Bot {
         HardwareMap hwmap = null;
 
         /*  Initialization of Motors */
-        leftDrive = hwmap.get(DcMotor.class,"left_drive");
+        leftDrive = hwmap.get(DcMotorEx.class,"left_drive");
         rightDrive = hwmap.get(DcMotor.class, "right_drive");
         lift       = hwmap.get(DcMotor.class, "lift");
 
@@ -53,6 +56,13 @@ public class Bot {
         openLeft.setPosition(0.7);  // open position is 0.3
         openRight.setPosition(0.3); // open position is 0.7
 
+    }
+    public double shooterPID(double currentPower, double targetPower){
+        double output;
+        double P,I,D = 1;
+        double error = targetPower - currentPower;
+
+        return 0.0;
     }
 }
 

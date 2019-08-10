@@ -33,13 +33,21 @@ import android.speech.tts.TextToSpeech;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorController;
+import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.DigitalChannel;
 import com.qualcomm.robotcore.hardware.DigitalChannelController;
 import com.qualcomm.robotcore.hardware.Gamepad;
+import com.qualcomm.robotcore.hardware.PIDCoefficients;
+import com.qualcomm.robotcore.hardware.PIDFCoefficients;
 import com.qualcomm.robotcore.hardware.VoltageSensor;
+import com.qualcomm.robotcore.hardware.configuration.typecontainers.MotorConfigurationType;
 import com.qualcomm.robotcore.util.ElapsedTime;
 import com.qualcomm.robotcore.util.Range;
 
+
+import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
 
 import java.util.Locale;
 
@@ -68,10 +76,9 @@ public class BasicOpMode_Iterative extends OpMode
     //todo try using code below to get battery sensor for motor
     private VoltageSensor vs;
     private DigitalChannel limitSwitch;
+    private DcMotorEx motorEx;
 
 
-
-    // todo testing
     private TextToSpeech tts;
     private Gamepad gp1;
     /*
@@ -84,7 +91,7 @@ public class BasicOpMode_Iterative extends OpMode
         //  init of prototypes
         robo.init();
 
-        //todo voltage sensor
+        //todo move after this was tested
         vs = hardwareMap.get(VoltageSensor.class,"lift"); //test with lift motor as voltage should change depending on strain
         limitSwitch = hardwareMap.get(DigitalChannel.class, "limit switch"); // coded as a touch sensor
         limitSwitch.setMode(DigitalChannel.Mode.INPUT);
@@ -123,9 +130,10 @@ public class BasicOpMode_Iterative extends OpMode
 
 
         // changing speed limit with toggle controls
-        if (tgg.toggle(gamepad1.dpad_up)){
+        if (tgg.toggle(gamepad1.dpad_up)){          // todo test toggle controls
             robo.speedLimit += (robo.speedLimit < 1.0)? 0.1 : 0; // increments by 0.1 if limit is under 1.0
-        }else if(tgg.toggle(gamepad1.dpad_down)){
+        }
+        if(tgg.toggle(gamepad1.dpad_down)){
             robo.speedLimit -= (robo.speedLimit > 0.1)? 0.1 : 0; // increments by -0.1 if limit is above 0.1
         }
 
@@ -140,7 +148,7 @@ public class BasicOpMode_Iterative extends OpMode
 
 
         // lifting
-        if(gamepad1.a || gp1.a) // going down // todo check if gp1 works
+        if(gp1.a) // going down // todo check if gp1 works
             robo.lift.setPower(-0.5);
         else if(gamepad1.y)     // going up
             robo.lift.setPower(0.5);
@@ -167,15 +175,16 @@ public class BasicOpMode_Iterative extends OpMode
         }
         //endregion
 
+        //todo test position of servos
         if(gamepad2.dpad_up){
-//            wingtipLeft.setPosition(wingtipLeftPos + 0.001);
-//            wingtipRight.setPosition(wingtipRightPos + 0.001);
+//            wingtipLeft.setPosition(wingtipLeftPos + 0.001);    // todo remove once tested
+//            wingtipRight.setPosition(wingtipRightPos + 0.001);  // todo remove once tested
             robo.wingtipLeft.setPosition(0.27);
             robo.wingtipRight.setPosition(0.67);
         }
         if(gamepad2.dpad_down){
-//            wingtipLeft.setPosition(wingtipLeftPos - 0.001);
-//            wingtipRight.setPosition(wingtipRightPos - 0.001);
+//            wingtipLeft.setPosition(wingtipLeftPos - 0.001);      // todo remove once tested
+//            wingtipRight.setPosition(wingtipRightPos - 0.001);    // todo remove once tested
             robo.wingtipLeft.setPosition(0.48);
             robo.wingtipRight.setPosition(0.45);
         }
@@ -191,10 +200,14 @@ public class BasicOpMode_Iterative extends OpMode
         telemetry.addData("Servo Position", "openL(%.2f) openR(%.2f) bulldozeL(%.2f) bulldozeR(%.2f)",openLeftPos,openRightPos,wingtipLeftPos,wingtipRightPos);
         String openState = ((robo.openLeft.getPosition() == 0.3) && (robo.openRight.getPosition() == 0.7))?"The gates are open and ready for use":"The gates are closed";
         telemetry.addLine(openState);
+        
+        // todo check telemetry data underneath
         telemetry.addData("Limit switch: ", limitSwitch.getState());
+        telemetry.addData("Lift velocity: ", robo.leftDrive.getVelocity());
 
         // reset toggle values for next iteration
         tgg.reset();
+
     }
 
     /*
