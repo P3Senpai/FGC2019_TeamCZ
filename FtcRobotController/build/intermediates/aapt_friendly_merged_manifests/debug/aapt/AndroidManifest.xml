@@ -2,12 +2,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.qualcomm.ftcrobotcontroller"
-    android:versionCode="31"
-    android:versionName="4.3" >
+    android:versionCode="32"
+    android:versionName="5.0" >
 
     <uses-sdk
         android:minSdkVersion="19"
-        android:targetSdkVersion="19" />
+        android:targetSdkVersion="26" />
 
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
@@ -18,9 +18,14 @@
         android:largeHeap="true"
         android:theme="@style/AppThemeRedRC" >
 
+        <!-- Indicates to the ControlHubUpdater what the latest version of the Control Hub is that this app supports -->
+        <meta-data
+            android:name="org.firstinspires.latestSupportedControlHubVersion"
+            android:value="1" />
+
         <!-- The main robot controller activity -->
         <activity
-            android:name="org.firstinspires.ftc.robotcontroller.internal.FtcRobotControllerActivity"
+            android:name="org.firstinspires.ftc.robotcontroller.internal.PermissionValidatorWrapper"
             android:configChanges="orientation|screenSize"
             android:label="@string/app_name"
             android:launchMode="singleTask"
@@ -30,6 +35,13 @@
 
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name="org.firstinspires.ftc.robotcontroller.internal.FtcRobotControllerActivity"
+            android:configChanges="orientation|screenSize"
+            android:label="@string/app_name"
+            android:launchMode="singleTask"
+            android:screenOrientation="fullUser" >
             <intent-filter>
                 <action android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED" />
             </intent-filter>
@@ -37,6 +49,8 @@
             <meta-data
                 android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED"
                 android:resource="@xml/device_filter" />
+
+            <!-- org.firstinspires.main.entry indicates that this app is compatible with the Dragonboard Control Hub -->
             <meta-data
                 android:name="org.firstinspires.main.entry"
                 android:value="true" />

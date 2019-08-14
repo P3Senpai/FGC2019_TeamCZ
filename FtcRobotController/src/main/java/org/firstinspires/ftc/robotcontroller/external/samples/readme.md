@@ -47,7 +47,7 @@ Library:    This is a class, or set of classes used to implement some strategy.
 After the prefix, other conventions will apply:
 
 * Sensor class names are constructed as:    Sensor - Company - Type
-* Hardware class names are constructed as:  Hardware - org.firstinspires.ftc.teamcode.Robot type
+* Hardware class names are constructed as:  Hardware - Robot type
 * Pushbot class names are constructed as:   Pushbot - Mode - Action - OpModetype
 * Concept class names are constructed as:   Concept - Topic - OpModetype
 * Library class names are constructed as:   Library - Topic - OpModetype

@@ -65,7 +65,7 @@ import java.util.Locale;
  * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list
  */
 
-@TeleOp(name="FGC 2019 Pushbot 1.0", group="Iterative Opmode")
+@TeleOp(name="Iterative OpMode", group="Iterative Opmode")
 //@Disabled
 public class BasicOpMode_Iterative extends OpMode
 {
@@ -130,12 +130,11 @@ public class BasicOpMode_Iterative extends OpMode
 
 
         // changing speed limit with toggle controls
-        if (tgg.toggle(gamepad1.dpad_up)){          // todo test toggle controls
+        if (tgg.toggle(gamepad1.dpad_up))        // todo test toggle controls
             robo.speedLimit += (robo.speedLimit < 1.0)? 0.1 : 0; // increments by 0.1 if limit is under 1.0
-        }
-        if(tgg.toggle(gamepad1.dpad_down)){
+        if(tgg.toggle(gamepad1.dpad_down))
             robo.speedLimit -= (robo.speedLimit > 0.1)? 0.1 : 0; // increments by -0.1 if limit is above 0.1
-        }
+
 
         // driving
         double drive = gamepad1.left_stick_y;

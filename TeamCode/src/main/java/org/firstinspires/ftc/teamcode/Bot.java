@@ -4,6 +4,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorController;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
+import com.qualcomm.robotcore.hardware.DigitalChannel;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.hardware.configuration.typecontainers.MotorConfigurationType;
@@ -21,6 +22,7 @@ public class Bot {
     protected Servo   openRight   = null;
     protected Servo   wingtipLeft = null;
     protected Servo   wingtipRight = null;
+    protected DigitalChannel liftLimitSwitch = null;
     protected double  speedLimit   = 0.8;
 
 
@@ -55,6 +57,10 @@ public class Bot {
         /*  Setting up robot for match */
         openLeft.setPosition(0.7);  // open position is 0.3
         openRight.setPosition(0.3); // open position is 0.7
+
+        /* Initialization of Sensors*/
+        liftLimitSwitch = hwmap.get(DigitalChannel.class, "limit_switch");
+        liftLimitSwitch.setMode(DigitalChannel.Mode.INPUT);
 
     }
     public double shooterPID(double currentPower, double targetPower){

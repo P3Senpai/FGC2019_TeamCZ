@@ -1,1 +1,1 @@
-[{"outputType":{"type":"APK"},"apkInfo":{"type":"MAIN","splits":[],"versionCode":31},"path":"TeamCode-debug.apk","properties":{"packageId":"com.qualcomm.ftcrobotcontroller","split":"","minSdkVersion":"19"}}]
+[{"outputType":{"type":"APK"},"apkData":{"type":"MAIN","splits":[],"versionCode":32,"versionName":"5.0","enabled":true,"outputFile":"TeamCode-debug.apk","fullName":"debug","baseName":"debug"},"path":"TeamCode-debug.apk","properties":{}}]

@@ -3,8 +3,11 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/FGC2019_TeamCZ.iml" filepath="$PROJECT_DIR$/FGC2019_TeamCZ.iml" />
+      <module fileurl="file://$PROJECT_DIR$/FGC2019_TeamCZ.iml" filepath="$PROJECT_DIR$/FGC2019_TeamCZ.iml" />
+      <module fileurl="file://$PROJECT_DIR$/FtcRobotController/FtcRobotController.iml" filepath="$PROJECT_DIR$/FtcRobotController/FtcRobotController.iml" />
       <module fileurl="file://$PROJECT_DIR$/FtcRobotController/FtcRobotController.iml" filepath="$PROJECT_DIR$/FtcRobotController/FtcRobotController.iml" />
       <module fileurl="file://$PROJECT_DIR$/TeamCode/TeamCode.iml" filepath="$PROJECT_DIR$/TeamCode/TeamCode.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TeamCode/TeamCodee.iml" filepath="$PROJECT_DIR$/TeamCode/TeamCodee.iml" />
     </modules>
   </component>
 </project>
