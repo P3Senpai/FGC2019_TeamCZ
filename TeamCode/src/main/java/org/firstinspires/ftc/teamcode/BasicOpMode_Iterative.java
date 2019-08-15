@@ -149,7 +149,7 @@ public class BasicOpMode_Iterative extends OpMode
         // lifting
         if(gp1.a) // going down // todo check if gp1 works
             robo.lift.setPower(-0.5);
-        else if(gamepad1.y)     // going up
+        else if(gamepad1.y && robo.liftLimitSwitch.getState())     // going up
             robo.lift.setPower(0.5);
         else
             robo.lift.setPower(0);
