@@ -20,7 +20,9 @@ class Toggle{
     * For this toggle method to work it needs to be used in a loop which is always reset in the end,
     * otherwise you will not be able to read/write to previously stored items. If you want to do a toggle for
     * changing out put such as moving a servo from max to a min nest these conditional statements inside of a if
-    * statement calling the toggle method.
+    * statement calling the toggle method. When calling the toggle method in if conditionals DO NOT call it inside a
+    * else if statement. As the else if statement might skip some of the method calls breaking the method's logic.
+    *
     *
     * e.g.
     * loop
@@ -63,28 +65,14 @@ class Toggle{
             previousState.remove(counter);
             previousState.add(counter, button);
         }
-        counter++; // consider moving this under each if statement
+        counter++;
         return result;
     }
+
     // this is used with the automatic toggle method
     public void reset(){
         counter = 0;
         System.out.println("Counter has been reset");
     }
-
-    private boolean getState(int arrayPosition){
-        return previousState.get(arrayPosition);
-    }
-    private void setState(int arrayPosition, boolean state){
-        previousState.add(arrayPosition,state);
-    }
-
 }
-/* EXAMPLE
-*
-* if(obj.toggle(0, gamepad1.a)
-* {
-* // your code
-* }
-*
-*/
+

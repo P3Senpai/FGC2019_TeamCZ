@@ -29,19 +29,12 @@
 
 package org.firstinspires.ftc.teamcode;
 
-import android.speech.tts.TextToSpeech;
-
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.DigitalChannel;
 import com.qualcomm.robotcore.hardware.Gamepad;
-import com.qualcomm.robotcore.hardware.VoltageSensor;
 import com.qualcomm.robotcore.util.ElapsedTime;
-import com.qualcomm.robotcore.util.Range;
-
-import org.firstinspires.ftc.robotcontroller.external.samples.SensorDigitalTouch;
 
 /**
  * This file contains an example of an iterative (Non-Linear) "OpMode".
@@ -66,7 +59,9 @@ public class Shooter extends OpMode
     private DcMotor spin = null;
     private double speedLimit = 0.1;
     private Toggle tgg = new Toggle();
-    private DigitalChannel magnetic = null;
+    private DigitalChannel maxLimit = null;
+    private DigitalChannel minLimit = null;
+
 
     /*
      * Code to run ONCE when the driver hits INIT
@@ -77,10 +72,13 @@ public class Shooter extends OpMode
         
         //  init of prototypes
         spin = hardwareMap.get(DcMotor.class, "motor" );
-        magnetic = hardwareMap.get(DigitalChannel.class, "magnetic");
+        maxLimit = hardwareMap.get(DigitalChannel.class, "maxLimit");
+        minLimit = hardwareMap.get(DigitalChannel.class, "minLimit");
 
         // set the digital channel to input.
-        magnetic.setMode(DigitalChannel.Mode.INPUT);
+        maxLimit.setMode(DigitalChannel.Mode.INPUT);
+        minLimit.setMode(DigitalChannel.Mode.INPUT);
+        spin.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 
 
         // Tell the driver that initialization is complete.
@@ -128,12 +126,21 @@ public class Shooter extends OpMode
             spin.setPower(0);
 
 
+        if(gamepad2.a && minLimit.getState()) // going down
+            spin.setPower(-0.7);
+        else if(gamepad2.y && maxLimit.getState())     // going up
+            spin.setPower(0.7);
+        else
+            spin.setPower(0);
+
+
 
         // Telemetry Data
         telemetry.addData("Status", "Run Time: " + runtime.toString());
         telemetry.addData("Speed: ",speedLimit);
         telemetry.addData("Motor: ",spin.getPower());
-        telemetry.addData("Magnetic Sense: ", !magnetic.getState());
+        telemetry.addData("Magnetic Sense: ", !maxLimit.getState());
+
 
         // reset toggle values for next iteration
         tgg.reset();
