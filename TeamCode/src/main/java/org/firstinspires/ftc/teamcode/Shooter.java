@@ -129,9 +129,9 @@ public class Shooter extends OpMode
 
 
         //todo test servo position
-        if (tgg.toggle(gamepad2.dpad_up))
+        if (tgg.toggle(gamepad2.left_bumper))
             targetPos += (speedLimit < 1.0)? 0.05 : 0; // increments by 0.1 if limit is under 1.0
-        if(tgg.toggle(gamepad2.dpad_down))
+        if(tgg.toggle(gamepad2.right_bumper))
             targetPos -= (speedLimit > 0.1)? 0.05 : 0; // increments by -0.1 if limit is above 0.1
         servo.setPosition(targetPos);
 
