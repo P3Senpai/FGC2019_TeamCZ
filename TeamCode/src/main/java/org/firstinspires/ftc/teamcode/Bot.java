@@ -18,8 +18,6 @@ public class Bot {
     protected DcMotorEx leftDrive   = null; // todo test extended version of motor on this one
     protected DcMotor rightDrive  = null;
     protected DcMotor lift        = null;
-    protected Servo   openLeft    = null;
-    protected Servo   openRight   = null;
     protected Servo   wingtipLeft = null;
     protected Servo   wingtipRight = null;
     protected DigitalChannel liftLimitSwitch = null;
@@ -49,14 +47,8 @@ public class Bot {
         lift.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE); // works partially (so is a fail safe)
 
         /*  Initialization of Servos */
-        openLeft    = hwmap.get(Servo.class, "open_left");
-        openRight   = hwmap.get(Servo.class, "open_right");
         wingtipLeft = hwmap.get(Servo.class, "wing_tip_left");
         wingtipRight = hwmap.get(Servo.class, "wing_tip_right");
-
-        /*  Setting up robot for match */
-        openLeft.setPosition(0.7);  // open position is 0.3
-        openRight.setPosition(0.3); // open position is 0.7
 
         /* Initialization of Sensors*/
         liftLimitSwitch = hwmap.get(DigitalChannel.class, "limit_switch");

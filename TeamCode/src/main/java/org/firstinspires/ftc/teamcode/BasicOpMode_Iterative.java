@@ -105,8 +105,6 @@ public class BasicOpMode_Iterative extends OpMode
      */
     @Override
     public void init_loop() {
-        robo.openLeft.setPosition(0.3);
-        robo.openRight.setPosition(0.7);
 
     }
 
@@ -156,23 +154,10 @@ public class BasicOpMode_Iterative extends OpMode
 
         
         // servo stuffz
-        double openLeftPos = robo.openLeft.getPosition(); // TODO remove once ready and tested
-        double openRightPos = robo.openRight.getPosition(); // TODO remove once ready and tested
         // tested and set at top (maybe remove)
         double wingtipLeftPos   = robo.wingtipLeft.getPosition();
         double wingtipRightPos  = robo.wingtipRight.getPosition();
 
-        // region gates open and close for the wing tips
-        // todo remove once region gets tested and is ready
-        if(gamepad2.a) { // open
-            robo.openLeft.setPosition(0.3);
-            robo.openRight.setPosition(0.7);
-        }
-        if(gamepad2.b){ // closed
-            robo.openLeft.setPosition(0.7); // closed position
-            robo.openRight.setPosition(0.3);
-        }
-        //endregion
 
         //todo test position of servos
         if(gamepad2.dpad_up){
@@ -196,9 +181,7 @@ public class BasicOpMode_Iterative extends OpMode
         telemetry.addData("Status", "Run Time: " + runtime.toString());
         telemetry.addData("Speed Limit", "%.2f power", robo.speedLimit);
         telemetry.addData("Drive Speed", "left(%.2f) right(%.2f)", leftPower, rightPower);
-        telemetry.addData("Servo Position", "openL(%.2f) openR(%.2f) bulldozeL(%.2f) bulldozeR(%.2f)",openLeftPos,openRightPos,wingtipLeftPos,wingtipRightPos);
-        String openState = ((robo.openLeft.getPosition() == 0.3) && (robo.openRight.getPosition() == 0.7))?"The gates are open and ready for use":"The gates are closed";
-        telemetry.addLine(openState);
+        telemetry.addData("Servo Position", "bulldozeL(%.2f) bulldozeR(%.2f)",wingtipLeftPos,wingtipRightPos);
         
         // todo check telemetry data underneath
         telemetry.addData("Limit switch: ", limitSwitch.getState());

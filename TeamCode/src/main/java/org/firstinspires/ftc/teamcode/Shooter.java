@@ -34,6 +34,7 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DigitalChannel;
 import com.qualcomm.robotcore.hardware.Gamepad;
+import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 /**
@@ -60,7 +61,8 @@ public class Shooter extends OpMode
     private double speedLimit = 0.1;
     private Toggle tgg = new Toggle();
     private DigitalChannel maxLimit = null;
-    private DigitalChannel minLimit = null;
+    private Servo servo = null;
+    private double targetPos = 0.1;
 
 
     /*
@@ -72,12 +74,11 @@ public class Shooter extends OpMode
         
         //  init of prototypes
         spin = hardwareMap.get(DcMotor.class, "motor" );
+        servo = hardwareMap.get(Servo.class, "servo");
         maxLimit = hardwareMap.get(DigitalChannel.class, "maxLimit");
-        minLimit = hardwareMap.get(DigitalChannel.class, "minLimit");
 
         // set the digital channel to input.
         maxLimit.setMode(DigitalChannel.Mode.INPUT);
-        minLimit.setMode(DigitalChannel.Mode.INPUT);
         spin.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 
 
@@ -114,21 +115,31 @@ public class Shooter extends OpMode
 
 
         // changing speed limit with toggle controls
-        if (tgg.toggle(gamepad1.dpad_up))
+        if (tgg.toggle(gamepad2.dpad_up))
             speedLimit += (speedLimit < 1.0)? 0.1 : 0; // increments by 0.1 if limit is under 1.0
-        if(tgg.toggle(gamepad1.dpad_down))
+        if(tgg.toggle(gamepad2.dpad_down))
             speedLimit -= (speedLimit > 0.1)? 0.1 : 0; // increments by -0.1 if limit is above 0.1
 
         // setting speed to shooter motor
-        if(gamepad1.a)
+        if(gamepad2.a)
             spin.setPower(-speedLimit);
         else
             spin.setPower(0);
 
 
-        if(gamepad2.a && minLimit.getState()) // going down
+
+        //todo test servo position
+        if (tgg.toggle(gamepad2.dpad_up))
+            targetPos += (speedLimit < 1.0)? 0.05 : 0; // increments by 0.1 if limit is under 1.0
+        if(tgg.toggle(gamepad2.dpad_down))
+            targetPos -= (speedLimit > 0.1)? 0.05 : 0; // increments by -0.1 if limit is above 0.1
+        servo.setPosition(targetPos);
+
+
+
+        if(gamepad1.a) // going down
             spin.setPower(-0.7);
-        else if(gamepad2.y && maxLimit.getState())     // going up
+        else if(gamepad1.y && maxLimit.getState())     // going up
             spin.setPower(0.7);
         else
             spin.setPower(0);
@@ -139,8 +150,9 @@ public class Shooter extends OpMode
         telemetry.addData("Status", "Run Time: " + runtime.toString());
         telemetry.addData("Speed: ",speedLimit);
         telemetry.addData("Motor: ",spin.getPower());
+        telemetry.addData("Servo: ", "target:(%.3f) actual:(%.3f)", targetPos, servo.getPosition());
         telemetry.addData("Magnetic Sense: ", !maxLimit.getState());
-
+        telemetry.update();
 
         // reset toggle values for next iteration
         tgg.reset();
