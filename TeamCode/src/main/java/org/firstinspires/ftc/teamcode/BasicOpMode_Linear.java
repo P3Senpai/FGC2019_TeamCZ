@@ -33,6 +33,7 @@ import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.Gamepad;
 import com.qualcomm.robotcore.util.ElapsedTime;
 import com.qualcomm.robotcore.util.Range;
 
@@ -56,7 +57,10 @@ public class BasicOpMode_Linear extends LinearOpMode {
 
     // Declare OpMode members.
     private ElapsedTime runtime = new ElapsedTime();
-    private Bot robo = new Bot();
+    private Bot robot = new Bot();
+    private Toggle tgg = new Toggle();
+    private double speedLimit = 0.8;
+    private boolean plusIntakePower = false;
 
     @Override
     public void runOpMode() {
@@ -64,7 +68,7 @@ public class BasicOpMode_Linear extends LinearOpMode {
         telemetry.update();
 
         // initialisation of components found in Bot class
-        robo.init();
+        robot.init();
 
         // Wait for the game to start (driver presses PLAY)
         waitForStart();
@@ -73,11 +77,60 @@ public class BasicOpMode_Linear extends LinearOpMode {
         // run until the end of the match (driver presses STOP)
         while (opModeIsActive()) {
 
-            // do tests here
+            motorsTests(gamepad1);
+            servosTests(gamepad2);
 
             // Show the elapsed game time and wheel power.
             telemetry.addData("Status", "Run Time: " + runtime.toString());
             telemetry.update();
         }
+    }
+
+    private void motorsTests(Gamepad gp) {
+
+    // drive motors
+        double leftPower = Range.clip(gp.left_stick_y, -1.0, 1.0);
+        double rightPower = Range.clip(gp.right_stick_y, -1.0, 1.0);
+        robot.leftDrive.setPower(leftPower);
+        robot.rightDrive.setPower(rightPower);
+
+    //shooter motors
+        if (tgg.toggle(gp.dpad_up))
+            speedLimit += (speedLimit < 1.0) ? 0.1 : 0; // increments by 0.1 if limit is under 1.0
+        if (tgg.toggle(gp.dpad_down))
+            speedLimit -= (speedLimit > 0.1) ? 0.1 : 0; // increments by -0.1 if limit is above 0.1
+
+        // setting speed to shooter motor
+        if (gp.x)
+            robot.shooter.setPower(-speedLimit);
+        else
+            robot.shooter.setPower(0);
+    // intake motors
+
+        if (tgg.toggle(gp.b)){
+            robot.ziptieIntake.setPower(0.5);
+            robot.beltIntake.setPower(0.5);
+        }else{
+            robot.ziptieIntake.setPower(-0.5);
+            robot.beltIntake.setPower(-0.5);
+        }
+    // lift motor
+        if(gp.a)
+            robot.lift.setPower(-0.5);          // going down
+        else if(gp.y && robot.maxHeight.getState())
+            robot.lift.setPower(0.5);           // going up
+        else
+            robot.lift.setPower(0);
+
+        telemetry.addData("Drive Speed", "left(%.2f) right(%.2f)", leftPower, rightPower);
+        telemetry.addData("Shooter Speed", "limit(%.2f) actual(%.2f)", speedLimit, robot.shooter.getPower());
+        telemetry.addLine((plusIntakePower)?"Intake power is positive":"Intake power is negative");
+        telemetry.addData("Lift Motor:", "power(%.2f)", robot.lift.getPower());
+        telemetry.update();
+    }
+    private void servosTests(Gamepad gp){
+
+//        telemetry.addData("Drive Speed", "left(%.2f) right(%.2f)", leftPower, rightPower);
+        telemetry.update();
     }
 }
