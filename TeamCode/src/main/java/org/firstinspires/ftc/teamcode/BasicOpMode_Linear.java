@@ -34,8 +34,12 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.Gamepad;
+import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
 import com.qualcomm.robotcore.util.Range;
+
+import java.util.ArrayList;
+import java.util.HashMap;
 
 
 /**
@@ -62,6 +66,12 @@ public class BasicOpMode_Linear extends LinearOpMode {
     private double speedLimit = 0.8;
     private boolean plusIntakePower = false;
 
+    // servo set up
+    HashMap <Servo, Double> servoPosMap = new HashMap<>();
+    Servo[] allServos = new Servo[] {robot.wingtipLeft, robot.wingtipRight, robot.pushBall, robot.tightenSide, robot.liftBrake};
+    int rotation = 0;
+
+
     @Override
     public void runOpMode() {
         telemetry.addData("Status", "Initializing");
@@ -69,6 +79,13 @@ public class BasicOpMode_Linear extends LinearOpMode {
 
         // initialisation of components found in Bot class
         robot.init();
+
+        // setup servo var
+        servoPosMap.put(robot.wingtipLeft, robot.wingtipLeft.getPosition());
+        servoPosMap.put(robot.wingtipRight, robot.wingtipRight.getPosition());
+        servoPosMap.put(robot.pushBall, robot.pushBall.getPosition());
+        servoPosMap.put(robot.tightenSide, robot.tightenSide.getPosition());
+        servoPosMap.put(robot.liftBrake, robot.liftBrake.getPosition());
 
         // Wait for the game to start (driver presses PLAY)
         waitForStart();
@@ -107,13 +124,17 @@ public class BasicOpMode_Linear extends LinearOpMode {
             robot.shooter.setPower(0);
     // intake motors
 
-        if (tgg.toggle(gp.b)){
+        if (tgg.toggle(gp.right_bumper)){
             robot.ziptieIntake.setPower(0.5);
             robot.beltIntake.setPower(0.5);
-        }else{
+        }else if (tgg.toggle(gp.left_bumper)){
             robot.ziptieIntake.setPower(-0.5);
             robot.beltIntake.setPower(-0.5);
+        }else{
+            robot.ziptieIntake.setPower(0);
+            robot.beltIntake.setPower(0);
         }
+
     // lift motor
         if(gp.a)
             robot.lift.setPower(-0.5);          // going down
@@ -122,6 +143,7 @@ public class BasicOpMode_Linear extends LinearOpMode {
         else
             robot.lift.setPower(0);
 
+    // telemetry data
         telemetry.addData("Drive Speed", "left(%.2f) right(%.2f)", leftPower, rightPower);
         telemetry.addData("Shooter Speed", "limit(%.2f) actual(%.2f)", speedLimit, robot.shooter.getPower());
         telemetry.addLine((plusIntakePower)?"Intake power is positive":"Intake power is negative");
@@ -129,8 +151,32 @@ public class BasicOpMode_Linear extends LinearOpMode {
         telemetry.update();
     }
     private void servosTests(Gamepad gp){
+    // Sets index for servo array
+        if (tgg.toggle(gp.dpad_up) && rotation < allServos.length){
+            rotation ++;
+        }else if(rotation >= allServos.length){
+            rotation = 0;
+        }
+        if(tgg.toggle(gp.dpad_down) && rotation > -1){
+            rotation --;
+        }else if(rotation <= -1){
+            rotation = allServos.length - 1;
+        }
+    //Gets servo and its position
+        Servo servo = allServos[rotation];
+        double servoPos = servoPosMap.get(allServos[rotation]);
+    // Changes servo position
+        if (tgg.toggle(gp.y))
+            servoPos += 0.01;
+        else if(tgg.toggle(gp.a))
+            servoPos -= 0.01;
+        servo.setPosition(servoPos);
+    // Saves new position
+        servoPosMap.put(servo, servoPos);
 
-//        telemetry.addData("Drive Speed", "left(%.2f) right(%.2f)", leftPower, rightPower);
+    // telemetry data
+        String output = String.format("Servo %s Position: %.2f",servo,servoPos);
+        telemetry.addLine(output);
         telemetry.update();
     }
 }
