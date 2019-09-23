@@ -30,6 +30,10 @@ public class Bot {
     protected Servo   shooterTrigger = null;
     // Sensors
     protected DigitalChannel maxHeight = null;
+    //todo add color sensor for ball
+    // add camera
+    // add minHeight
+
     // Constants
     protected double  speedLimit   = 0.8;
 
@@ -72,19 +76,12 @@ public class Bot {
         liftBrake   = hwmap.get(Servo.class, "lift_brake");         // find and set starting pos
         tightenSide = hwmap.get(Servo.class, "tighten_side");       // find and set starting pos
         pushBall    = hwmap.get(Servo.class, "push_ball");          // find and set starting pos
-        shooterTrigger    = hwmap.get(Servo.class, "shooter");          // find and set starting pos  //todo get config name
+        shooterTrigger    = hwmap.get(Servo.class, "shooter_servo");          // find and set starting pos  //todo get config name
 
         /* Initialization of Sensors*/
         maxHeight = hwmap.get(DigitalChannel.class, "limit_switch");
         maxHeight.setMode(DigitalChannel.Mode.INPUT);
-
-    }
-    public double shooterPID(double currentPower, double targetPower){
-        double output;
-        double P,I,D = 1;
-        double error = targetPower - currentPower;
-
-        return 0.0;
+        //todo mount the min height to prevent chain damage
     }
 }
 

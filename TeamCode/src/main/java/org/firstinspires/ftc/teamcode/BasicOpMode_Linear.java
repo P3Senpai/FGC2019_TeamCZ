@@ -81,12 +81,18 @@ public class BasicOpMode_Linear extends LinearOpMode {
         robot.init();
 
         // setup servo var
-        servoPosMap.put(robot.wingtipLeft, robot.wingtipLeft.getPosition());
-        servoPosMap.put(robot.wingtipRight, robot.wingtipRight.getPosition());
-        servoPosMap.put(robot.pushBall, robot.pushBall.getPosition());
-        servoPosMap.put(robot.tightenSide, robot.tightenSide.getPosition());
-        servoPosMap.put(robot.liftBrake, robot.liftBrake.getPosition());
+//  region manual init servos
+//        servoPosMap.put(robot.wingtipLeft, robot.wingtipLeft.getPosition());
+//        servoPosMap.put(robot.wingtipRight, robot.wingtipRight.getPosition());
+//        servoPosMap.put(robot.pushBall, robot.pushBall.getPosition());
+//        servoPosMap.put(robot.tightenSide, robot.tightenSide.getPosition());
+//        servoPosMap.put(robot.liftBrake, robot.liftBrake.getPosition());
+//        servoPosMap.put(robot.liftBrake, robot.liftBrake.getPosition());
+//  endregion
 
+        servoPosMap.putAll(initServos(allServos));
+        telemetry.addLine("To test the motors use Gamepad 1");
+        telemetry.addLine("To test the servos use Gamepad 2");
         // Wait for the game to start (driver presses PLAY)
         waitForStart();
         runtime.reset();
@@ -96,7 +102,8 @@ public class BasicOpMode_Linear extends LinearOpMode {
 
 
             motorsTests(gamepad1);
-            servosTests(gamepad2);
+//            servosTests(gamepad2);        // todo see if the servos cause null pointer exception
+                                                 
 
             // Show the elapsed game time and wheel power.
             telemetry.addData("Status", "Run Time: " + runtime.toString());
@@ -179,5 +186,12 @@ public class BasicOpMode_Linear extends LinearOpMode {
         String output = String.format("Servo %s Position: %.2f",servo,servoPos);
         telemetry.addLine(output);
         telemetry.update();
+    }
+    private HashMap <Servo, Double> initServos (Servo[] servos){
+        HashMap<Servo,Double> out = new HashMap<>();
+        for(Servo s : servos){
+            out.put(s, s.getPosition());
+        }
+        return out;
     }
 }
