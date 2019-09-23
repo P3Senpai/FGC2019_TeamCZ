@@ -68,7 +68,7 @@ public class BasicOpMode_Linear extends LinearOpMode {
 
     // servo set up
     HashMap <Servo, Double> servoPosMap = new HashMap<>();
-    Servo[] allServos = new Servo[] {robot.wingtipLeft, robot.wingtipRight, robot.pushBall, robot.tightenSide, robot.liftBrake};
+    Servo[] allServos = new Servo[] {robot.wingtipLeft, robot.wingtipRight, robot.pushBall, robot.tightenSide, robot.liftBrake, robot.shooterTrigger};
     int rotation = 0;
 
 
@@ -93,6 +93,7 @@ public class BasicOpMode_Linear extends LinearOpMode {
 
         // run until the end of the match (driver presses STOP)
         while (opModeIsActive()) {
+
 
             motorsTests(gamepad1);
             servosTests(gamepad2);

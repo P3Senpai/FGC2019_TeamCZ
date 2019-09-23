@@ -27,6 +27,7 @@ public class Bot {
     protected Servo   liftBrake    = null;
     protected Servo   tightenSide  = null;
     protected Servo   pushBall     = null;
+    protected Servo   shooterTrigger = null;
     // Sensors
     protected DigitalChannel maxHeight = null;
     // Constants
@@ -71,6 +72,7 @@ public class Bot {
         liftBrake   = hwmap.get(Servo.class, "lift_brake");         // find and set starting pos
         tightenSide = hwmap.get(Servo.class, "tighten_side");       // find and set starting pos
         pushBall    = hwmap.get(Servo.class, "push_ball");          // find and set starting pos
+        shooterTrigger    = hwmap.get(Servo.class, "shooter");          // find and set starting pos  //todo get config name
 
         /* Initialization of Sensors*/
         maxHeight = hwmap.get(DigitalChannel.class, "limit_switch");
