@@ -29,16 +29,13 @@
 
 package org.firstinspires.ftc.teamcode;
 
-import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
-import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.Gamepad;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
 import com.qualcomm.robotcore.util.Range;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 
@@ -90,9 +87,10 @@ public class BasicOpMode_Linear extends LinearOpMode {
 //        servoPosMap.put(robot.liftBrake, robot.liftBrake.getPosition());
 //  endregion
 
-        servoPosMap.putAll(initServos(allServos));
+        servoPosMap.putAll(intiServoMap(allServos));
         telemetry.addLine("To test the motors use Gamepad 1");
         telemetry.addLine("To test the servos use Gamepad 2");
+        
         // Wait for the game to start (driver presses PLAY)
         waitForStart();
         runtime.reset();
@@ -103,7 +101,7 @@ public class BasicOpMode_Linear extends LinearOpMode {
 
             motorsTests(gamepad1);
 //            servosTests(gamepad2);        // todo see if the servos cause null pointer exception
-                                                 
+
 
             // Show the elapsed game time and wheel power.
             telemetry.addData("Status", "Run Time: " + runtime.toString());
@@ -158,6 +156,7 @@ public class BasicOpMode_Linear extends LinearOpMode {
         telemetry.addData("Lift Motor:", "power(%.2f)", robot.lift.getPower());
         telemetry.update();
     }
+    // todo null pointer exception found on line 176 as suggested by the ide
     private void servosTests(Gamepad gp){
     // Sets index for servo array
         if (tgg.toggle(gp.dpad_up) && rotation < allServos.length){
@@ -183,11 +182,10 @@ public class BasicOpMode_Linear extends LinearOpMode {
         servoPosMap.put(servo, servoPos);
 
     // telemetry data
-        String output = String.format("Servo %s Position: %.2f",servo,servoPos);
-        telemetry.addLine(output);
+        telemetry.addData("Servo: %s \nPosition: %.2f", servo.getDeviceName(), servoPos);
         telemetry.update();
     }
-    private HashMap <Servo, Double> initServos (Servo[] servos){
+    private HashMap <Servo, Double> intiServoMap(Servo[] servos){
         HashMap<Servo,Double> out = new HashMap<>();
         for(Servo s : servos){
             out.put(s, s.getPosition());
