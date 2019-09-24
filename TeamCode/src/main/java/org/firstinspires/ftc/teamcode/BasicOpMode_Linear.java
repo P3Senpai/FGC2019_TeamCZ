@@ -66,6 +66,7 @@ public class BasicOpMode_Linear extends LinearOpMode {
     private boolean lastPressed = false;
     double togglie = 0;
 
+
     // servo set up
     HashMap <Servo, Double> servoPosMap = new HashMap<>();
     Servo[] allServos = new Servo[] {robot.wingtipLeft, robot.wingtipRight, robot.pushBall, robot.tightenSide, robot.liftBrake, robot.shooterTrigger};
@@ -125,9 +126,9 @@ public class BasicOpMode_Linear extends LinearOpMode {
             telemetry.addData("Status", "Run Time: " + runtime.toString());
             telemetry.update();
 
-        if(!opModeIsActive()){
-            break;
-        }
+            // counter needs to go to zero in order for the loop to work!!!
+            tgg.reset();
+        if(!opModeIsActive()){break;}
         }
     }
 
@@ -182,9 +183,6 @@ public class BasicOpMode_Linear extends LinearOpMode {
         telemetry.addLine((plusIntakePower)?"Intake power is positive":"Intake power is negative");
         telemetry.addData("Lift Motor:", "power(%.2f)", robot.lift.getPower());
         telemetry.addData("%d", togglie);
-
-        // counter needs to go to zero in order for the loop to work!!!
-        tgg.reset();
     }
     // todo null pointer exception found on line 176 as suggested by the ide
     private void servosTests(Gamepad gp){
