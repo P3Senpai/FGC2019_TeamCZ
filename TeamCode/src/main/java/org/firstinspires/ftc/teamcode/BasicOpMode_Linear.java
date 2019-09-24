@@ -32,6 +32,7 @@ package org.firstinspires.ftc.teamcode;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.Gamepad;
+import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
 import com.qualcomm.robotcore.util.Range;
@@ -60,8 +61,10 @@ public class BasicOpMode_Linear extends LinearOpMode {
     private ElapsedTime runtime = new ElapsedTime();
     private Bot robot = new Bot();
     private Toggle tgg = new Toggle();
-    private double speedLimit = 0.8;
+    private static double speedLimit = 0.8;
     private boolean plusIntakePower = false;
+    private boolean lastPressed = false;
+    double togglie = 0;
 
     // servo set up
     HashMap <Servo, Double> servoPosMap = new HashMap<>();
@@ -75,7 +78,8 @@ public class BasicOpMode_Linear extends LinearOpMode {
         telemetry.update();
 
         // initialisation of components found in Bot class
-        robot.init();
+        robot.init(hardwareMap);
+        initServoMap(allServos);
 
         // setup servo var
 //  region manual init servos
@@ -87,7 +91,7 @@ public class BasicOpMode_Linear extends LinearOpMode {
 //        servoPosMap.put(robot.liftBrake, robot.liftBrake.getPosition());
 //  endregion
 
-        servoPosMap.putAll(intiServoMap(allServos));
+//        servoPosMap.putAll(intiServoMap(allServos));
         telemetry.addLine("To test the motors use Gamepad 1");
         telemetry.addLine("To test the servos use Gamepad 2");
         
@@ -96,32 +100,54 @@ public class BasicOpMode_Linear extends LinearOpMode {
         runtime.reset();
 
         // run until the end of the match (driver presses STOP)
-        while (opModeIsActive()) {
+        while (true) {
 
 
             motorsTests(gamepad1);
-//            servosTests(gamepad2);        // todo see if the servos cause null pointer exception
+            servosTests(gamepad2);
+
+        // tests of toggle class
+            if(gamepad1.dpad_left && !lastPressed){
+                togglie ++;
+                lastPressed = true;
+            }else if(!gamepad1.dpad_left && lastPressed){
+                lastPressed = false;
+            }
+
+            //todo try (button && toggle(btn))
+            if(tgg.toggle(gamepad1.dpad_right)){
+                togglie ++;
+            }
+
 
 
             // Show the elapsed game time and wheel power.
             telemetry.addData("Status", "Run Time: " + runtime.toString());
             telemetry.update();
+
+        if(!opModeIsActive()){
+            break;
+        }
         }
     }
 
     private void motorsTests(Gamepad gp) {
 
     // drive motors
-        double leftPower = Range.clip(gp.left_stick_y, -1.0, 1.0);
-        double rightPower = Range.clip(gp.right_stick_y, -1.0, 1.0);
+        double leftPower = Range.clip(-gp.left_stick_y, -1.0, 1.0);
+        double rightPower = Range.clip(-gp.right_stick_y, -1.0, 1.0);
         robot.leftDrive.setPower(leftPower);
         robot.rightDrive.setPower(rightPower);
 
     //shooter motors
-        if (tgg.toggle(gp.dpad_up))
+        if (tgg.toggle(gp.dpad_up)) {
             speedLimit += (speedLimit < 1.0) ? 0.1 : 0; // increments by 0.1 if limit is under 1.0
-        if (tgg.toggle(gp.dpad_down))
+            togglie ++;
+        }
+        if (tgg.toggle(gp.dpad_down)) {
             speedLimit -= (speedLimit > 0.1) ? 0.1 : 0; // increments by -0.1 if limit is above 0.1
+            togglie --;
+        }
 
         // setting speed to shooter motor
         if (gp.x)
@@ -130,10 +156,11 @@ public class BasicOpMode_Linear extends LinearOpMode {
             robot.shooter.setPower(0);
     // intake motors
 
-        if (tgg.toggle(gp.right_bumper)){
+        if (gp.right_bumper){
             robot.ziptieIntake.setPower(0.5);
             robot.beltIntake.setPower(0.5);
-        }else if (tgg.toggle(gp.left_bumper)){
+        }
+        if (gp.left_bumper){
             robot.ziptieIntake.setPower(-0.5);
             robot.beltIntake.setPower(-0.5);
         }else{
@@ -143,9 +170,9 @@ public class BasicOpMode_Linear extends LinearOpMode {
 
     // lift motor
         if(gp.a)
-            robot.lift.setPower(-0.5);          // going down
+            robot.lift.setPower(-0.7);          // going down
         else if(gp.y && robot.maxHeight.getState())
-            robot.lift.setPower(0.5);           // going up
+            robot.lift.setPower(0.7);           // going up
         else
             robot.lift.setPower(0);
 
@@ -154,7 +181,10 @@ public class BasicOpMode_Linear extends LinearOpMode {
         telemetry.addData("Shooter Speed", "limit(%.2f) actual(%.2f)", speedLimit, robot.shooter.getPower());
         telemetry.addLine((plusIntakePower)?"Intake power is positive":"Intake power is negative");
         telemetry.addData("Lift Motor:", "power(%.2f)", robot.lift.getPower());
-        telemetry.update();
+        telemetry.addData("%d", togglie);
+
+        // counter needs to go to zero in order for the loop to work!!!
+        tgg.reset();
     }
     // todo null pointer exception found on line 176 as suggested by the ide
     private void servosTests(Gamepad gp){
@@ -164,28 +194,37 @@ public class BasicOpMode_Linear extends LinearOpMode {
         }else if(rotation >= allServos.length){
             rotation = 0;
         }
+
         if(tgg.toggle(gp.dpad_down) && rotation > -1){
             rotation --;
         }else if(rotation <= -1){
             rotation = allServos.length - 1;
         }
+
     //Gets servo and its position
         Servo servo = allServos[rotation];
-        double servoPos = servoPosMap.get(allServos[rotation]);
-    // Changes servo position
-        if (tgg.toggle(gp.y))
-            servoPos += 0.01;
-        else if(tgg.toggle(gp.a))
-            servoPos -= 0.01;
-        servo.setPosition(servoPos);
-    // Saves new position
-        servoPosMap.put(servo, servoPos);
+        double servoPos;
+        try {
+            servoPos = servoPosMap.get(allServos[rotation]);
 
-    // telemetry data
-        telemetry.addData("Servo: %s \nPosition: %.2f", servo.getDeviceName(), servoPos);
-        telemetry.update();
+            // Changes servo position
+            if (tgg.toggle(gp.y))
+                servoPos += 0.01;
+            else if(tgg.toggle(gp.a))
+                servoPos -= 0.01;
+            servo.setPosition(servoPos);
+            // Saves new position
+            servoPosMap.put(servo, servoPos);
+
+            // telemetry data
+            telemetry.addData("Servo: %s \nPosition: %.2f", servo.getDeviceName(), servoPos);
+        }catch (NullPointerException e){
+            telemetry.clearAll();
+            telemetry.addLine("Servo pos could not be found");
+            telemetry.update();
+        }
     }
-    private HashMap <Servo, Double> intiServoMap(Servo[] servos){
+    private HashMap <Servo, Double> initServoMap(Servo[] servos){
         HashMap<Servo,Double> out = new HashMap<>();
         for(Servo s : servos){
             out.put(s, s.getPosition());

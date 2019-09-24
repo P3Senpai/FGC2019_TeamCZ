@@ -14,6 +14,7 @@ import com.qualcomm.robotcore.hardware.configuration.typecontainers.MotorConfigu
  */
 
 public class Bot {
+    HardwareMap hwmap = null;
     // Motors
     protected DcMotorEx leftDrive   = null; // todo test extended version of motor on this one
     protected DcMotor rightDrive  = null;
@@ -38,7 +39,6 @@ public class Bot {
     protected double  speedLimit   = 0.8;
 
 
-
     /* Local Op Mode variables */
     // something
 
@@ -46,9 +46,9 @@ public class Bot {
     public void Bot(){}
 
     /* Initialize hardware */
-    public void init(){
+    public void init(HardwareMap ahwmap){
         /* Local Initialization of HardwareMap */
-        HardwareMap hwmap = null;
+        hwmap = ahwmap;
 
         /*  Initialization of Motors */
         leftDrive = hwmap.get(DcMotorEx.class,"left_drive");
@@ -60,7 +60,7 @@ public class Bot {
 
         leftDrive.setDirection(DcMotorSimple.Direction.FORWARD);
         rightDrive.setDirection(DcMotorSimple.Direction.REVERSE);
-        lift.setDirection(DcMotorSimple.Direction.REVERSE);
+        lift.setDirection(DcMotorSimple.Direction.FORWARD);
         lift.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE); // works partially (so is a fail safe)
 
         leftDrive.setPower(0);
@@ -76,10 +76,10 @@ public class Bot {
         liftBrake   = hwmap.get(Servo.class, "lift_brake");         // find and set starting pos
         tightenSide = hwmap.get(Servo.class, "tighten_side");       // find and set starting pos
         pushBall    = hwmap.get(Servo.class, "push_ball");          // find and set starting pos
-        shooterTrigger    = hwmap.get(Servo.class, "shooter_servo");          // find and set starting pos  //todo get config name
+        shooterTrigger    = hwmap.get(Servo.class, "shooter");          // find and set starting pos  //todo get config name
 
         /* Initialization of Sensors*/
-        maxHeight = hwmap.get(DigitalChannel.class, "limit_switch");
+        maxHeight = hwmap.get(DigitalChannel.class, "max_height ");
         maxHeight.setMode(DigitalChannel.Mode.INPUT);
         //todo mount the min height to prevent chain damage
     }

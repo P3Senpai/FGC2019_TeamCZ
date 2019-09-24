@@ -45,6 +45,8 @@ class Toggle{
     *
     * endregion
     */
+
+    //todo update so that it locates bool using hashmap instead of arraylist
     public boolean toggle(boolean button){
         boolean lastPress;
         boolean result = false;
@@ -74,5 +76,7 @@ class Toggle{
         counter = 0;
         System.out.println("Counter has been reset");
     }
+
+    //todo add button length pressed to activate method
 }
 
