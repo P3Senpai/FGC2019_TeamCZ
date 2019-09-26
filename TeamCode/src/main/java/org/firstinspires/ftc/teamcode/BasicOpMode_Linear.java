@@ -95,16 +95,22 @@ public class BasicOpMode_Linear extends LinearOpMode {
 
         // run until the end of the match (driver presses STOP)
         while (opModeIsActive()) {
-
+            double sorterCurrentDistance = robot.distanceSensor.getDistance(DistanceUnit.CM);
 
             motorsTests(gamepad1);
             servoControllers(gamepad2);
+
+            // if you hold the b button the intake will automatically work
+            if(gamepad1.b){
+//                autoPushBall(sorterCurrentDistance, );
+                //todo find the target distance for the ball at the top and enter the parameter
+            }
 
 
         // Show the elapsed game time and wheel power.
             telemetry.addLine();
             telemetry.addData("Status", "Run Time: %.1f" + runtime.toString());
-            telemetry.addData("Distance sensor: %.2f", robot.distanceSensor.getDistance(DistanceUnit.CM));
+            telemetry.addData("Distance sensor: %.2f", sorterCurrentDistance);
             telemetry.update();
 
         // counter needs to go to zero in order for the loop to work!!!
@@ -271,6 +277,17 @@ public class BasicOpMode_Linear extends LinearOpMode {
         telemetry.addLine();
         telemetry.addLine("Switch gamepad by pressing the Y button");
         telemetry.addData("Gamepad Id: ", "%d", controllerId);
+    }
+    private void autoPushBall(double distance, double targetDistance){
+        double distanceToGroundCM = 1;      //todo find and set distance to ground
+        if(distance <= targetDistance){
+            robot.pushBall.setPosition(0.345); // pushes ball away
+            // todo TEST if wait time is needed
+            robot.pushBall.setPosition(0.16); // moves servo back
+        }else if(distance < distanceToGroundCM){
+            robot.beltIntake.setPower(0.5);
+            robot.ziptieIntake.setPower(0.5);
+        }
     }
 
 //    private HashMap <Servo, Double> initServoMap(Servo[] servos){
