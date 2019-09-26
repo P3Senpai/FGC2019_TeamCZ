@@ -1,4 +1,4 @@
-#Tue Sep 24 16:30:30 CEST 2019
+#Thu Sep 26 12:06:42 CEST 2019
 base.0=/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/dex/debug/mergeDexDebug/out
 path.0=classes.dex
 renamed.0=classes.dex
