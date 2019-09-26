@@ -230,6 +230,7 @@ public class BasicOpMode_Linear extends LinearOpMode {
         }
     }
 
+    // hello micheals thing is not working
     //  tests servos by using multiple controllers
     private void servoControllers(Gamepad gp){
         int controllerId = gp.getGamepadId();
