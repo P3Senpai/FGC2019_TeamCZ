@@ -279,7 +279,7 @@ public class BasicOpMode_Linear extends LinearOpMode {
         telemetry.addData("Gamepad Id: ", "%d", controllerId);
     }
     private void autoPushBall(double distance, double targetDistance){
-        double distanceToGroundCM = 1;      //todo find and set distance to ground
+        double distanceToGroundCM = -1;      //todo find and set distance to ground
         if(distance <= targetDistance){
             robot.pushBall.setPosition(0.345); // pushes ball away
             // todo TEST if wait time is needed

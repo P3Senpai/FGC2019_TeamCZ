@@ -8,6 +8,7 @@
   <component name="ChangeListManager">
     <list default="true" id="4e6a83e5-12cd-4234-8b4b-453a2a3a685e" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/BasicOpMode_Linear.java" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/BasicOpMode_Linear.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Bot.java" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Bot.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -29,25 +30,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Bot.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="690">
-              <caret line="96" selection-start-line="96" selection-end-line="96" />
+            <state relative-caret-position="465">
+              <caret line="91" column="35" lean-forward="true" selection-start-line="91" selection-start-column="35" selection-end-line="91" selection-end-column="35" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/BasicOpMode_Linear.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="203">
-              <caret line="105" column="72" selection-start-line="105" selection-start-column="72" selection-end-line="105" selection-end-column="72" />
+            <state relative-caret-position="510">
+              <caret line="285" column="12" selection-start-line="285" selection-start-column="12" selection-end-line="285" selection-end-column="65" />
               <folding>
                 <element signature="method#motorsTests#0;class#BasicOpMode_Linear#0" />
                 <element signature="method#servosTests#0;class#BasicOpMode_Linear#0" />
                 <element signature="method#servoControllers#0;class#BasicOpMode_Linear#0" />
-                <element signature="method#autoPushBall#0;class#BasicOpMode_Linear#0" />
                 <element signature="e#11153#11220#0" />
               </folding>
             </state>
@@ -111,12 +111,12 @@
         <option value="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Shooter.java" />
         <option value="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Toggle.java" />
         <option value="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/BasicOpMode_Iterative.java" />
-        <option value="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Bot.java" />
         <option value="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/BasicOpMode_Linear.java" />
+        <option value="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Bot.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="1">
     <option name="x" value="18" />
     <option name="y" value="23" />
     <option name="width" value="1400" />
@@ -419,7 +419,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="18" y="23" width="1400" height="874" extended-state="0" />
+    <frame x="18" y="23" width="1400" height="874" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2496318" />
@@ -756,24 +756,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Bot.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="690">
-          <caret line="96" selection-start-line="96" selection-end-line="96" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/BasicOpMode_Linear.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="105" column="72" selection-start-line="105" selection-start-column="72" selection-end-line="105" selection-end-column="72" />
+        <state relative-caret-position="510">
+          <caret line="285" column="12" selection-start-line="285" selection-start-column="12" selection-end-line="285" selection-end-column="65" />
           <folding>
             <element signature="method#motorsTests#0;class#BasicOpMode_Linear#0" />
             <element signature="method#servosTests#0;class#BasicOpMode_Linear#0" />
             <element signature="method#servoControllers#0;class#BasicOpMode_Linear#0" />
-            <element signature="method#autoPushBall#0;class#BasicOpMode_Linear#0" />
             <element signature="e#11153#11220#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Bot.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="91" column="35" lean-forward="true" selection-start-line="91" selection-start-column="35" selection-end-line="91" selection-end-column="35" />
         </state>
       </provider>
     </entry>

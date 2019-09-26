@@ -89,6 +89,9 @@ public class Bot {
         pushBall    = hwmap.get(Servo.class, "push_ball");          // start: 0.16 fin: 0.345
         shooterTrigger    = hwmap.get(Servo.class, "shooter");      // start: 0.87 fin: 0.43
 
+        pushBall.setPosition(0.16);
+        shooterTrigger.setPosition(0.87);
+
     /* Initialization of Sensors*/
         maxHeight = hwmap.get(DigitalChannel.class, "max_height ");
         maxHeight.setMode(DigitalChannel.Mode.INPUT);
