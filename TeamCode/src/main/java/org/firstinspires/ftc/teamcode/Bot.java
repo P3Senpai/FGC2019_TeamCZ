@@ -1,5 +1,6 @@
 package org.firstinspires.ftc.teamcode;
 
+import com.qualcomm.hardware.rev.Rev2mDistanceSensor;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorController;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
@@ -8,6 +9,8 @@ import com.qualcomm.robotcore.hardware.DigitalChannel;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.hardware.configuration.typecontainers.MotorConfigurationType;
+
+import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
 
 /**
  * Created by petr-konstantin on 6/24/19.
@@ -31,9 +34,9 @@ public class Bot {
     protected Servo   shooterTrigger = null;
     // Sensors
     protected DigitalChannel maxHeight = null;
-    //todo add color sensor for ball
-    // add camera
-    // add minHeight
+    protected Rev2mDistanceSensor distanceSensor = null;
+    // todo add camera
+    // todo add minHeight
 
     // Constants
     protected double  speedLimit   = 0.8;
@@ -50,7 +53,7 @@ public class Bot {
         /* Local Initialization of HardwareMap */
         hwmap = ahwmap;
 
-        /*  Initialization of Motors */
+    /*  Initialization of Motors */
         leftDrive = hwmap.get(DcMotorEx.class,"left_drive");
         rightDrive = hwmap.get(DcMotor.class, "right_drive");
         lift       = hwmap.get(DcMotor.class, "lift");
@@ -59,9 +62,17 @@ public class Bot {
         beltIntake   = hwmap.get(DcMotor.class, "belt_intake");
 
         leftDrive.setDirection(DcMotorSimple.Direction.FORWARD);
+        leftDrive.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);    // release brake after end of program
+
         rightDrive.setDirection(DcMotorSimple.Direction.REVERSE);
+        rightDrive.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);   // release brake after end of program
+
         lift.setDirection(DcMotorSimple.Direction.FORWARD);
-        lift.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE); // works partially (so is a fail safe)
+        lift.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);         // redundancy for lift brake system
+
+        // this changes positive numbers to intake and negative to release
+        beltIntake.setDirection(DcMotorSimple.Direction.REVERSE);
+        ziptieIntake.setDirection(DcMotorSimple.Direction.REVERSE);
 
         leftDrive.setPower(0);
         rightDrive.setPower(0);
@@ -70,18 +81,20 @@ public class Bot {
         ziptieIntake.setPower(0);
         beltIntake.setPower(0);
 
-        /*  Initialization of Servos */
-        wingtipLeft = hwmap.get(Servo.class, "wing_tip_left");      // find and set starting pos
-        wingtipRight = hwmap.get(Servo.class, "wing_tip_right");    // find and set starting pos
-        liftBrake   = hwmap.get(Servo.class, "lift_brake");         // find and set starting pos
-        tightenSide = hwmap.get(Servo.class, "tighten_side");       // find and set starting pos
-        pushBall    = hwmap.get(Servo.class, "push_ball");          // find and set starting pos
-        shooterTrigger    = hwmap.get(Servo.class, "shooter");          // find and set starting pos
+    /*  Initialization of Servos */
+        wingtipLeft = hwmap.get(Servo.class, "wing_tip_left");      // todo find and set starting pos
+        wingtipRight = hwmap.get(Servo.class, "wing_tip_right");    // todo reset servo for zero position
+        liftBrake   = hwmap.get(Servo.class, "lift_brake");         // todo find and set starting pos
+        tightenSide = hwmap.get(Servo.class, "tighten_side");       // todo find and set starting pos
+        pushBall    = hwmap.get(Servo.class, "push_ball");          // start: 0.16 fin: 0.345
+        shooterTrigger    = hwmap.get(Servo.class, "shooter");      // start: 0.87 fin: 0.43
 
-        /* Initialization of Sensors*/
+    /* Initialization of Sensors*/
         maxHeight = hwmap.get(DigitalChannel.class, "max_height ");
         maxHeight.setMode(DigitalChannel.Mode.INPUT);
-        //todo mount the min height to prevent chain damage
+        //todo mount the min height to prevent chain from loosing
+        distanceSensor = hwmap.get(Rev2mDistanceSensor.class, "distance");
+
     }
 }
 

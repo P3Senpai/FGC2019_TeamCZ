@@ -31,11 +31,14 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.Gamepad;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
 import com.qualcomm.robotcore.util.Range;
+
+import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
 
 import java.util.HashMap;
 
@@ -53,7 +56,7 @@ import java.util.HashMap;
  * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list
  */
 
-@TeleOp(name="Basic: Linear OpMode", group="Linear Opmode")
+@TeleOp(name="Testing: Linear OpMode", group="Linear Opmode")
 //@Disabled
 public class BasicOpMode_Linear extends LinearOpMode {
 
@@ -63,6 +66,7 @@ public class BasicOpMode_Linear extends LinearOpMode {
     private Toggle tgg = new Toggle();
     private static double speedLimit = 0.8;
     private boolean plusIntakePower = false;
+    int controllerId = 0;
 
 
 
@@ -75,11 +79,9 @@ public class BasicOpMode_Linear extends LinearOpMode {
     @Override
     public void runOpMode() {
         telemetry.addData("Status", "Initializing");
-        telemetry.update();
 
         // initialisation of components found in Bot class
         robot.init(hardwareMap);
-//        initServoMap(allServos);
 
         // setup servo var
 //        servoPosMap.putAll(intiServoMap(allServos));
@@ -87,11 +89,12 @@ public class BasicOpMode_Linear extends LinearOpMode {
         telemetry.addLine("To test the servos use Gamepad 2");
         
         // Wait for the game to start (driver presses PLAY)
+        telemetry.update();
         waitForStart();
         runtime.reset();
 
         // run until the end of the match (driver presses STOP)
-        while (true) {
+        while (opModeIsActive()) {
 
 
             motorsTests(gamepad1);
@@ -99,14 +102,23 @@ public class BasicOpMode_Linear extends LinearOpMode {
 
 
         // Show the elapsed game time and wheel power.
-            telemetry.addData("Status", "Run Time: " + runtime.toString());
+            telemetry.addLine();
+            telemetry.addData("Status", "Run Time: %.1f" + runtime.toString());
+            telemetry.addData("Distance sensor: %.2f", robot.distanceSensor.getDistance(DistanceUnit.CM));
             telemetry.update();
 
         // counter needs to go to zero in order for the loop to work!!!
             tgg.reset();
-        if(!opModeIsActive()){break;}
         }
+
+        /* Code the happens after the stop button */
+        robot.leftDrive.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        robot.rightDrive.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        telemetry.addLine("Brake is activate");
+        telemetry.update();
     }
+
+
 
     private void motorsTests(Gamepad gp) {
 
@@ -157,43 +169,6 @@ public class BasicOpMode_Linear extends LinearOpMode {
         telemetry.addLine((plusIntakePower)?"Intake power is positive":"Intake power is negative");
         telemetry.addData("Lift Motor:", "power(%.2f)", robot.lift.getPower());
     }
-    // todo null pointer exception found on line 176 as suggested by the ide
-//    private void servosTests(Gamepad gp){
-//    // Sets index for servo array
-//        if (tgg.toggle(gp.dpad_up) && rotation < allServos.length){
-//            rotation ++;
-//        }else if(rotation >= allServos.length){
-//            rotation = 0;
-//        }
-//
-//        if(tgg.toggle(gp.dpad_down) && rotation > 0){
-//            rotation --;
-//        }else if(rotation <= 0){
-//            rotation = allServos.length - 1;
-//        }
-//
-//    //Gets servo and its position
-//        Servo servo = allServos[rotation];
-//        double servoPos;
-//        try {
-//            servoPos = servoPosMap.get(allServos[rotation]);
-//            // Changes servo position
-//            if (tgg.toggle(gp.y))
-//                servoPos += 0.01;
-//            else if(tgg.toggle(gp.a))
-//                servoPos -= 0.01;
-//            servo.setPosition(servoPos);
-//            // Saves new position
-//            servoPosMap.put(servo, servoPos);
-//
-//            // telemetry data
-//            telemetry.addData("Servo: %s \nPosition: %.2f", servo.getDeviceName(), servoPos);
-//        }catch (NullPointerException e){
-//            telemetry.clearAll();
-//            telemetry.addLine("Servo pos could not be found");
-//            telemetry.update();
-//        }
-//    }
     private void servosTests(Gamepad gp){
         // Sets index for servo array
         if (tgg.toggle(gp.dpad_right) && rotation < allServos.length){
@@ -229,18 +204,14 @@ public class BasicOpMode_Linear extends LinearOpMode {
             telemetry.addData("Servo pos could not be found", "%d", rotation);
         }
     }
-
-    // hello micheals thing is not working
     //  tests servos by using multiple controllers
     private void servoControllers(Gamepad gp){
-        int controllerId = gp.getGamepadId();
-
     // loop setting the controller id
-        if(tgg.toggle(gp.a)){
+        if(tgg.toggle(gp.y)){
             if(controllerId == 0)
-                gp.setGamepadId(1);
+                controllerId = 1;
             else if(controllerId == 1)
-                gp.setGamepadId(0);
+                controllerId = 0;
         }
     //the controls going inside the statement
         if(controllerId == 0){
@@ -248,54 +219,57 @@ public class BasicOpMode_Linear extends LinearOpMode {
             double rightWingPos = robot.wingtipRight.getPosition();
             double pushPos  = robot.pushBall.getPosition();
         // left wing tip controls
-            if(tgg.toggle(gp.dpad_left))
-                robot.wingtipLeft.setPosition(leftWingPos + 0.01);
-            else if(tgg.toggle(gp.dpad_right))
-                robot.wingtipLeft.setPosition(leftWingPos - 0.01);
+            if(gp.dpad_left)
+                robot.wingtipLeft.setPosition(leftWingPos + 0.0001);
+            else if(gp.dpad_right)
+                robot.wingtipLeft.setPosition(leftWingPos - 0.001);
         // right wing tip controls
-            if(tgg.toggle(gp.x))
-                robot.wingtipRight.setPosition(rightWingPos + 0.01);
-            else if(tgg.toggle(gp.b))
-                robot.wingtipRight.setPosition(rightWingPos - 0.01);
+            if(gp.x)
+                robot.wingtipRight.setPosition(rightWingPos + 0.001);
+            else if(gp.b)
+                robot.wingtipRight.setPosition(rightWingPos - 0.001);
         // push ball into hopper controls
-            if(tgg.toggle(gp.left_bumper))
-                robot.wingtipLeft.setPosition(pushPos + 0.01);
-            else if(tgg.toggle(gp.right_bumper))
-                robot.wingtipLeft.setPosition(pushPos - 0.01);
+            if(gp.left_bumper)
+                robot.pushBall.setPosition(pushPos + 0.001);
+            else if(gp.right_bumper)
+                robot.pushBall.setPosition(pushPos - 0.001);
 
         // instructions on how to use
-            telemetry.addData("Dpad left and right control the left wing tip", "Current Position: (%.3f)", leftWingPos);
-            telemetry.addData("X and B buttons control the right wing tip","Current Position: (%.3f)", rightWingPos);
-            telemetry.addData("Left and right bumpers control the servo pushing ball","Current Position: (%.3f)", pushPos);
+            telemetry.addLine();
+            telemetry.addData("Dpad left and right control the left wing tip", "Current Position: (%.4f)", leftWingPos);
+            telemetry.addData("X and B buttons control the right wing tip","Current Position: (%.4f)", rightWingPos);
+            telemetry.addData("Left and right bumpers control the servo pushing ball","Current Position: (%.4f)", pushPos);
         }else if(controllerId == 1){
             double tightenPos = robot.tightenSide.getPosition();
             double triggerPos = robot.shooterTrigger.getPosition();
             double brakePos   = robot.liftBrake.getPosition();
         // tight controls
-            if(tgg.toggle(gp.dpad_left))
-                robot.wingtipLeft.setPosition(tightenPos + 0.01);
-            else if(tgg.toggle(gp.dpad_right))
-                robot.wingtipLeft.setPosition(tightenPos - 0.01);
+            if(gp.dpad_left)
+                robot.tightenSide.setPosition(tightenPos + 0.001);
+            else if((gp.dpad_right))
+                robot.tightenSide.setPosition(tightenPos - 0.001);
             //todo if this is continuous then the else statement is necessary
 //            else
 //                robot.wingtipLeft.setPosition(0);
         // trigger for shooter controls
-            if(tgg.toggle(gp.x))
-                robot.wingtipRight.setPosition(triggerPos + 0.01);
-            else if(tgg.toggle(gp.b))
-                robot.wingtipRight.setPosition(triggerPos - 0.01);
+            if(gp.x)
+                robot.shooterTrigger.setPosition(triggerPos + 0.001);
+            else if(gp.b)
+                robot.shooterTrigger.setPosition(triggerPos - 0.001);
         // brake controls
-            if(tgg.toggle(gp.left_bumper))
-                robot.wingtipLeft.setPosition(brakePos + 0.01);
-            else if(tgg.toggle(gp.right_bumper))
-                robot.wingtipLeft.setPosition(brakePos - 0.01);
+            if(gp.left_bumper)
+                robot.liftBrake.setPosition(brakePos + 0.001);
+            else if(gp.right_bumper)
+                robot.liftBrake.setPosition(brakePos - 0.001);
 
         // instructions on how to use
-            telemetry.addData("Dpad left and right control the tighten the tips", "Current Position: (%.3f)", tightenPos);
-            telemetry.addData("X and B buttons control the shooter trigger", "Current Position: (%.3f)", triggerPos);
-            telemetry.addData("Left and right bumpers control lift brake position", "Current Position: (%.3f)", brakePos);
+            telemetry.addLine();
+            telemetry.addData("Dpad left and right control the tighten the tips", "Current Position: (%.4f)", tightenPos);
+            telemetry.addData("X and B buttons control the shooter trigger", "Current Position: (%.4f)", triggerPos);
+            telemetry.addData("Left and right bumpers control lift brake position", "Current Position: (%.4f)", brakePos);
         }
-        telemetry.addLine("Switch gamepad by pressing the A button");
+        telemetry.addLine();
+        telemetry.addLine("Switch gamepad by pressing the Y button");
         telemetry.addData("Gamepad Id: ", "%d", controllerId);
     }
 
