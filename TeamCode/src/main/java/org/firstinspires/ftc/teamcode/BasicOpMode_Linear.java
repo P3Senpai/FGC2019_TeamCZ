@@ -264,9 +264,9 @@ public class BasicOpMode_Linear extends LinearOpMode {
                 robot.wingtipLeft.setPosition(pushPos - 0.01);
 
         // instructions on how to use
-            telemetry.addData("Dpad left and right control the left wing tip", "Current Position: ", leftWingPos);
-            telemetry.addData("X and B buttons control the right wing tip","Current Position: ", rightWingPos);
-            telemetry.addData("Left and right bumpers control the servo pushing ball","Current Position: ", pushPos);
+            telemetry.addData("Dpad left and right control the left wing tip", "Current Position: (%.3f)", leftWingPos);
+            telemetry.addData("X and B buttons control the right wing tip","Current Position: (%.3f)", rightWingPos);
+            telemetry.addData("Left and right bumpers control the servo pushing ball","Current Position: (%.3f)", pushPos);
         }else if(controllerId == 1){
             double tightenPos = robot.tightenSide.getPosition();
             double triggerPos = robot.shooterTrigger.getPosition();
@@ -291,9 +291,9 @@ public class BasicOpMode_Linear extends LinearOpMode {
                 robot.wingtipLeft.setPosition(brakePos - 0.01);
 
         // instructions on how to use
-            telemetry.addData("Dpad left and right control the tighten the tips", "Current Position: ", tightenPos);
-            telemetry.addData("X and B buttons control the shooter trigger", "Current Position: ", triggerPos);
-            telemetry.addData("Left and right bumpers control lift brake position", "Current Position: ", brakePos);
+            telemetry.addData("Dpad left and right control the tighten the tips", "Current Position: (%.3f)", tightenPos);
+            telemetry.addData("X and B buttons control the shooter trigger", "Current Position: (%.3f)", triggerPos);
+            telemetry.addData("Left and right bumpers control lift brake position", "Current Position: (%.3f)", brakePos);
         }
         telemetry.addLine("Switch gamepad by pressing the A button");
         telemetry.addData("Gamepad Id: ", "%d", controllerId);
