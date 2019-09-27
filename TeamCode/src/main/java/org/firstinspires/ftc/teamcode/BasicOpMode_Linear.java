@@ -87,15 +87,18 @@ public class BasicOpMode_Linear extends LinearOpMode {
 //        servoPosMap.putAll(intiServoMap(allServos));
         telemetry.addLine("To test the motors use Gamepad 1");
         telemetry.addLine("To test the servos use Gamepad 2");
+        robot.shooterTrigger.setPosition(0.5978);
         
         // Wait for the game to start (driver presses PLAY)
         telemetry.update();
         waitForStart();
         runtime.reset();
 
+
+
         // run until the end of the match (driver presses STOP)
         while (opModeIsActive()) {
-            double sorterCurrentDistance = robot.distanceSensor.getDistance(DistanceUnit.CM);
+            //double sorterCurrentDistance = robot.distanceSensor.getDistance(DistanceUnit.CM);
 
             motorsTests(gamepad1);
             servoControllers(gamepad2);
@@ -110,7 +113,7 @@ public class BasicOpMode_Linear extends LinearOpMode {
         // Show the elapsed game time and wheel power.
             telemetry.addLine();
             telemetry.addData("Status", "Run Time: %.1f" + runtime.toString());
-            telemetry.addData("Distance sensor: %.2f", sorterCurrentDistance);
+            //telemetry.addData("Distance sensor: %.2f", sorterCurrentDistance);
             telemetry.update();
 
         // counter needs to go to zero in order for the loop to work!!!
@@ -259,9 +262,9 @@ public class BasicOpMode_Linear extends LinearOpMode {
 //                robot.wingtipLeft.setPosition(0);
         // trigger for shooter controls
             if(gp.x)
-                robot.shooterTrigger.setPosition(triggerPos + 0.001);
+                robot.shooterTrigger.setPosition(0.1244);
             else if(gp.b)
-                robot.shooterTrigger.setPosition(triggerPos - 0.001);
+                robot.shooterTrigger.setPosition(0.5978);
         // brake controls
             if(gp.left_bumper)
                 robot.liftBrake.setPosition(brakePos + 0.001);

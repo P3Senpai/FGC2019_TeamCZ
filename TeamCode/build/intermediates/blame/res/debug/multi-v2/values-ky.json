@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/incremental/mergeDebugResources/merged.dir/values-ky/values-ky.xml",
+            "outputFile": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/incremental/mergeDebugResources/merged.dir/values-ky/values-ky.xml",
             "map": [
                 {
-                    "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/b86a2ec3b460860a6d6314478a35742c/res/values-ky/values-ky.xml",
+                    "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/21f0193f98cf52ec7c0ca40b0ab0192c/res/values-ky/values-ky.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

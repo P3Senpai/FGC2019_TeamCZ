@@ -34,7 +34,7 @@ public class Bot {
     protected Servo   shooterTrigger = null;
     // Sensors
     protected DigitalChannel maxHeight = null;
-    protected Rev2mDistanceSensor distanceSensor = null;
+    //protected Rev2mDistanceSensor distanceSensor = null;
     // todo add camera
     // todo add minHeight
 
@@ -96,7 +96,7 @@ public class Bot {
         maxHeight = hwmap.get(DigitalChannel.class, "max_height ");
         maxHeight.setMode(DigitalChannel.Mode.INPUT);
         //todo mount the min height to prevent chain from loosing
-        distanceSensor = hwmap.get(Rev2mDistanceSensor.class, "distance");
+        //distanceSensor = hwmap.get(Rev2mDistanceSensor.class, "distance");
 
     }
 }
