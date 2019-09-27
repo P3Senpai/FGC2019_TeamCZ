@@ -134,8 +134,8 @@ public class BasicOpMode_Linear extends LinearOpMode {
     // drive motors
         double leftPower = Range.clip(-gp.left_stick_y, -1.0, 1.0);
         double rightPower = Range.clip(-gp.right_stick_y, -1.0, 1.0);
-        robot.leftDrive.setPower(leftPower);
-        robot.rightDrive.setPower(rightPower);
+        robot.leftDrive.setPower(leftPower / 1.5);
+        robot.rightDrive.setPower(rightPower / 1.5);
 
     //shooter motors
         if (tgg.toggle(gp.dpad_up)) {
