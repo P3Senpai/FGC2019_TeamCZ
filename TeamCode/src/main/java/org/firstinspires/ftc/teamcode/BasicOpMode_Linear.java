@@ -65,15 +65,7 @@ public class BasicOpMode_Linear extends LinearOpMode {
     private ElapsedTime runtime = new ElapsedTime();
     private Bot robot = new Bot();
     private Toggle tgg = new Toggle();
-    private static double speedLimit = 0.8;
-    static int controllerId = 0;
-
-
-
-    // servo set up
-//    HashMap <Servo, Double> servoPosMap = new HashMap<>();
-    Servo[] allServos = {robot.wingtipLeft, robot.wingtipRight, robot.pushBall, robot.tightenSide, robot.liftBrake, robot.shooterTrigger};
-    static int rotation = 0;
+    private static int controllerId = 0;
 
 
     @Override
@@ -82,7 +74,7 @@ public class BasicOpMode_Linear extends LinearOpMode {
 
         // initialisation of components found in Bot class
         robot.init(hardwareMap);
-        
+
         telemetry.addLine("To test the motors use Gamepad 1");
         telemetry.addLine("To test the servos use Gamepad 2");
         robot.shooterTrigger.setPosition(0.5978);
@@ -96,67 +88,62 @@ public class BasicOpMode_Linear extends LinearOpMode {
 
         // run until the end of the match (driver presses STOP)
         while (opModeIsActive()) {
-            //double sorterCurrentDistance = robot.distanceSensor.getDistance(DistanceUnit.CM);
+            double sorterCurrentDistance = robot.distanceSensor.getDistance(DistanceUnit.CM);
 
             motorsTests(gamepad1);
             servoControllers(gamepad2);
 
             // if you hold the b button the intake will automatically work
             if(gamepad1.b){
-//                autoPushBall(sorterCurrentDistance, );
-                //todo find the target distance for the ball at the top and enter the parameter
+                autoPushBall(sorterCurrentDistance, robot.DISTANCE_TO_TOP_CM);
             }
 
 
         // Show the elapsed game time and wheel power.
             telemetry.addLine();
             telemetry.addData("Status", "Run Time: %.1f" + runtime.toString());
-            //telemetry.addData("Distance sensor: %.2f", sorterCurrentDistance);
+            telemetry.addData("Distance sensor: %.2f", sorterCurrentDistance);
+            telemetry.addData("Triggers pressed"," left: %.2f right: %.2f", gamepad1.left_trigger, gamepad1.right_trigger);
             telemetry.update();
 
-        // counter needs to go to zero in order for the loop to work!!!
+        // counter needs to go to zero in order for the toggle method to work!!!
             tgg.reset();
         }
 
-        /* Code the happens after the stop button */
+    /* Code the happens after the stop button */
         robot.leftDrive.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         robot.rightDrive.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         telemetry.addLine("Brake is activate");
         telemetry.update();
     }
-
-
-
     private void motorsTests(Gamepad gp) {
-
     // drive motors
-        double leftPower = Range.clip(-gp.left_stick_y, -1.0, 1.0);
-        double rightPower = Range.clip(-gp.right_stick_y, -1.0, 1.0);
+        double leftPower = Range.clip(-gp.left_stick_y, -1.0, 1.0);    // set y stick to normal and not inverted
+        double rightPower = Range.clip(-gp.right_stick_y, -1.0, 1.0);  // set y stick to normal and not inverted
 
         robot.leftDrive.setPower(leftPower * 0.5);
         robot.rightDrive.setPower(rightPower * 0.5);
 
-
-    //shooter motors
+    //shooter motor
         if (tgg.toggle(gp.dpad_up)) {
-            speedLimit += (speedLimit < 1.0) ? 0.1 : 0; // increments by 0.1 if limit is under 1.0
+            robot.speedLimit += (robot.speedLimit < 1.0) ? 0.1 : 0; // increments by 0.1 if limit is under 1.0
         }
         if (tgg.toggle(gp.dpad_down)) {
-            speedLimit -= (speedLimit > 0.1) ? 0.1 : 0; // increments by -0.1 if limit is above 0.1
+            robot.speedLimit -= (robot.speedLimit > 0.1) ? 0.1 : 0; // increments by -0.1 if limit is above 0.1
         }
 
         // setting speed to shooter motor
         if (gp.x)
-            robot.shooter.setPower(-speedLimit);
+            robot.shooter.setPower(-robot.speedLimit);
         else
             robot.shooter.setPower(0);
     // intake motors
 
         if (gp.right_bumper){
-            robot.ziptieIntake.setPower(0.5);
+            robot.ziptieIntake.setPower(0.5);   // ball going in
             robot.beltIntake.setPower(0.5);
         }else if (gp.left_bumper){
-            robot.ziptieIntake.setPower(-0.5);
+            robot.ziptieIntake.setPower(-0.5);  // ball going out
             robot.beltIntake.setPower(-0.5);
         }else{
             robot.ziptieIntake.setPower(0);
@@ -164,7 +151,7 @@ public class BasicOpMode_Linear extends LinearOpMode {
         }
 
     // lift motor
-        if(gp.a) {
+        if(gp.a && robot.minHeight.getState()) {
             robot.lift.setPower(-0.7);          // going down
         }else if(gp.y && robot.maxHeight.getState()) {
             robot.lift.setPower(0.7);           // going up
@@ -172,48 +159,18 @@ public class BasicOpMode_Linear extends LinearOpMode {
             robot.lift.setPower(0);
         }
 
+    // turning button for testing if turn is crooked or not
+        double turn = Range.clip(gp.left_trigger, 0, 1);
+        robot.leftDrive.setPower(turn);
+        robot.rightDrive.setPower(-turn);
+
     // telemetry data
         telemetry.addData("Drive Speed", "left(%.2f) right(%.2f)", leftPower, rightPower);
-        telemetry.addData("Shooter Speed", "limit(%.2f) actual(%.2f)", speedLimit, robot.shooter.getPower());
+        telemetry.addData("Shooter Speed", "limit(%.2f) actual(%.2f)", robot.speedLimit, robot.shooter.getPower());
         telemetry.addData("Intake Motor Speed", "belt: %.2f ziptie intake: %.2f", robot.beltIntake.getPower(), robot.ziptieIntake.getPower());
         telemetry.addData("Lift Motor:", "power(%.2f)", robot.lift.getPower());
     }
-    private void servosTests(Gamepad gp){
-        // Sets index for servo array
-        if (tgg.toggle(gp.dpad_right) && rotation < allServos.length){
-            rotation ++;
-        }else if(rotation >= allServos.length){
-            rotation = 0;
-        }
-
-        if(tgg.toggle(gp.dpad_left) && rotation >= 0){
-            rotation --;
-        }else if(rotation < 0){
-            rotation = allServos.length - 1;
-        }
-
-        //Gets servo and its position
-        try {
-            Servo servo = allServos[rotation];
-            double servoPos = servo.getPosition();
-            // Changes servo position
-            if (tgg.toggle(gp.dpad_up))
-                servoPos += 0.01;
-            else if(tgg.toggle(gp.dpad_down))
-                servoPos -= 0.01;
-            servo.setPosition(servoPos);
-
-            // telemetry data
-            telemetry.addData("Servo: %s \nPosition: %.2f", servo.getDeviceName(), servoPos);
-        }catch (NullPointerException e ){
-            telemetry.clearAll();
-            telemetry.addLine("Servo could not be found");
-        }catch (ArrayIndexOutOfBoundsException e ){
-            telemetry.clearAll();
-            telemetry.addData("Servo pos could not be found", "%d", rotation);
-        }
-    }
-    //  tests servos by using multiple controllers
+// tests servos by using multiple virtual controllers
     private void servoControllers(Gamepad gp){
     // loop setting the controller id
         if(tgg.toggle(gp.y)){
@@ -229,7 +186,7 @@ public class BasicOpMode_Linear extends LinearOpMode {
             double pushPos  = robot.pushBall.getPosition();
         // left wing tip controls
             if(gp.dpad_left)
-                robot.wingtipLeft.setPosition(leftWingPos + 0.0001);
+                robot.wingtipLeft.setPosition(leftWingPos + 0.001);
             else if(gp.dpad_right)
                 robot.wingtipLeft.setPosition(leftWingPos - 0.001);
         // right wing tip controls
@@ -248,6 +205,7 @@ public class BasicOpMode_Linear extends LinearOpMode {
             telemetry.addData("Dpad left and right control the left wing tip", "Current Position: (%.4f)", leftWingPos);
             telemetry.addData("X and B buttons control the right wing tip","Current Position: (%.4f)", rightWingPos);
             telemetry.addData("Left and right bumpers control the servo pushing ball","Current Position: (%.4f)", pushPos);
+
         }else if(controllerId == 1){
             double tightenPos = robot.tightenSide.getPosition();
             double triggerPos = robot.shooterTrigger.getPosition();
@@ -257,9 +215,6 @@ public class BasicOpMode_Linear extends LinearOpMode {
                 robot.tightenSide.setPosition(tightenPos + 0.001);
             else if((gp.dpad_right))
                 robot.tightenSide.setPosition(tightenPos - 0.001);
-            //todo if this is continuous then the else statement is necessary
-//            else
-//                robot.wingtipLeft.setPosition(0);
         // trigger for shooter controls
             if(gp.x)
                 robot.shooterTrigger.setPosition(0.1244);
@@ -281,27 +236,37 @@ public class BasicOpMode_Linear extends LinearOpMode {
         telemetry.addLine("Switch gamepad by pressing the Y button");
         telemetry.addData("Gamepad Id: ", "%d", controllerId);
     }
+// uses distance sensor to push balls into the hopper
     private void autoPushBall(double distance, double targetDistance){
-        double distanceToGroundCM = -1;      //todo find and set distance to ground
         if(distance <= targetDistance){
-            robot.pushBall.setPosition(0.345); // pushes ball away
+            robot.pushBall.setPosition(0.345); // pushes ball into hopper
             // todo TEST if wait time is needed
             robot.pushBall.setPosition(0.16); // moves servo back
-        }else if(distance < distanceToGroundCM){
+            //todo add counter for ball limit
+        }else if(distance < robot.DISTANCE_TO_GROUND_CM && distance > targetDistance){   // moves intake if there is a ball in the belt rails
             robot.beltIntake.setPower(0.5);
             robot.ziptieIntake.setPower(0.5);
+        }else{
+            robot.beltIntake.setPower(0);
+            robot.ziptieIntake.setPower(0);
         }
     }
     private void driveByAcceleration (double inputData, double maxPower, double velocityForward, double velocitySideways){
-        // Set up variables
+    // Set up variables
+        double power, leftPower, rightPower, forwardV, threshold;
         maxPower = Math.abs(maxPower);
-        // forward acceleration is used to stop drastic changes in motion
-        double power = Range.clip(inputData, -maxPower, maxPower);
-        double accel = Range.clip(velocityForward, -1 + maxPower, 1 - maxPower);
-        // sideways acceleration is used to prevent the robot from drifting sideways
-        double leftPower = (accel + power) - velocitySideways;
-        double rightPower = (accel + power) + velocitySideways;
-        // set motor power
+        threshold = maxPower * 1.5;     // todo test if threshold value is good (since it is random)
+        power = Range.clip(inputData, -maxPower, maxPower);
+        forwardV = Range.clip(velocityForward, -maxPower, maxPower);
+    // Set power values
+        leftPower = power + velocitySideways; // sideways velocity prevents drifting
+        rightPower = power - velocitySideways; // sideways velocity prevents drifting
+    // limit power if predicted drastic changes in magnitude
+        if (Math.abs(power) + Math.abs(forwardV) > threshold){
+            leftPower *= 0.3;
+            rightPower *= 0.3;
+        }
+    // Set motor speeds
         robot.leftDrive.setPower(leftPower);
         robot.rightDrive.setPower(rightPower);
     }

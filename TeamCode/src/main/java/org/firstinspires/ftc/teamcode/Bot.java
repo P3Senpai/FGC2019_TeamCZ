@@ -20,27 +20,18 @@ public class Bot {
     HardwareMap hwmap = null;
     // Motors
     protected DcMotorEx leftDrive   = null; // todo test extended version of motor on this one
-    protected DcMotor rightDrive  = null;
-    protected DcMotor lift        = null;
-    protected DcMotor shooter     = null;
-    protected DcMotor ziptieIntake = null;
-    protected DcMotor beltIntake   = null;
+    protected DcMotor rightDrive, lift, shooter, ziptieIntake, beltIntake = null;
     // Servos
-    protected Servo   wingtipLeft = null;
-    protected Servo   wingtipRight = null;
-    protected Servo   liftBrake    = null;
-    protected Servo   tightenSide  = null;
-    protected Servo   pushBall     = null;
-    protected Servo   shooterTrigger = null;
+    protected Servo   wingtipLeft, wingtipRight, liftBrake, tightenSide, pushBall, shooterTrigger = null;
     // Sensors
-    protected DigitalChannel maxHeight = null;
-    //protected Rev2mDistanceSensor distanceSensor = null;
+    protected DigitalChannel maxHeight, minHeight = null;
+    protected Rev2mDistanceSensor distanceSensor = null;
     // todo add camera
-    // todo add minHeight
 
     // Constants
     protected double  speedLimit   = 0.8;
-
+    protected final double DISTANCE_TO_TOP_CM = -1; // todo set distance
+    protected final double  DISTANCE_TO_GROUND_CM = -1; //todo set distance
 
     /* Local Op Mode variables */
     // something
@@ -49,7 +40,7 @@ public class Bot {
     public void Bot(){}
 
     /* Initialize hardware */
-    public void init(HardwareMap ahwmap){
+    protected void init(HardwareMap ahwmap){
         /* Local Initialization of HardwareMap */
         hwmap = ahwmap;
 
@@ -95,8 +86,9 @@ public class Bot {
     /* Initialization of Sensors*/
         maxHeight = hwmap.get(DigitalChannel.class, "max_height ");
         maxHeight.setMode(DigitalChannel.Mode.INPUT);
-        //todo mount the min height to prevent chain from loosing
-        //distanceSensor = hwmap.get(Rev2mDistanceSensor.class, "distance");
+        minHeight = hwmap.get(DigitalChannel.class, "min_height");
+        minHeight.setMode(DigitalChannel.Mode.INPUT); //todo mount the min height to prevent chain from loosing
+        distanceSensor = hwmap.get(Rev2mDistanceSensor.class, "distance");
 
     }
 }

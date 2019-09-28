@@ -55,7 +55,7 @@ import java.util.Locale;
  * @see <a href="http://www.adafruit.com/products/2472">Adafruit IMU</a>
  */
 @TeleOp(name = "Sensor: BNO055 IMU", group = "Sensor")
-@Disabled                            // Comment this out to add to the opmode list
+//@Disabled
 public class SensorBNO055IMU extends LinearOpMode
     {
     //----------------------------------------------------------------------------------------------
@@ -68,6 +68,7 @@ public class SensorBNO055IMU extends LinearOpMode
     // State used for updating telemetry
     Orientation angles;
     Acceleration gravity;
+    Velocity velocity;
 
     //----------------------------------------------------------------------------------------------
     // Main logic
@@ -122,8 +123,7 @@ public class SensorBNO055IMU extends LinearOpMode
                 // three times the necessary expense.
                 angles   = imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES);
                 gravity  = imu.getGravity();
-                Velocity velocity  = imu.getVelocity();
-
+                velocity  = imu.getVelocity();
 
                 }
             });
@@ -169,6 +169,17 @@ public class SensorBNO055IMU extends LinearOpMode
                             Math.sqrt(gravity.xAccel*gravity.xAccel
                                     + gravity.yAccel*gravity.yAccel
                                     + gravity.zAccel*gravity.zAccel));
+                    }
+                });
+        telemetry.addLine()
+                .addData("grvty", new Func<String>() {
+                    @Override public String value() {
+                        return velocity.toString();
+                    }
+                })
+                .addData("Velocity", new Func<String>() {
+                    @Override public String value() {
+                        return String.format(Locale.getDefault(), "X: %.3f\nY: %.3f\nZ: %.3f", velocity.xVeloc, velocity.yVeloc, velocity.zVeloc);
                     }
                 });
     }
