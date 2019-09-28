@@ -5,8 +5,6 @@
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/10463f59f71f69225b130aa6ec09bcf6/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
-    <SOURCES>
-      <root url="jar://$PROJECT_DIR$/libs/FtcCommon-release-sources.jar!/" />
-    </SOURCES>
+    <SOURCES />
   </library>
 </component>

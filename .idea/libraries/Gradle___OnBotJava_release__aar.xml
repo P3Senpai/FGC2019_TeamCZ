@@ -6,8 +6,6 @@
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/f7b5e0c411f9ac23593afc96996d3621/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
-    <SOURCES>
-      <root url="jar://$PROJECT_DIR$/libs/OnBotJava-release-sources.jar!/" />
-    </SOURCES>
+    <SOURCES />
   </library>
 </component>

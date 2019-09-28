@@ -5,8 +5,6 @@
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/388b40bc0705ad4c5925daa33158e1eb/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
-    <SOURCES>
-      <root url="jar://$PROJECT_DIR$/libs/Hardware-release-sources.jar!/" />
-    </SOURCES>
+    <SOURCES />
   </library>
 </component>

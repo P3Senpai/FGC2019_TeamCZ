@@ -82,20 +82,21 @@ public class BasicOpMode_Linear extends LinearOpMode {
 
         // initialisation of components found in Bot class
         robot.init(hardwareMap);
-
-        // setup servo var
-//        servoPosMap.putAll(intiServoMap(allServos));
+        
         telemetry.addLine("To test the motors use Gamepad 1");
         telemetry.addLine("To test the servos use Gamepad 2");
+        robot.shooterTrigger.setPosition(0.5978);
         
         // Wait for the game to start (driver presses PLAY)
         telemetry.update();
         waitForStart();
         runtime.reset();
 
+
+
         // run until the end of the match (driver presses STOP)
         while (opModeIsActive()) {
-            double sorterCurrentDistance = robot.distanceSensor.getDistance(DistanceUnit.CM);
+            //double sorterCurrentDistance = robot.distanceSensor.getDistance(DistanceUnit.CM);
 
             motorsTests(gamepad1);
             servoControllers(gamepad2);
@@ -110,7 +111,7 @@ public class BasicOpMode_Linear extends LinearOpMode {
         // Show the elapsed game time and wheel power.
             telemetry.addLine();
             telemetry.addData("Status", "Run Time: %.1f" + runtime.toString());
-            telemetry.addData("Distance sensor: %.2f", sorterCurrentDistance);
+            //telemetry.addData("Distance sensor: %.2f", sorterCurrentDistance);
             telemetry.update();
 
         // counter needs to go to zero in order for the loop to work!!!
@@ -131,8 +132,10 @@ public class BasicOpMode_Linear extends LinearOpMode {
     // drive motors
         double leftPower = Range.clip(-gp.left_stick_y, -1.0, 1.0);
         double rightPower = Range.clip(-gp.right_stick_y, -1.0, 1.0);
-        robot.leftDrive.setPower(leftPower * speedLimit);
-        robot.rightDrive.setPower(rightPower * speedLimit);
+
+        robot.leftDrive.setPower(leftPower * 0.5);
+        robot.rightDrive.setPower(rightPower * 0.5);
+
 
     //shooter motors
         if (tgg.toggle(gp.dpad_up)) {
@@ -175,7 +178,6 @@ public class BasicOpMode_Linear extends LinearOpMode {
         telemetry.addData("Intake Motor Speed", "belt: %.2f ziptie intake: %.2f", robot.beltIntake.getPower(), robot.ziptieIntake.getPower());
         telemetry.addData("Lift Motor:", "power(%.2f)", robot.lift.getPower());
     }
-    //todo delete after pull
     private void servosTests(Gamepad gp){
         // Sets index for servo array
         if (tgg.toggle(gp.dpad_right) && rotation < allServos.length){
@@ -260,9 +262,9 @@ public class BasicOpMode_Linear extends LinearOpMode {
 //                robot.wingtipLeft.setPosition(0);
         // trigger for shooter controls
             if(gp.x)
-                robot.shooterTrigger.setPosition(triggerPos + 0.001);
+                robot.shooterTrigger.setPosition(0.1244);
             else if(gp.b)
-                robot.shooterTrigger.setPosition(triggerPos - 0.001);
+                robot.shooterTrigger.setPosition(0.5978);
         // brake controls
             if(gp.left_bumper)
                 robot.liftBrake.setPosition(brakePos + 0.001);

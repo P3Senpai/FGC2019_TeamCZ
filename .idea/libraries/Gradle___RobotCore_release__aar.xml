@@ -10,8 +10,6 @@
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e88d295b38b27894d0e41f3fe704cf57/jars/libs/slf4j-api-1.7.26.jar!/" />
     </CLASSES>
     <JAVADOC />
-    <SOURCES>
-      <root url="jar://$PROJECT_DIR$/libs/RobotCore-release-sources.jar!/" />
-    </SOURCES>
+    <SOURCES />
   </library>
 </component>

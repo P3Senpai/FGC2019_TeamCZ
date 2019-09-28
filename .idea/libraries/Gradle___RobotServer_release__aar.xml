@@ -6,8 +6,6 @@
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/75112584545954347d9c93de1a34b2b5/res" />
     </CLASSES>
     <JAVADOC />
-    <SOURCES>
-      <root url="jar://$PROJECT_DIR$/libs/RobotServer-release-sources.jar!/" />
-    </SOURCES>
+    <SOURCES />
   </library>
 </component>
