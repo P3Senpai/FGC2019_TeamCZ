@@ -29,6 +29,7 @@
 
 package org.firstinspires.ftc.teamcode;
 
+import com.qualcomm.ftccommon.FtcEventLoop;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
@@ -65,8 +66,7 @@ public class BasicOpMode_Linear extends LinearOpMode {
     private Bot robot = new Bot();
     private Toggle tgg = new Toggle();
     private static double speedLimit = 0.8;
-    private boolean plusIntakePower = false;
-    int controllerId = 0;
+    static int controllerId = 0;
 
 
 
@@ -131,8 +131,8 @@ public class BasicOpMode_Linear extends LinearOpMode {
     // drive motors
         double leftPower = Range.clip(-gp.left_stick_y, -1.0, 1.0);
         double rightPower = Range.clip(-gp.right_stick_y, -1.0, 1.0);
-        robot.leftDrive.setPower(leftPower);
-        robot.rightDrive.setPower(rightPower);
+        robot.leftDrive.setPower(leftPower * speedLimit);
+        robot.rightDrive.setPower(rightPower * speedLimit);
 
     //shooter motors
         if (tgg.toggle(gp.dpad_up)) {
@@ -172,9 +172,10 @@ public class BasicOpMode_Linear extends LinearOpMode {
     // telemetry data
         telemetry.addData("Drive Speed", "left(%.2f) right(%.2f)", leftPower, rightPower);
         telemetry.addData("Shooter Speed", "limit(%.2f) actual(%.2f)", speedLimit, robot.shooter.getPower());
-        telemetry.addLine((plusIntakePower)?"Intake power is positive":"Intake power is negative");
+        telemetry.addData("Intake Motor Speed", "belt: %.2f ziptie intake: %.2f", robot.beltIntake.getPower(), robot.ziptieIntake.getPower());
         telemetry.addData("Lift Motor:", "power(%.2f)", robot.lift.getPower());
     }
+    //todo delete after pull
     private void servosTests(Gamepad gp){
         // Sets index for servo array
         if (tgg.toggle(gp.dpad_right) && rotation < allServos.length){
@@ -289,12 +290,20 @@ public class BasicOpMode_Linear extends LinearOpMode {
             robot.ziptieIntake.setPower(0.5);
         }
     }
-
-//    private HashMap <Servo, Double> initServoMap(Servo[] servos){
-//        HashMap<Servo,Double> out = new HashMap<>();
-//        for(Servo s : servos){
-//            out.put(s, s.getPosition());
-//        }
-//        return out;
-//    }
+    private void driveByAcceleration (double inputData, double maxPower, double velocityForward, double velocitySideways){
+        // Set up variables
+        maxPower = Math.abs(maxPower);
+        // forward acceleration is used to stop drastic changes in motion
+        double power = Range.clip(inputData, -maxPower, maxPower);
+        double accel = Range.clip(velocityForward, -1 + maxPower, 1 - maxPower);
+        // sideways acceleration is used to prevent the robot from drifting sideways
+        double leftPower = (accel + power) - velocitySideways;
+        double rightPower = (accel + power) + velocitySideways;
+        // set motor power
+        robot.leftDrive.setPower(leftPower);
+        robot.rightDrive.setPower(rightPower);
+    }
+    private void turnByAcceleration (double power, int turn, double angularV){
+        // use z axle as the axis of rotation (plus some shift)
+    }
 }

@@ -63,10 +63,7 @@ public class BasicOpMode_Iterative extends OpMode
     private Bot robot = new Bot();
     private Toggle tgg = new Toggle();
     private static double speedLimit = 0.8;
-    private boolean plusIntakePower = false;
-    private boolean lastPressed = false;
-    private boolean lastPressed2 = false;
-    double togglie = 0;
+
 
     // servo set up
     HashMap<Servo, Double> servoPosMap = new HashMap<>();
@@ -107,25 +104,8 @@ public class BasicOpMode_Iterative extends OpMode
     @Override
     public void loop() {
         motorsTests(gamepad1);
-//        servosTests(gamepad2);
-        double servoS = robot.shooterTrigger.getPosition();
+        servosTests(gamepad2);
 
-        if(gamepad1.dpad_left && !lastPressed){
-//            robot.shooterTrigger.setPosition(servoS + 0.01); // 0.8
-            robot.shooterTrigger.setPosition(0.86); // 0.8
-            lastPressed = true;
-        }else if(!gamepad1.dpad_left && lastPressed){
-            lastPressed = false;
-        }
-
-        if(gamepad1.dpad_right && !lastPressed){
-//            robot.shooterTrigger.setPosition(servoS - 0.01); // 0.32
-            robot.shooterTrigger.setPosition(0.32); // 0.32
-            lastPressed = true;
-        }else if(!gamepad1.dpad_right && lastPressed){
-            lastPressed = false;
-        }
-        telemetry.addData("",servoS);
         telemetry.update();
     }
 
@@ -146,11 +126,9 @@ public class BasicOpMode_Iterative extends OpMode
         //shooter motors
         if (tgg.toggle(gp.dpad_up)) {
             speedLimit += (speedLimit < 1.0) ? 0.1 : 0; // increments by 0.1 if limit is under 1.0
-            togglie ++;
         }
         if (tgg.toggle(gp.dpad_down)) {
             speedLimit -= (speedLimit > 0.1) ? 0.1 : 0; // increments by -0.1 if limit is above 0.1
-            togglie --;
         }
 
         // setting speed to shooter motor
@@ -183,9 +161,8 @@ public class BasicOpMode_Iterative extends OpMode
         // telemetry data
         telemetry.addData("Drive Speed", "left(%.2f) right(%.2f)", leftPower, rightPower);
         telemetry.addData("Shooter Speed", "limit(%.2f) actual(%.2f)", speedLimit, robot.shooter.getPower());
-        telemetry.addLine((plusIntakePower)?"Intake power is positive":"Intake power is negative");
+        telemetry.addData("Intake Motor Speed", "belt: %.2f ziptie intake: %.2f", robot.beltIntake.getPower(), robot.ziptieIntake.getPower());
         telemetry.addData("Lift Motor:", "power(%.2f)", robot.lift.getPower());
-        telemetry.addData("%d", togglie);
     }
     private void servosTests(Gamepad gp){
         // Sets index for servo array

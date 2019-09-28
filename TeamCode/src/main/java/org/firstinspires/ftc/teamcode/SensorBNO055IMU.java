@@ -122,6 +122,9 @@ public class SensorBNO055IMU extends LinearOpMode
                 // three times the necessary expense.
                 angles   = imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES);
                 gravity  = imu.getGravity();
+                Velocity velocity  = imu.getVelocity();
+
+
                 }
             });
 
