@@ -253,24 +253,46 @@ public class BasicOpMode_Linear extends LinearOpMode {
     }
     private void driveByAcceleration (double inputData, double maxPower, double velocityForward, double velocitySideways){
     // Set up variables
-        double power, leftPower, rightPower, forwardV, threshold;
+        double power, leftPower, rightPower, forwardV, sidewaysV, threshold, powerPercentWeight, sidewaysPercentWeight;
         maxPower = Math.abs(maxPower);
-        threshold = maxPower * 1.5;     // todo test if threshold value is good (since it is random)
+        threshold = maxPower * 1.5;     // todo TEST if threshold value is good (since it is random)
+        powerPercentWeight = 0.95;      // todo TEST if weight strong enough
+        sidewaysPercentWeight = 1 - powerPercentWeight;
+    // Set range for values
         power = Range.clip(inputData, -maxPower, maxPower);
         forwardV = Range.clip(velocityForward, -maxPower, maxPower);
-    // Set power values
-        leftPower = power + velocitySideways; // sideways velocity prevents drifting
-        rightPower = power - velocitySideways; // sideways velocity prevents drifting
+        sidewaysV = Range.clip(velocitySideways, -maxPower*sidewaysPercentWeight, maxPower*sidewaysPercentWeight);
     // limit power if predicted drastic changes in magnitude
-        if (Math.abs(power) + Math.abs(forwardV) > threshold){
-            leftPower *= 0.3;
-            rightPower *= 0.3;
+        if (Math.abs(forwardV - power) > threshold){
+            power *= 0.3;
+        }else{
+            power *= powerPercentWeight;
         }
+        leftPower = power - sidewaysV;  // sideways velocity prevents drifting
+        rightPower = power + sidewaysV; // sideways velocity prevents drifting
     // Set motor speeds
         robot.leftDrive.setPower(leftPower);
         robot.rightDrive.setPower(rightPower);
     }
-    private void turnByAcceleration (double power, int turn, double angularV){
-        // use z axle as the axis of rotation (plus some shift)
+// uses x and y velocity to adjust turning in order to center it
+    private void turnByAcceleration (double inputData, double maxPower, int turn, double xAxisV, double yAxisV){
+    // Define key variables
+        double power, errorX, errorY, leftPower, rightPower, powerSignificance, errorSignificance, error, errorMin, errorMax;
+        maxPower = Math.abs(maxPower);
+        powerSignificance = 0.9;    // % weight on the power value
+        errorSignificance = (1 - powerSignificance);  // % weight on error value
+        errorMin = (-maxPower * errorSignificance)/2;   // halves weight so that zero is center
+        errorMax = (maxPower * errorSignificance)/2;    // halves weight so that zero is center
+    // Set value ranges
+        power = Range.clip(inputData, 0, maxPower * powerSignificance);
+        errorX = Range.clip(xAxisV, errorMin, errorMax);
+        errorY = Range.clip(yAxisV, errorMin, errorMax);
+    // main calculation that centers robot while turning
+        error = errorX + errorY*turn;
+        leftPower = power - error;  // as if error > 0 then leftPowerOutput > rightPowerOutput
+        rightPower = power + error; // as if error < 0 then leftPowerOutput < rightPowerOutput
+    // set drive power
+        robot.leftDrive.setPower(-leftPower * turn);    // turns left on default
+        robot.rightDrive.setPower(rightPower * turn);
     }
 }

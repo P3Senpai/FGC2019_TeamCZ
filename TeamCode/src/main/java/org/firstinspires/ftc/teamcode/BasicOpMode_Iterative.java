@@ -34,11 +34,7 @@ import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.Gamepad;
-import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
-import com.qualcomm.robotcore.util.Range;
-
-import java.util.HashMap;
 
 /**
  * This file contains an example of an iterative (Non-Linear) "OpMode".
@@ -54,21 +50,15 @@ import java.util.HashMap;
  * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list
  */
 
-@TeleOp(name="Basic: Iterative OpMode", group="Iterative Opmode")
+@TeleOp(name="Motor Test Class", group="Iterative Opmode")
 @Disabled
 public class BasicOpMode_Iterative extends OpMode
 {
     // Declare OpMode members.
     private ElapsedTime runtime = new ElapsedTime();
-    private Bot robot = new Bot();
+    private DcMotor motor;
     private Toggle tgg = new Toggle();
-    private static double speedLimit = 0.8;
-
-
-    // servo set up
-    HashMap<Servo, Double> servoPosMap = new HashMap<>();
-    Servo[] allServos = new Servo[] {robot.wingtipLeft, robot.wingtipRight, robot.pushBall, robot.tightenSide, robot.liftBrake, robot.shooterTrigger};
-    int rotation = 0;
+    private static double power = 0.5;
 
     /*
      * Code to run ONCE when the driver hits INIT
@@ -77,7 +67,7 @@ public class BasicOpMode_Iterative extends OpMode
     public void init() {
         telemetry.addData("Status", "Initialized");
 
-        robot.init(hardwareMap);
+        hardwareMap.get(DcMotor.class, "motor");
 
         // Tell the driver that initialization is complete.
         telemetry.addData("Status", "Initialized");
@@ -103,10 +93,24 @@ public class BasicOpMode_Iterative extends OpMode
      */
     @Override
     public void loop() {
-        motorsTests(gamepad1);
-        servosTests(gamepad2);
 
+        //changing speed of the motor
+        if (tgg.toggle(gamepad1.dpad_up)) {
+            power += (power < 1.0)? 0.1 : 0; // increments by 0.1 if limit is under 1.0
+        }
+        if (tgg.toggle(gamepad1.dpad_down)) {
+            power -= (power > -1.0)? 0.1 : 0; // increments by -0.1 if limit is above -1.0
+        }
+
+        // setting speed of motor
+        if (gamepad1.x)
+            motor.setPower(power);
+        else
+            motor.setPower(0);
+
+        telemetry.addData("Motor power: %.2f", motor.getPower());
         telemetry.update();
+        tgg.reset();
     }
 
     /*
@@ -114,89 +118,5 @@ public class BasicOpMode_Iterative extends OpMode
      */
     @Override
     public void stop() {
-    }
-    private void motorsTests(Gamepad gp) {
-
-        // drive motors
-        double leftPower = Range.clip(-gp.left_stick_y, -1.0, 1.0);
-        double rightPower = Range.clip(-gp.right_stick_y, -1.0, 1.0);
-        robot.leftDrive.setPower(leftPower);
-        robot.rightDrive.setPower(rightPower);
-
-        //shooter motors
-        if (tgg.toggle(gp.dpad_up)) {
-            speedLimit += (speedLimit < 1.0) ? 0.1 : 0; // increments by 0.1 if limit is under 1.0
-        }
-        if (tgg.toggle(gp.dpad_down)) {
-            speedLimit -= (speedLimit > 0.1) ? 0.1 : 0; // increments by -0.1 if limit is above 0.1
-        }
-
-        // setting speed to shooter motor
-        if (gp.x)
-            robot.shooter.setPower(-speedLimit+0.1);
-        else
-            robot.shooter.setPower(0);
-        // intake motors
-
-        if (gp.right_bumper){
-            robot.ziptieIntake.setPower(0.5);
-            robot.beltIntake.setPower(0.5);
-        }
-        if (gp.left_bumper){
-            robot.ziptieIntake.setPower(-0.5);
-            robot.beltIntake.setPower(-0.5);
-        }else{
-            robot.ziptieIntake.setPower(0);
-            robot.beltIntake.setPower(0);
-        }
-
-        // lift motor
-        if(gp.a)
-            robot.lift.setPower(-0.7);          // going down
-        else if(gp.y && robot.maxHeight.getState())
-            robot.lift.setPower(0.7);           // going up
-        else
-            robot.lift.setPower(0);
-
-        // telemetry data
-        telemetry.addData("Drive Speed", "left(%.2f) right(%.2f)", leftPower, rightPower);
-        telemetry.addData("Shooter Speed", "limit(%.2f) actual(%.2f)", speedLimit, robot.shooter.getPower());
-        telemetry.addData("Intake Motor Speed", "belt: %.2f ziptie intake: %.2f", robot.beltIntake.getPower(), robot.ziptieIntake.getPower());
-        telemetry.addData("Lift Motor:", "power(%.2f)", robot.lift.getPower());
-    }
-    private void servosTests(Gamepad gp){
-        // Sets index for servo array
-        if (tgg.toggle(gp.dpad_up) && rotation < allServos.length){
-            rotation ++;
-        }else if(rotation >= allServos.length){
-            rotation = 0;
-        }
-        if(tgg.toggle(gp.dpad_down) && rotation > -1){
-            rotation --;
-        }else if(rotation <= -1){
-            rotation = allServos.length - 1;
-        }
-        //Gets servo and its position
-        Servo servo = allServos[rotation];
-        double servoPos = servoPosMap.get(allServos[rotation]);
-        // Changes servo position
-        if (tgg.toggle(gp.y))
-            servoPos += 0.01;
-        else if(tgg.toggle(gp.a))
-            servoPos -= 0.01;
-        servo.setPosition(servoPos);
-        // Saves new position
-        servoPosMap.put(servo, servoPos);
-
-        // telemetry data
-        telemetry.addData("Servo: %s \nPosition: %.2f", servo.getDeviceName(), servoPos);
-        telemetry.update();
-    }
-    private HashMap <Servo, Double> intiServoMap(Servo[] servos){
-        HashMap<Servo,Double> out = new HashMap<>();
-        for(Servo s : servos){
-            out.put(s, s.getPosition());
-        }
-        return out;
     }
 }
