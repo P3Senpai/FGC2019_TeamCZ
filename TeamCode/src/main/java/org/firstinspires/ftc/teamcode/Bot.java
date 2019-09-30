@@ -30,8 +30,8 @@ public class Bot {
 
     // Constants
     protected double  speedLimit   = 0.8;
-    protected final double DISTANCE_TO_TOP_CM = -1; // todo set distance
-    protected final double  DISTANCE_TO_GROUND_CM = -1; //todo set distance
+    protected final double DISTANCE_TO_TOP_CM = 2.5; // todo set distance
+    protected final double  DISTANCE_TO_GROUND_CM = 33; //todo set distance
 
     /* Local Op Mode variables */
     // something
@@ -77,17 +77,17 @@ public class Bot {
         wingtipRight = hwmap.get(Servo.class, "wing_tip_right");    // todo reset servo for zero position
         liftBrake   = hwmap.get(Servo.class, "lift_brake");         // todo find and set starting pos
         tightenSide = hwmap.get(Servo.class, "tighten_side");       // todo find and set starting pos
-        pushBall    = hwmap.get(Servo.class, "push_ball");          // start: 0.16 fin: 0.345
+        pushBall    = hwmap.get(Servo.class, "push_ball");          // start: 0.09 fin: 0.345
         shooterTrigger    = hwmap.get(Servo.class, "shooter");      // start: 0.87 fin: 0.43
 
-        pushBall.setPosition(0.16);
+        pushBall.setPosition(0.09);
         shooterTrigger.setPosition(0.87);
 
     /* Initialization of Sensors*/
         maxHeight = hwmap.get(DigitalChannel.class, "max_height ");
         maxHeight.setMode(DigitalChannel.Mode.INPUT);
-        minHeight = hwmap.get(DigitalChannel.class, "min_height");
-        minHeight.setMode(DigitalChannel.Mode.INPUT); //todo mount the min height to prevent chain from loosing
+//        minHeight = hwmap.get(DigitalChannel.class, "min_height");
+//        minHeight.setMode(DigitalChannel.Mode.INPUT); //todo mount the min height to prevent chain from loosing
         distanceSensor = hwmap.get(Rev2mDistanceSensor.class, "distance");
 
     }

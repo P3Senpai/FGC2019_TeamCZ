@@ -1,534 +1,534 @@
 [
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout-v21_notification_template_custom_big.xml.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/21f0193f98cf52ec7c0ca40b0ab0192c/res/layout-v21/notification_template_custom_big.xml"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_lynx_module_configure_address.xml.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/10463f59f71f69225b130aa6ec09bcf6/res/layout/lynx_module_configure_address.xml"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/raw_warningmessage.wav.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/167146c9dc57118407637a1fd360b2e1/res/raw/warningmessage.wav"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/raw_texture_vertex_shader.glsl.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/e88d295b38b27894d0e41f3fe704cf57/res/raw/texture_vertex_shader.glsl"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_activity_ftc_configuration.xml.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/167146c9dc57118407637a1fd360b2e1/res/layout/activity_ftc_configuration.xml"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/drawable_icon_menu.png.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/c102ea83599b0f40387656cef354bbde/res/drawable/icon_menu.png"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_matrix_devices.xml.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/167146c9dc57118407637a1fd360b2e1/res/layout/matrix_devices.xml"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/drawable_notification_tile_bg.xml.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/b86a2ec3b460860a6d6314478a35742c/res/drawable/notification_tile_bg.xml"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/xml_squarebot.xml.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/167146c9dc57118407637a1fd360b2e1/res/xml/squarebot.xml"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/drawable-mdpi-v4_notification_bg_normal.9.png.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/b86a2ec3b460860a6d6314478a35742c/res/drawable-mdpi-v4/notification_bg_normal.9.png"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_activity_ftc_lynx_address_update.xml.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/167146c9dc57118407637a1fd360b2e1/res/layout/activity_ftc_lynx_address_update.xml"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/drawable-hdpi-v4_button_shape.xml.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/10463f59f71f69225b130aa6ec09bcf6/res/drawable-hdpi-v4/button_shape.xml"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/drawable-hdpi-v4_notification_bg_low_pressed.9.png.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/21f0193f98cf52ec7c0ca40b0ab0192c/res/drawable-hdpi-v4/notification_bg_low_pressed.9.png"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_digital_device_lynx.xml.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/10463f59f71f69225b130aa6ec09bcf6/res/layout/digital_device_lynx.xml"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/xml_device_filter.xml.flat",
-        "source": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/FtcRobotController/build/intermediates/packaged_res/debug/xml/device_filter.xml"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/drawable-hdpi-v4_ic_launcher.png.flat",
+        "source": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/FtcRobotController/build/intermediates/packaged_res/debug/drawable-hdpi-v4/ic_launcher.png"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_notification_template_part_chronometer.xml.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/21f0193f98cf52ec7c0ca40b0ab0192c/res/layout/notification_template_part_chronometer.xml"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/xml_pushbot.xml.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/10463f59f71f69225b130aa6ec09bcf6/res/xml/pushbot.xml"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_activity_view_logs.xml.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/167146c9dc57118407637a1fd360b2e1/res/layout/activity_view_logs.xml"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/xml_advanced_rc_settings.xml.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/10463f59f71f69225b130aa6ec09bcf6/res/xml/advanced_rc_settings.xml"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/drawable_feedback_shape_orange.xml.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/695e6144c41a42b85c90bab7518d80b5/res/drawable/feedback_shape_orange.xml"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/drawable-mdpi-v4_notification_bg_normal_pressed.9.png.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/b86a2ec3b460860a6d6314478a35742c/res/drawable-mdpi-v4/notification_bg_normal_pressed.9.png"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/drawable-xhdpi-v4_notification_bg_normal.9.png.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/21f0193f98cf52ec7c0ca40b0ab0192c/res/drawable-xhdpi-v4/notification_bg_normal.9.png"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/raw_simple_vertex_shader.glsl.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/e88d295b38b27894d0e41f3fe704cf57/res/raw/simple_vertex_shader.glsl"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_legacy.xml.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/167146c9dc57118407637a1fd360b2e1/res/layout/legacy.xml"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/drawable-hdpi-v4_notify_panel_notification_icon_bg.png.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/b86a2ec3b460860a6d6314478a35742c/res/drawable-hdpi-v4/notify_panel_notification_icon_bg.png"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/raw_chimedisconnect.wav.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/167146c9dc57118407637a1fd360b2e1/res/raw/chimedisconnect.wav"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/xml_maxmodules.xml.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/10463f59f71f69225b130aa6ec09bcf6/res/xml/maxmodules.xml"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/menu_main_menu.xml.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/6bac36c93c2fca140fe3e5ecd5099878/res/menu/main_menu.xml"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/drawable-xhdpi-v4_notification_bg_normal.9.png.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/b86a2ec3b460860a6d6314478a35742c/res/drawable-xhdpi-v4/notification_bg_normal.9.png"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_analog_outputs.xml.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/167146c9dc57118407637a1fd360b2e1/res/layout/analog_outputs.xml"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/drawable-v21_notification_action_background.xml.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/b86a2ec3b460860a6d6314478a35742c/res/drawable-v21/notification_action_background.xml"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/drawable-hdpi-v4_ic_launcher.png.flat",
-        "source": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/FtcRobotController/build/intermediates/packaged_res/debug/drawable-hdpi-v4/ic_launcher.png"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_activity_program_and_manage.xml.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/10463f59f71f69225b130aa6ec09bcf6/res/layout/activity_program_and_manage.xml"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/xml_k9usbbot.xml.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/167146c9dc57118407637a1fd360b2e1/res/xml/k9usbbot.xml"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_banner_parent.xml.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/10463f59f71f69225b130aa6ec09bcf6/res/layout/banner_parent.xml"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/raw_texture_fragment_shader.glsl.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/695e6144c41a42b85c90bab7518d80b5/res/raw/texture_fragment_shader.glsl"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_notification_template_icon_group.xml.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/b86a2ec3b460860a6d6314478a35742c/res/layout/notification_template_icon_group.xml"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/raw_color_fragment_shader.glsl.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/695e6144c41a42b85c90bab7518d80b5/res/raw/color_fragment_shader.glsl"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/xml_ftc_about_activity_rc.xml.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/10463f59f71f69225b130aa6ec09bcf6/res/xml/ftc_about_activity_rc.xml"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_pwms.xml.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/167146c9dc57118407637a1fd360b2e1/res/layout/pwms.xml"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_i2cs.xml.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/10463f59f71f69225b130aa6ec09bcf6/res/layout/i2cs.xml"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_banner_parent.xml.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/167146c9dc57118407637a1fd360b2e1/res/layout/banner_parent.xml"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/raw_texture_fragment_shader.glsl.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/e88d295b38b27894d0e41f3fe704cf57/res/raw/texture_fragment_shader.glsl"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/xml_rev_scoot.xml.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/167146c9dc57118407637a1fd360b2e1/res/xml/rev_scoot.xml"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/menu_menu_server.xml.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/70e03049cca4854dc95ea2d3568ae574/res/menu/menu_server.xml"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/drawable-mdpi-v4_ic_launcher.png.flat",
-        "source": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/FtcRobotController/build/intermediates/packaged_res/debug/drawable-mdpi-v4/ic_launcher.png"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_color_list_preference_line_item.xml.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/e88d295b38b27894d0e41f3fe704cf57/res/layout/color_list_preference_line_item.xml"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_activity_inspection.xml.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/6bac36c93c2fca140fe3e5ecd5099878/res/layout/activity_inspection.xml"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/raw_gold.wav.flat",
+        "source": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/FtcRobotController/build/intermediates/packaged_res/debug/raw/gold.wav"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/drawable-xhdpi-v4_icon_robotcontroller.png.flat",
-        "source": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/FtcRobotController/build/intermediates/packaged_res/debug/drawable-xhdpi-v4/icon_robotcontroller.png"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_activity_inspection.xml.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/c102ea83599b0f40387656cef354bbde/res/layout/activity_inspection.xml"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/drawable-mdpi-v4_notification_bg_low_normal.9.png.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/21f0193f98cf52ec7c0ca40b0ab0192c/res/drawable-mdpi-v4/notification_bg_low_normal.9.png"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_activity_ftc_wifi_remembered_groups.xml.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/10463f59f71f69225b130aa6ec09bcf6/res/layout/activity_ftc_wifi_remembered_groups.xml"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_activity_swap_usb_devices.xml.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/167146c9dc57118407637a1fd360b2e1/res/layout/activity_swap_usb_devices.xml"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_activity_load.xml.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/10463f59f71f69225b130aa6ec09bcf6/res/layout/activity_load.xml"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/drawable_black_border.xml.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/fa073c13dc577b0cf83c470905180813/res/drawable/black_border.xml"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/drawable-mdpi-v4_ic_launcher.png.flat",
+        "source": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/FtcRobotController/build/intermediates/packaged_res/debug/drawable-mdpi-v4/ic_launcher.png"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_notification_template_part_time.xml.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/21f0193f98cf52ec7c0ca40b0ab0192c/res/layout/notification_template_part_time.xml"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/drawable-hdpi-v4_notification_bg_low_pressed.9.png.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/b86a2ec3b460860a6d6314478a35742c/res/drawable-hdpi-v4/notification_bg_low_pressed.9.png"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/raw_gold.wav.flat",
-        "source": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/FtcRobotController/build/intermediates/packaged_res/debug/raw/gold.wav"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_motor_list.xml.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/10463f59f71f69225b130aa6ec09bcf6/res/layout/motor_list.xml"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/drawable-mdpi-v4_notification_bg_normal.9.png.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/21f0193f98cf52ec7c0ca40b0ab0192c/res/drawable-mdpi-v4/notification_bg_normal.9.png"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_notification_action_tombstone.xml.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/b86a2ec3b460860a6d6314478a35742c/res/layout/notification_action_tombstone.xml"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_motor_list.xml.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/167146c9dc57118407637a1fd360b2e1/res/layout/motor_list.xml"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/xml_squarebot.xml.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/10463f59f71f69225b130aa6ec09bcf6/res/xml/squarebot.xml"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/drawable_icon_menu.png.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/6bac36c93c2fca140fe3e5ecd5099878/res/drawable/icon_menu.png"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout-v21_notification_template_icon_group.xml.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/b86a2ec3b460860a6d6314478a35742c/res/layout-v21/notification_template_icon_group.xml"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/drawable_notification_icon_background.xml.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/21f0193f98cf52ec7c0ca40b0ab0192c/res/drawable/notification_icon_background.xml"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout-v21_notification_template_custom_big.xml.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/b86a2ec3b460860a6d6314478a35742c/res/layout-v21/notification_template_custom_big.xml"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/xml_pushbot.xml.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/167146c9dc57118407637a1fd360b2e1/res/xml/pushbot.xml"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_activity_ftc_controller.xml.flat",
+        "source": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/FtcRobotController/build/intermediates/packaged_res/debug/layout/activity_ftc_controller.xml"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/raw_cube_mesh_fragment_shader.glsl.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/695e6144c41a42b85c90bab7518d80b5/res/raw/cube_mesh_fragment_shader.glsl"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/drawable-xhdpi-v4_icon_robotcontroller.png.flat",
+        "source": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/FtcRobotController/build/intermediates/packaged_res/debug/drawable-xhdpi-v4/icon_robotcontroller.png"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/raw_silver.wav.flat",
-        "source": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/FtcRobotController/build/intermediates/packaged_res/debug/raw/silver.wav"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_activity_ftc_configuration.xml.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/10463f59f71f69225b130aa6ec09bcf6/res/layout/activity_ftc_configuration.xml"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/drawable-xhdpi-v4_icon_menu.png.flat",
-        "source": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/FtcRobotController/build/intermediates/packaged_res/debug/drawable-xhdpi-v4/icon_menu.png"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_servo.xml.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/10463f59f71f69225b130aa6ec09bcf6/res/layout/servo.xml"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_analog_output_device.xml.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/167146c9dc57118407637a1fd360b2e1/res/layout/analog_output_device.xml"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/drawable_black_border.xml.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/70e03049cca4854dc95ea2d3568ae574/res/drawable/black_border.xml"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/drawable_skystone_background.webp.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/695e6144c41a42b85c90bab7518d80b5/res/drawable/skystone_background.webp"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/drawable-mdpi-v4_notification_bg_low_normal.9.png.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/b86a2ec3b460860a6d6314478a35742c/res/drawable-mdpi-v4/notification_bg_low_normal.9.png"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/drawable-mdpi-v4_notify_panel_notification_icon_bg.png.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/21f0193f98cf52ec7c0ca40b0ab0192c/res/drawable-mdpi-v4/notify_panel_notification_icon_bg.png"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/raw_silver.wav.flat",
+        "source": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/FtcRobotController/build/intermediates/packaged_res/debug/raw/silver.wav"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_feedback.xml.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/695e6144c41a42b85c90bab7518d80b5/res/layout/feedback.xml"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_servo_list.xml.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/10463f59f71f69225b130aa6ec09bcf6/res/layout/servo_list.xml"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_port_attached_row.xml.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/167146c9dc57118407637a1fd360b2e1/res/layout/port_attached_row.xml"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/raw_cube_mesh_fragment_shader.glsl.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/e88d295b38b27894d0e41f3fe704cf57/res/raw/cube_mesh_fragment_shader.glsl"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_activity_generic_settings.xml.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/167146c9dc57118407637a1fd360b2e1/res/layout/activity_generic_settings.xml"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_item_list_parent.xml.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/10463f59f71f69225b130aa6ec09bcf6/res/layout/item_list_parent.xml"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_lynx_usb_device.xml.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/167146c9dc57118407637a1fd360b2e1/res/layout/lynx_usb_device.xml"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_motor_controller_banner.xml.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/10463f59f71f69225b130aa6ec09bcf6/res/layout/motor_controller_banner.xml"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/drawable-xhdpi-v4_notify_panel_notification_icon_bg.png.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/21f0193f98cf52ec7c0ca40b0ab0192c/res/drawable-xhdpi-v4/notify_panel_notification_icon_bg.png"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_fragment_wifi_mute.xml.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/e88d295b38b27894d0e41f3fe704cf57/res/layout/fragment_wifi_mute.xml"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/xml_app_settings.xml.flat",
-        "source": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/FtcRobotController/build/intermediates/packaged_res/debug/xml/app_settings.xml"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/raw_format_convert.bc.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/e88d295b38b27894d0e41f3fe704cf57/res/raw/format_convert.bc"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_motor_controller_banner.xml.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/167146c9dc57118407637a1fd360b2e1/res/layout/motor_controller_banner.xml"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/xml_k9legacybot.xml.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/10463f59f71f69225b130aa6ec09bcf6/res/xml/k9legacybot.xml"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_template_info.xml.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/167146c9dc57118407637a1fd360b2e1/res/layout/template_info.xml"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/drawable-mdpi-v4_notify_panel_notification_icon_bg.png.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/b86a2ec3b460860a6d6314478a35742c/res/drawable-mdpi-v4/notify_panel_notification_icon_bg.png"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/xml_advanced_rc_settings.xml.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/167146c9dc57118407637a1fd360b2e1/res/xml/advanced_rc_settings.xml"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout-v21_notification_action_tombstone.xml.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/b86a2ec3b460860a6d6314478a35742c/res/layout-v21/notification_action_tombstone.xml"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/menu_menu_server.xml.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/fa073c13dc577b0cf83c470905180813/res/menu/menu_server.xml"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_gray_line.xml.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/10463f59f71f69225b130aa6ec09bcf6/res/layout/gray_line.xml"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/drawable-mdpi-v4_notification_bg_low_pressed.9.png.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/21f0193f98cf52ec7c0ca40b0ab0192c/res/drawable-mdpi-v4/notification_bg_low_pressed.9.png"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_activity_swap_usb_devices.xml.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/10463f59f71f69225b130aa6ec09bcf6/res/layout/activity_swap_usb_devices.xml"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_digital_device.xml.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/167146c9dc57118407637a1fd360b2e1/res/layout/digital_device.xml"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_pwms.xml.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/10463f59f71f69225b130aa6ec09bcf6/res/layout/pwms.xml"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/xml_ftc_about_activity_rc.xml.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/167146c9dc57118407637a1fd360b2e1/res/xml/ftc_about_activity_rc.xml"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/drawable_feedback_shape_orange.xml.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/e88d295b38b27894d0e41f3fe704cf57/res/drawable/feedback_shape_orange.xml"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/drawable_notification_bg.xml.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/21f0193f98cf52ec7c0ca40b0ab0192c/res/drawable/notification_bg.xml"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout-v21_notification_action.xml.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/b86a2ec3b460860a6d6314478a35742c/res/layout-v21/notification_action.xml"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_device_interface_module.xml.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/167146c9dc57118407637a1fd360b2e1/res/layout/device_interface_module.xml"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/drawable_notification_bg_low.xml.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/b86a2ec3b460860a6d6314478a35742c/res/drawable/notification_bg_low.xml"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/menu_ftc_robot_controller.xml.flat",
-        "source": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/FtcRobotController/build/intermediates/packaged_res/debug/menu/ftc_robot_controller.xml"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_analog_outputs.xml.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/10463f59f71f69225b130aa6ec09bcf6/res/layout/analog_outputs.xml"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_digital_devices.xml.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/167146c9dc57118407637a1fd360b2e1/res/layout/digital_devices.xml"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_lynx_module.xml.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/10463f59f71f69225b130aa6ec09bcf6/res/layout/lynx_module.xml"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_simple_device.xml.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/167146c9dc57118407637a1fd360b2e1/res/layout/simple_device.xml"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/xml_ftc_about_activity.xml.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/10463f59f71f69225b130aa6ec09bcf6/res/xml/ftc_about_activity.xml"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/drawable-xhdpi-v4_notification_bg_low_normal.9.png.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/21f0193f98cf52ec7c0ca40b0ab0192c/res/drawable-xhdpi-v4/notification_bg_low_normal.9.png"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_lynx_usb_device.xml.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/10463f59f71f69225b130aa6ec09bcf6/res/layout/lynx_usb_device.xml"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_matrices.xml.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/167146c9dc57118407637a1fd360b2e1/res/layout/matrices.xml"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_notification_action.xml.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/b86a2ec3b460860a6d6314478a35742c/res/layout/notification_action.xml"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/drawable_notification_tile_bg.xml.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/21f0193f98cf52ec7c0ca40b0ab0192c/res/drawable/notification_tile_bg.xml"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_button_list.xml.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/10463f59f71f69225b130aa6ec09bcf6/res/layout/button_list.xml"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/xml_ftc_about_activity.xml.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/167146c9dc57118407637a1fd360b2e1/res/xml/ftc_about_activity.xml"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_activity_config_wifi_direct.xml.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/10463f59f71f69225b130aa6ec09bcf6/res/layout/activity_config_wifi_direct.xml"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_analog_inputs.xml.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/167146c9dc57118407637a1fd360b2e1/res/layout/analog_inputs.xml"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_lynx_module_configure_address_spin_item.xml.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/10463f59f71f69225b130aa6ec09bcf6/res/layout/lynx_module_configure_address_spin_item.xml"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/drawable-xhdpi-v4_notification_bg_normal_pressed.9.png.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/21f0193f98cf52ec7c0ca40b0ab0192c/res/drawable-xhdpi-v4/notification_bg_normal_pressed.9.png"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/drawable-xhdpi-v4_notification_bg_normal_pressed.9.png.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/b86a2ec3b460860a6d6314478a35742c/res/drawable-xhdpi-v4/notification_bg_normal_pressed.9.png"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_activity_program_and_manage.xml.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/167146c9dc57118407637a1fd360b2e1/res/layout/activity_program_and_manage.xml"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/xml_device_filter.xml.flat",
+        "source": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/FtcRobotController/build/intermediates/packaged_res/debug/xml/device_filter.xml"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_red_line.xml.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/167146c9dc57118407637a1fd360b2e1/res/layout/red_line.xml"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_analog_output_device.xml.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/10463f59f71f69225b130aa6ec09bcf6/res/layout/analog_output_device.xml"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout-v21_notification_template_icon_group.xml.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/21f0193f98cf52ec7c0ca40b0ab0192c/res/layout-v21/notification_template_icon_group.xml"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_ic_launcher.png.flat",
+        "source": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/FtcRobotController/build/intermediates/packaged_res/debug/drawable-xxhdpi-v4/ic_launcher.png"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/raw_format_convert.bc.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/695e6144c41a42b85c90bab7518d80b5/res/raw/format_convert.bc"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_device_interface_module.xml.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/10463f59f71f69225b130aa6ec09bcf6/res/layout/device_interface_module.xml"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_header.xml.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/167146c9dc57118407637a1fd360b2e1/res/layout/header.xml"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/xml_pushbotsens.xml.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/10463f59f71f69225b130aa6ec09bcf6/res/xml/pushbotsens.xml"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_activity_blocks.xml.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/fa073c13dc577b0cf83c470905180813/res/layout/activity_blocks.xml"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_i2c_device.xml.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/10463f59f71f69225b130aa6ec09bcf6/res/layout/i2c_device.xml"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/xml_k9legacybot.xml.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/167146c9dc57118407637a1fd360b2e1/res/xml/k9legacybot.xml"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_activity_configure_from_template.xml.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/10463f59f71f69225b130aa6ec09bcf6/res/layout/activity_configure_from_template.xml"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_i2cs.xml.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/167146c9dc57118407637a1fd360b2e1/res/layout/i2cs.xml"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_activity_blocks.xml.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/70e03049cca4854dc95ea2d3568ae574/res/layout/activity_blocks.xml"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/drawable-hdpi-v4_button_shape.xml.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/167146c9dc57118407637a1fd360b2e1/res/drawable-hdpi-v4/button_shape.xml"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/raw_readme.md.flat",
+        "source": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/src/main/res/raw/readme.md"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_file_info.xml.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/167146c9dc57118407637a1fd360b2e1/res/layout/file_info.xml"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_analog_input_device.xml.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/10463f59f71f69225b130aa6ec09bcf6/res/layout/analog_input_device.xml"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/raw_readme.md.flat",
-        "source": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/src/main/res/raw/readme.md"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_digital_device.xml.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/10463f59f71f69225b130aa6ec09bcf6/res/layout/digital_device.xml"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/raw_nxtstartupsound.wav.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/167146c9dc57118407637a1fd360b2e1/res/raw/nxtstartupsound.wav"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/drawable-hdpi-v4_notification_bg_normal.9.png.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/b86a2ec3b460860a6d6314478a35742c/res/drawable-hdpi-v4/notification_bg_normal.9.png"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_activity_ftc_controller.xml.flat",
-        "source": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/FtcRobotController/build/intermediates/packaged_res/debug/layout/activity_ftc_controller.xml"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_activity_ftc_lynx_fw_update.xml.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/10463f59f71f69225b130aa6ec09bcf6/res/layout/activity_ftc_lynx_fw_update.xml"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/raw_errormessage.wav.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/167146c9dc57118407637a1fd360b2e1/res/raw/errormessage.wav"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/drawable_skystone_background.webp.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/e88d295b38b27894d0e41f3fe704cf57/res/drawable/skystone_background.webp"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_servo_controller_banner.xml.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/167146c9dc57118407637a1fd360b2e1/res/layout/servo_controller_banner.xml"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/raw_cube_mesh_vertex_shader.glsl.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/e88d295b38b27894d0e41f3fe704cf57/res/raw/cube_mesh_vertex_shader.glsl"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_servo.xml.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/167146c9dc57118407637a1fd360b2e1/res/layout/servo.xml"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout-v16_notification_template_custom_big.xml.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/b86a2ec3b460860a6d6314478a35742c/res/layout-v16/notification_template_custom_big.xml"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/raw_chimeconnect.wav.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/167146c9dc57118407637a1fd360b2e1/res/raw/chimeconnect.wav"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/drawable-xhdpi-v4_notify_panel_notification_icon_bg.png.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/b86a2ec3b460860a6d6314478a35742c/res/drawable-xhdpi-v4/notify_panel_notification_icon_bg.png"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/xml_teamwebcamcalibrations.xml.flat",
-        "source": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/src/main/res/xml/teamwebcamcalibrations.xml"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_analog_inputs.xml.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/10463f59f71f69225b130aa6ec09bcf6/res/layout/analog_inputs.xml"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_activity_config_wifi_direct.xml.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/167146c9dc57118407637a1fd360b2e1/res/layout/activity_config_wifi_direct.xml"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/drawable_notification_icon_background.xml.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/b86a2ec3b460860a6d6314478a35742c/res/drawable/notification_icon_background.xml"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/drawable-hdpi-v4_notification_bg_low_normal.9.png.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/21f0193f98cf52ec7c0ca40b0ab0192c/res/drawable-hdpi-v4/notification_bg_low_normal.9.png"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_activity_generic_settings.xml.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/10463f59f71f69225b130aa6ec09bcf6/res/layout/activity_generic_settings.xml"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_activity_programming_mode.xml.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/fa073c13dc577b0cf83c470905180813/res/layout/activity_programming_mode.xml"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/menu_main_menu.xml.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/c102ea83599b0f40387656cef354bbde/res/menu/main_menu.xml"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_digital_device_lynx.xml.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/167146c9dc57118407637a1fd360b2e1/res/layout/digital_device_lynx.xml"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/drawable-xhdpi-v4_notification_bg_low_pressed.9.png.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/b86a2ec3b460860a6d6314478a35742c/res/drawable-xhdpi-v4/notification_bg_low_pressed.9.png"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_activity_permissions_validator.xml.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/695e6144c41a42b85c90bab7518d80b5/res/layout/activity_permissions_validator.xml"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/raw_warningmessage.wav.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/10463f59f71f69225b130aa6ec09bcf6/res/raw/warningmessage.wav"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_info_button.xml.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/167146c9dc57118407637a1fd360b2e1/res/layout/info_button.xml"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_template_info.xml.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/10463f59f71f69225b130aa6ec09bcf6/res/layout/template_info.xml"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout-v21_notification_action.xml.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/21f0193f98cf52ec7c0ca40b0ab0192c/res/layout-v21/notification_action.xml"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/xml_teamwebcamcalibrations.xml.flat",
+        "source": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/src/main/res/xml/teamwebcamcalibrations.xml"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/xml_builtinwebcamcalibrations.xml.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/695e6144c41a42b85c90bab7518d80b5/res/xml/builtinwebcamcalibrations.xml"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_info_button.xml.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/10463f59f71f69225b130aa6ec09bcf6/res/layout/info_button.xml"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/xml_pushbotsens.xml.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/167146c9dc57118407637a1fd360b2e1/res/xml/pushbotsens.xml"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_matrix_devices.xml.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/10463f59f71f69225b130aa6ec09bcf6/res/layout/matrix_devices.xml"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_notification_action.xml.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/21f0193f98cf52ec7c0ca40b0ab0192c/res/layout/notification_action.xml"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/raw_color_fragment_shader.glsl.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/e88d295b38b27894d0e41f3fe704cf57/res/raw/color_fragment_shader.glsl"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_servo_list.xml.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/167146c9dc57118407637a1fd360b2e1/res/layout/servo_list.xml"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/drawable-hdpi-v4_notification_bg_low_normal.9.png.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/b86a2ec3b460860a6d6314478a35742c/res/drawable-hdpi-v4/notification_bg_low_normal.9.png"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_lynx_module.xml.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/167146c9dc57118407637a1fd360b2e1/res/layout/lynx_module.xml"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_activity_ftc_wifi_channel_selector.xml.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/10463f59f71f69225b130aa6ec09bcf6/res/layout/activity_ftc_wifi_channel_selector.xml"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_loading_indicator_overlay.xml.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/695e6144c41a42b85c90bab7518d80b5/res/layout/loading_indicator_overlay.xml"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/drawable-xhdpi-v4_icon_menu.png.flat",
+        "source": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/FtcRobotController/build/intermediates/packaged_res/debug/drawable-xhdpi-v4/icon_menu.png"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_notification_template_icon_group.xml.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/21f0193f98cf52ec7c0ca40b0ab0192c/res/layout/notification_template_icon_group.xml"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_servo_controller_banner.xml.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/10463f59f71f69225b130aa6ec09bcf6/res/layout/servo_controller_banner.xml"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/drawable-hdpi-v4_notification_bg_normal_pressed.9.png.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/21f0193f98cf52ec7c0ca40b0ab0192c/res/drawable-hdpi-v4/notification_bg_normal_pressed.9.png"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_activity_ftc_lynx_address_update.xml.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/10463f59f71f69225b130aa6ec09bcf6/res/layout/activity_ftc_lynx_address_update.xml"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/raw_cube_mesh_vertex_shader.glsl.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/695e6144c41a42b85c90bab7518d80b5/res/raw/cube_mesh_vertex_shader.glsl"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/raw_chimedisconnect.wav.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/10463f59f71f69225b130aa6ec09bcf6/res/raw/chimedisconnect.wav"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_analog_input_device.xml.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/167146c9dc57118407637a1fd360b2e1/res/layout/analog_input_device.xml"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_activity_view_logs.xml.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/10463f59f71f69225b130aa6ec09bcf6/res/layout/activity_view_logs.xml"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/raw_simple_vertex_shader.glsl.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/695e6144c41a42b85c90bab7518d80b5/res/raw/simple_vertex_shader.glsl"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_activity_programming_mode.xml.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/70e03049cca4854dc95ea2d3568ae574/res/layout/activity_programming_mode.xml"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_color_list_preference_line_item.xml.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/695e6144c41a42b85c90bab7518d80b5/res/layout/color_list_preference_line_item.xml"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/xml_builtinwebcamcalibrations.xml.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/e88d295b38b27894d0e41f3fe704cf57/res/xml/builtinwebcamcalibrations.xml"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/drawable-hdpi-v4_notification_bg_normal.9.png.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/21f0193f98cf52ec7c0ca40b0ab0192c/res/drawable-hdpi-v4/notification_bg_normal.9.png"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_red_line.xml.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/10463f59f71f69225b130aa6ec09bcf6/res/layout/red_line.xml"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_notification_action_tombstone.xml.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/21f0193f98cf52ec7c0ca40b0ab0192c/res/layout/notification_action_tombstone.xml"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/menu_ftc_robot_controller.xml.flat",
+        "source": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/FtcRobotController/build/intermediates/packaged_res/debug/menu/ftc_robot_controller.xml"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/drawable-xhdpi-v4_notification_bg_low_pressed.9.png.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/21f0193f98cf52ec7c0ca40b0ab0192c/res/drawable-xhdpi-v4/notification_bg_low_pressed.9.png"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/xml_app_settings.xml.flat",
+        "source": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/FtcRobotController/build/intermediates/packaged_res/debug/xml/app_settings.xml"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_gray_line.xml.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/167146c9dc57118407637a1fd360b2e1/res/layout/gray_line.xml"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_header.xml.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/10463f59f71f69225b130aa6ec09bcf6/res/layout/header.xml"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_webcam_device.xml.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/167146c9dc57118407637a1fd360b2e1/res/layout/webcam_device.xml"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/drawable-xhdpi-v4_notification_bg_low_normal.9.png.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/b86a2ec3b460860a6d6314478a35742c/res/drawable-xhdpi-v4/notification_bg_low_normal.9.png"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_ic_launcher.png.flat",
-        "source": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/FtcRobotController/build/intermediates/packaged_res/debug/drawable-xxhdpi-v4/ic_launcher.png"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/drawable-hdpi-v4_notification_bg_normal_pressed.9.png.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/b86a2ec3b460860a6d6314478a35742c/res/drawable-hdpi-v4/notification_bg_normal_pressed.9.png"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/xml_maxmodules.xml.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/167146c9dc57118407637a1fd360b2e1/res/xml/maxmodules.xml"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_loading_indicator_overlay.xml.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/e88d295b38b27894d0e41f3fe704cf57/res/layout/loading_indicator_overlay.xml"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_activity_load.xml.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/167146c9dc57118407637a1fd360b2e1/res/layout/activity_load.xml"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_legacy.xml.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/10463f59f71f69225b130aa6ec09bcf6/res/layout/legacy.xml"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout-v16_notification_template_custom_big.xml.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/21f0193f98cf52ec7c0ca40b0ab0192c/res/layout-v16/notification_template_custom_big.xml"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_notification_template_part_time.xml.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/b86a2ec3b460860a6d6314478a35742c/res/layout/notification_template_part_time.xml"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_motor.xml.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/167146c9dc57118407637a1fd360b2e1/res/layout/motor.xml"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/drawable_icon_robotcontroller.png.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/c102ea83599b0f40387656cef354bbde/res/drawable/icon_robotcontroller.png"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/drawable_icon_robotcontroller.png.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/6bac36c93c2fca140fe3e5ecd5099878/res/drawable/icon_robotcontroller.png"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_simple_device.xml.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/10463f59f71f69225b130aa6ec09bcf6/res/layout/simple_device.xml"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_pwm_device.xml.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/167146c9dc57118407637a1fd360b2e1/res/layout/pwm_device.xml"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_digital_devices.xml.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/10463f59f71f69225b130aa6ec09bcf6/res/layout/digital_devices.xml"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_i2c_device.xml.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/167146c9dc57118407637a1fd360b2e1/res/layout/i2c_device.xml"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/raw_errormessage.wav.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/10463f59f71f69225b130aa6ec09bcf6/res/raw/errormessage.wav"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_activity_ftc_wifi_channel_selector.xml.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/167146c9dc57118407637a1fd360b2e1/res/layout/activity_ftc_wifi_channel_selector.xml"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_port_attached_row.xml.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/10463f59f71f69225b130aa6ec09bcf6/res/layout/port_attached_row.xml"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/raw_texture_vertex_shader.glsl.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/695e6144c41a42b85c90bab7518d80b5/res/raw/texture_vertex_shader.glsl"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_file_info.xml.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/10463f59f71f69225b130aa6ec09bcf6/res/layout/file_info.xml"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/drawable-xhdpi-v4_ic_launcher.png.flat",
-        "source": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/FtcRobotController/build/intermediates/packaged_res/debug/drawable-xhdpi-v4/ic_launcher.png"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/drawable_button_shape.xml.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/10463f59f71f69225b130aa6ec09bcf6/res/drawable/button_shape.xml"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/drawable-hdpi-v4_notify_panel_notification_icon_bg.png.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/21f0193f98cf52ec7c0ca40b0ab0192c/res/drawable-hdpi-v4/notify_panel_notification_icon_bg.png"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/drawable-mdpi-v4_notification_bg_low_pressed.9.png.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/b86a2ec3b460860a6d6314478a35742c/res/drawable-mdpi-v4/notification_bg_low_pressed.9.png"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/drawable_button_shape.xml.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/167146c9dc57118407637a1fd360b2e1/res/drawable/button_shape.xml"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_feedback.xml.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/e88d295b38b27894d0e41f3fe704cf57/res/layout/feedback.xml"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout-v21_notification_action_tombstone.xml.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/21f0193f98cf52ec7c0ca40b0ab0192c/res/layout-v21/notification_action_tombstone.xml"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_activity_permissions_validator.xml.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/e88d295b38b27894d0e41f3fe704cf57/res/layout/activity_permissions_validator.xml"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_lynx_module_configure_address.xml.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/167146c9dc57118407637a1fd360b2e1/res/layout/lynx_module_configure_address.xml"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/drawable-xhdpi-v4_ic_launcher.png.flat",
+        "source": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/FtcRobotController/build/intermediates/packaged_res/debug/drawable-xhdpi-v4/ic_launcher.png"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_activity_ftc_wifi_remembered_groups.xml.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/167146c9dc57118407637a1fd360b2e1/res/layout/activity_ftc_wifi_remembered_groups.xml"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_webcam_device.xml.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/10463f59f71f69225b130aa6ec09bcf6/res/layout/webcam_device.xml"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/drawable-v21_notification_action_background.xml.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/21f0193f98cf52ec7c0ca40b0ab0192c/res/drawable-v21/notification_action_background.xml"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/xml_rev_scoot.xml.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/10463f59f71f69225b130aa6ec09bcf6/res/xml/rev_scoot.xml"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_item_list_parent.xml.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/167146c9dc57118407637a1fd360b2e1/res/layout/item_list_parent.xml"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_matrices.xml.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/10463f59f71f69225b130aa6ec09bcf6/res/layout/matrices.xml"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_activity_configure_from_template.xml.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/167146c9dc57118407637a1fd360b2e1/res/layout/activity_configure_from_template.xml"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_motor.xml.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/10463f59f71f69225b130aa6ec09bcf6/res/layout/motor.xml"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_lynx_module_configure_address_spin_item.xml.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/167146c9dc57118407637a1fd360b2e1/res/layout/lynx_module_configure_address_spin_item.xml"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_notification_template_part_chronometer.xml.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/b86a2ec3b460860a6d6314478a35742c/res/layout/notification_template_part_chronometer.xml"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_button_list.xml.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/167146c9dc57118407637a1fd360b2e1/res/layout/button_list.xml"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/xml_k9usbbot.xml.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/10463f59f71f69225b130aa6ec09bcf6/res/xml/k9usbbot.xml"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/drawable-mdpi-v4_notification_bg_normal_pressed.9.png.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/21f0193f98cf52ec7c0ca40b0ab0192c/res/drawable-mdpi-v4/notification_bg_normal_pressed.9.png"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/raw_nxtstartupsound.wav.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/10463f59f71f69225b130aa6ec09bcf6/res/raw/nxtstartupsound.wav"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/drawable_notification_bg_low.xml.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/21f0193f98cf52ec7c0ca40b0ab0192c/res/drawable/notification_bg_low.xml"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_pwm_device.xml.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/10463f59f71f69225b130aa6ec09bcf6/res/layout/pwm_device.xml"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_activity_ftc_lynx_fw_update.xml.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/167146c9dc57118407637a1fd360b2e1/res/layout/activity_ftc_lynx_fw_update.xml"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/drawable_notification_bg.xml.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/b86a2ec3b460860a6d6314478a35742c/res/drawable/notification_bg.xml"
     },
     {
-        "merged": "/Users/michael/Desktop/Desktop/Robotics/Robotics_FGC_2019/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/layout_fragment_wifi_mute.xml.flat",
-        "source": "/Users/michael/.gradle/caches/transforms-2/files-2.1/695e6144c41a42b85c90bab7518d80b5/res/layout/fragment_wifi_mute.xml"
+        "merged": "/Users/petr-konstantin/Desktop/robotics/Code/FGC2019_TeamCZ/TeamCode/build/intermediates/res/merged/debug/raw_chimeconnect.wav.flat",
+        "source": "/Users/petr-konstantin/.gradle/caches/transforms-2/files-2.1/10463f59f71f69225b130aa6ec09bcf6/res/raw/chimeconnect.wav"
     }
 ]

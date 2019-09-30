@@ -95,14 +95,14 @@ public class BasicOpMode_Linear extends LinearOpMode {
 
             // if you hold the b button the intake will automatically work
             if(gamepad1.b){
-                autoPushBall(sorterCurrentDistance, robot.DISTANCE_TO_TOP_CM);
+                autoPushBall(sorterCurrentDistance, 1); // 1 second is guess
             }
 
 
         // Show the elapsed game time and wheel power.
             telemetry.addLine();
-            telemetry.addData("Status", "Run Time: %.1f" + runtime.toString());
-            telemetry.addData("Distance sensor: %.2f", sorterCurrentDistance);
+            telemetry.addData("Distance sensor: ","%.1f cm", sorterCurrentDistance);
+            telemetry.addData("Status", "Run Time: %.1f", runtime.seconds());
             telemetry.addData("Triggers pressed"," left: %.2f right: %.2f", gamepad1.left_trigger, gamepad1.right_trigger);
             telemetry.update();
 
@@ -151,7 +151,7 @@ public class BasicOpMode_Linear extends LinearOpMode {
         }
 
     // lift motor
-        if(gp.a && robot.minHeight.getState()) {
+        if(gp.a ) { //&& robot.minHeight.getState()
             robot.lift.setPower(-0.7);          // going down
         }else if(gp.y && robot.maxHeight.getState()) {
             robot.lift.setPower(0.7);           // going up
@@ -237,13 +237,16 @@ public class BasicOpMode_Linear extends LinearOpMode {
         telemetry.addData("Gamepad Id: ", "%d", controllerId);
     }
 // uses distance sensor to push balls into the hopper
-    private void autoPushBall(double distance, double targetDistance){
-        if(distance <= targetDistance){
+    private void autoPushBall(double distance, double time){
+        ElapsedTime timer = new ElapsedTime();
+        if(distance <= robot.DISTANCE_TO_TOP_CM || robot.pushBall.getPosition() == 0.345){  // second condition ensures servo can return
             robot.pushBall.setPosition(0.345); // pushes ball into hopper
-            // todo TEST if wait time is needed
-            robot.pushBall.setPosition(0.16); // moves servo back
-            //todo add counter for ball limit
-        }else if(distance < robot.DISTANCE_TO_GROUND_CM && distance > targetDistance){   // moves intake if there is a ball in the belt rails
+            timer.reset();  // starts timer
+            if(time <= timer.seconds()) {
+                robot.pushBall.setPosition(0.09); // moves servo back
+                //todo add counter for ball limit
+            }
+        }else if(distance < robot.DISTANCE_TO_GROUND_CM && distance > robot.DISTANCE_TO_TOP_CM){   // moves intake if there is a ball in the belt rails
             robot.beltIntake.setPower(0.5);
             robot.ziptieIntake.setPower(0.5);
         }else{
