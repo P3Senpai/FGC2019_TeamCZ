@@ -66,7 +66,7 @@ public class BasicOpMode_Linear extends LinearOpMode {
     private Bot robot = new Bot();
     private Toggle tgg = new Toggle();
     private static int controllerId = 0;
-
+    private boolean inProcess = false;
 
     @Override
     public void runOpMode() {
@@ -77,7 +77,6 @@ public class BasicOpMode_Linear extends LinearOpMode {
 
         telemetry.addLine("To test the motors use Gamepad 1");
         telemetry.addLine("To test the servos use Gamepad 2");
-        robot.shooterTrigger.setPosition(0.5978);
         
         // Wait for the game to start (driver presses PLAY)
         telemetry.update();
@@ -94,9 +93,8 @@ public class BasicOpMode_Linear extends LinearOpMode {
             servoControllers(gamepad2);
 
             // if you hold the b button the intake will automatically work
-            if(gamepad1.b){
-                autoPushBall(sorterCurrentDistance, 1); // 1 second is guess
-            }
+            autoPushBall(sorterCurrentDistance, 1); // 1 second is guess
+
 
 
         // Show the elapsed game time and wheel power.
@@ -186,19 +184,19 @@ public class BasicOpMode_Linear extends LinearOpMode {
             double pushPos  = robot.pushBall.getPosition();
         // left wing tip controls
             if(gp.dpad_left)
-                robot.wingtipLeft.setPosition(leftWingPos + 0.001);
+                robot.wingtipLeft.setPosition(robot.OPEN_LEFT_WING);
             else if(gp.dpad_right)
-                robot.wingtipLeft.setPosition(leftWingPos - 0.001);
+                robot.wingtipLeft.setPosition(robot.OPEN_LEFT_WING);
         // right wing tip controls
             if(gp.x)
-                robot.wingtipRight.setPosition(rightWingPos + 0.001);
+                robot.wingtipRight.setPosition(robot.OPEN_RIGHT_WING);
             else if(gp.b)
-                robot.wingtipRight.setPosition(rightWingPos - 0.001);
+                robot.wingtipRight.setPosition(robot.CLOSED_RIGHT_WING);
         // push ball into hopper controls
             if(gp.left_bumper)
-                robot.pushBall.setPosition(pushPos + 0.001);
+                robot.pushBall.setPosition(robot.OPEN_PUSH_BALL);
             else if(gp.right_bumper)
-                robot.pushBall.setPosition(pushPos - 0.001);
+                robot.pushBall.setPosition(robot.PUSHED_PUSH_BALL);
 
         // instructions on how to use
             telemetry.addLine();
@@ -217,9 +215,9 @@ public class BasicOpMode_Linear extends LinearOpMode {
                 robot.tightenSide.setPosition(tightenPos - 0.001);
         // trigger for shooter controls
             if(gp.x)
-                robot.shooterTrigger.setPosition(0.1244);
+                robot.shooterTrigger.setPosition(robot.FIRE_TRIGGER_SERVO);
             else if(gp.b)
-                robot.shooterTrigger.setPosition(0.5978);
+                robot.shooterTrigger.setPosition(robot.LOAD_TRIGGER_SERVO);
         // brake controls
             if(gp.left_bumper)
                 robot.liftBrake.setPosition(brakePos + 0.001);
@@ -239,13 +237,14 @@ public class BasicOpMode_Linear extends LinearOpMode {
 // uses distance sensor to push balls into the hopper
     private void autoPushBall(double distance, double time){
         ElapsedTime timer = new ElapsedTime();
-        if(distance <= robot.DISTANCE_TO_TOP_CM || robot.pushBall.getPosition() == 0.345){  // second condition ensures servo can return
-            robot.pushBall.setPosition(0.345); // pushes ball into hopper
-            timer.reset();  // starts timer
-            if(time <= timer.seconds()) {
-                robot.pushBall.setPosition(0.09); // moves servo back
+        if(distance <= robot.DISTANCE_TO_TOP_CM && !inProcess){  // second condition ensures servo can return
                 //todo add counter for ball limit
-            }
+            robot.pushBall.setPosition(robot.PUSHED_PUSH_BALL); // pushes ball into hopper
+            inProcess = true;
+        }else if(inProcess){
+            sleep(500);
+            robot.pushBall.setPosition(robot.OPEN_PUSH_BALL); // moves servo back
+            inProcess = false;
         }else if(distance < robot.DISTANCE_TO_GROUND_CM && distance > robot.DISTANCE_TO_TOP_CM){   // moves intake if there is a ball in the belt rails
             robot.beltIntake.setPower(0.5);
             robot.ziptieIntake.setPower(0.5);
@@ -253,6 +252,7 @@ public class BasicOpMode_Linear extends LinearOpMode {
             robot.beltIntake.setPower(0);
             robot.ziptieIntake.setPower(0);
         }
+        telemetry.addData("Servo Timer: ", "%.1f", timer.seconds());
     }
     private void driveByAcceleration (double inputData, double maxPower, double velocityForward, double velocitySideways){
     // Set up variables

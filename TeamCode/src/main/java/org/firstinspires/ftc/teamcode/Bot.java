@@ -31,7 +31,16 @@ public class Bot {
     // Constants
     protected double  speedLimit   = 0.8;
     protected final double DISTANCE_TO_TOP_CM = 2.5; // todo set distance
-    protected final double  DISTANCE_TO_GROUND_CM = 33; //todo set distance
+    protected final double  DISTANCE_TO_GROUND_CM = 35; //todo set distance
+    // Servo positions
+    protected final double LOAD_TRIGGER_SERVO =  0.4078;
+    protected final double FIRE_TRIGGER_SERVO =  0.1239;
+    protected final double OPEN_PUSH_BALL     =  0.09 ;
+    protected final double PUSHED_PUSH_BALL   =  0.345;
+    protected final double CLOSED_LEFT_WING   =  0.3444;
+    protected final double OPEN_LEFT_WING     =  0.8117;
+    protected final double CLOSED_RIGHT_WING  =  0.5056;
+    protected final double OPEN_RIGHT_WING    =  0.0;
 
     /* Local Op Mode variables */
     // something
@@ -73,15 +82,18 @@ public class Bot {
         beltIntake.setPower(0);
 
     /*  Initialization of Servos */
-        wingtipLeft = hwmap.get(Servo.class, "wing_tip_left");      // todo find and set starting pos
-        wingtipRight = hwmap.get(Servo.class, "wing_tip_right");    // todo reset servo for zero position
+        wingtipLeft = hwmap.get(Servo.class, "wing_tip_left");      // init: 0.3444 end: 0.8117
+        wingtipRight = hwmap.get(Servo.class, "wing_tip_right");    // init: 0.5056 end: 0.0
         liftBrake   = hwmap.get(Servo.class, "lift_brake");         // todo find and set starting pos
         tightenSide = hwmap.get(Servo.class, "tighten_side");       // todo find and set starting pos
         pushBall    = hwmap.get(Servo.class, "push_ball");          // start: 0.09 fin: 0.345
-        shooterTrigger    = hwmap.get(Servo.class, "shooter");      // start: 0.87 fin: 0.43
+        shooterTrigger    = hwmap.get(Servo.class, "shooter");      // load: 0.4078 fire: 0.1239
 
-        pushBall.setPosition(0.09);
-        shooterTrigger.setPosition(0.87);
+        // Set servo positions
+        pushBall.setPosition(OPEN_PUSH_BALL);
+        shooterTrigger.setPosition(FIRE_TRIGGER_SERVO); // close the shooter for the balls before we are ready to shoot
+        wingtipLeft.setPosition(CLOSED_LEFT_WING);
+        wingtipRight.setPosition(CLOSED_RIGHT_WING);
 
     /* Initialization of Sensors*/
         maxHeight = hwmap.get(DigitalChannel.class, "max_height ");
