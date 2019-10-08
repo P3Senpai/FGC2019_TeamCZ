@@ -1,13 +1,13 @@
 <component name="libraryTable">
   <library name="Gradle: :RobotCore-release:@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e88d295b38b27894d0e41f3fe704cf57/jars/libs/gson-2.8.0.jar!/" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e88d295b38b27894d0e41f3fe704cf57/jars/libs/Vuforia.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e88d295b38b27894d0e41f3fe704cf57/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e88d295b38b27894d0e41f3fe704cf57/jars/classes.jar!/" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e88d295b38b27894d0e41f3fe704cf57/jars/libs/gson-extras-0.2.1.jar!/" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e88d295b38b27894d0e41f3fe704cf57/jars/libs/slf4j-handroid-1.7.27.jar!/" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e88d295b38b27894d0e41f3fe704cf57/jars/libs/slf4j-api-1.7.26.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/bd7f4898ab7c77dc4e116e6663e42f91/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/bd7f4898ab7c77dc4e116e6663e42f91/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/bd7f4898ab7c77dc4e116e6663e42f91/jars/libs/slf4j-api-1.7.26.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/bd7f4898ab7c77dc4e116e6663e42f91/jars/libs/gson-2.8.0.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/bd7f4898ab7c77dc4e116e6663e42f91/jars/libs/gson-extras-0.2.1.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/bd7f4898ab7c77dc4e116e6663e42f91/jars/libs/Vuforia.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/bd7f4898ab7c77dc4e116e6663e42f91/jars/libs/slf4j-handroid-1.7.27.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

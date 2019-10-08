@@ -236,7 +236,6 @@ public class BasicOpMode_Linear extends LinearOpMode {
     }
 // uses distance sensor to push balls into the hopper
     private void autoPushBall(double distance, double time){
-        ElapsedTime timer = new ElapsedTime();
         if(distance <= robot.DISTANCE_TO_TOP_CM && !inProcess){  // second condition ensures servo can return
                 //todo add counter for ball limit
             robot.pushBall.setPosition(robot.PUSHED_PUSH_BALL); // pushes ball into hopper
@@ -252,7 +251,7 @@ public class BasicOpMode_Linear extends LinearOpMode {
             robot.beltIntake.setPower(0);
             robot.ziptieIntake.setPower(0);
         }
-        telemetry.addData("Servo Timer: ", "%.1f", timer.seconds());
+        telemetry.addData("Servo Timer: ", "%.1f");
     }
     private void driveByAcceleration (double inputData, double maxPower, double velocityForward, double velocitySideways){
     // Set up variables

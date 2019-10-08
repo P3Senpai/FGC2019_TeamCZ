@@ -62,10 +62,10 @@ public class Bot {
         beltIntake   = hwmap.get(DcMotor.class, "belt_intake");
 
         leftDrive.setDirection(DcMotorSimple.Direction.FORWARD);
-        leftDrive.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);    // release brake after end of program
+        leftDrive.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);    // release brake after end of program
 
         rightDrive.setDirection(DcMotorSimple.Direction.REVERSE);
-        rightDrive.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);   // release brake after end of program
+        rightDrive.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);   // release brake after end of program
 
         lift.setDirection(DcMotorSimple.Direction.FORWARD);
         lift.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);         // redundancy for lift brake system
