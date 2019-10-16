@@ -89,11 +89,13 @@ public class BasicOpMode_Linear extends LinearOpMode {
         while (opModeIsActive()) {
             double sorterCurrentDistance = robot.distanceSensor.getDistance(DistanceUnit.CM);
 
+
             motorsTests(gamepad1);
             servoControllers(gamepad2);
 
-            // if you hold the b button the intake will automatically work
-            autoPushBall(sorterCurrentDistance, 1); // 1 second is guess
+
+            // if you hold th b button the intake will automatically work
+            autoPushBall(sorterCurrentDistance, 500); // 1 second is guess
 
 
 
@@ -103,6 +105,7 @@ public class BasicOpMode_Linear extends LinearOpMode {
             telemetry.addData("Status", "Run Time: %.1f", runtime.seconds());
             telemetry.addData("Triggers pressed"," left: %.2f right: %.2f", gamepad1.left_trigger, gamepad1.right_trigger);
             telemetry.update();
+
 
         // counter needs to go to zero in order for the toggle method to work!!!
             tgg.reset();
@@ -116,12 +119,16 @@ public class BasicOpMode_Linear extends LinearOpMode {
     }
     private void motorsTests(Gamepad gp) {
     // drive motors
-        double leftPower = Range.clip(-gp.left_stick_y, -1.0, 1.0);    // set y stick to normal and not inverted
-        double rightPower = Range.clip(-gp.right_stick_y, -1.0, 1.0);  // set y stick to normal and not inverted
+//        double leftPower = Range.clip(-gp.left_stick_y, -1.0, 1.0);    // set y stick to normal and not inverted
+//        double rightPower = Range.clip(-gp.right_stick_y, -1.0, 1.0);  // set y stick to normal and not inverted
 
-        robot.leftDrive.setPower(leftPower * 0.5);
-        robot.rightDrive.setPower(rightPower * 0.5);
+        double drive = -gamepad1.left_stick_y;
+        double turning  =  gamepad1.left_stick_x;
+        double rightPower   = Range.clip(drive - turning, -1.0, 1.0) ;
+        double leftPower    = Range.clip(drive + turning, -1.0, 1.0) ;
 
+        robot.leftDrive.setPower(leftPower);
+        robot.rightDrive.setPower(rightPower);
     //shooter motor
         if (tgg.toggle(gp.dpad_up)) {
             robot.speedLimit += (robot.speedLimit < 1.0) ? 0.1 : 0; // increments by 0.1 if limit is under 1.0
@@ -156,11 +163,6 @@ public class BasicOpMode_Linear extends LinearOpMode {
         }else {
             robot.lift.setPower(0);
         }
-
-    // turning button for testing if turn is crooked or not
-        double turn = Range.clip(gp.left_trigger, 0, 1);
-        robot.leftDrive.setPower(turn);
-        robot.rightDrive.setPower(-turn);
 
     // telemetry data
         telemetry.addData("Drive Speed", "left(%.2f) right(%.2f)", leftPower, rightPower);
@@ -235,14 +237,14 @@ public class BasicOpMode_Linear extends LinearOpMode {
         telemetry.addData("Gamepad Id: ", "%d", controllerId);
     }
 // uses distance sensor to push balls into the hopper
-    private void autoPushBall(double distance, double time){
+    private void autoPushBall(double distance, long time){
         ElapsedTime timer = new ElapsedTime();
         if(distance <= robot.DISTANCE_TO_TOP_CM && !inProcess){  // second condition ensures servo can return
                 //todo add counter for ball limit
             robot.pushBall.setPosition(robot.PUSHED_PUSH_BALL); // pushes ball into hopper
             inProcess = true;
         }else if(inProcess){
-            sleep(500);
+            sleep(time);
             robot.pushBall.setPosition(robot.OPEN_PUSH_BALL); // moves servo back
             inProcess = false;
         }else if(distance < robot.DISTANCE_TO_GROUND_CM && distance > robot.DISTANCE_TO_TOP_CM){   // moves intake if there is a ball in the belt rails
@@ -254,7 +256,7 @@ public class BasicOpMode_Linear extends LinearOpMode {
         }
         telemetry.addData("Servo Timer: ", "%.1f", timer.seconds());
     }
-    private void driveByAcceleration (double inputData, double maxPower, double velocityForward, double velocitySideways){
+    private void driveByVelocity (double inputData, double maxPower, double velocityForward, double velocitySideways){
     // Set up variables
         double power, leftPower, rightPower, forwardV, sidewaysV, threshold, powerPercentWeight, sidewaysPercentWeight;
         maxPower = Math.abs(maxPower);
@@ -271,14 +273,15 @@ public class BasicOpMode_Linear extends LinearOpMode {
         }else{
             power *= powerPercentWeight;
         }
-        leftPower = power - sidewaysV;  // sideways velocity prevents drifting
-        rightPower = power + sidewaysV; // sideways velocity prevents drifting
+        // positive axis is left and negative is right
+        leftPower = power + sidewaysV;  // sideways velocity prevents drifting
+        rightPower = power - sidewaysV; // sideways velocity prevents drifting
     // Set motor speeds
         robot.leftDrive.setPower(leftPower);
         robot.rightDrive.setPower(rightPower);
     }
 // uses x and y velocity to adjust turning in order to center it
-    private void turnByAcceleration (double inputData, double maxPower, int turn, double xAxisV, double yAxisV){
+    private void turnByVelocity (double inputData, double maxPower, int turn, double xAxisV, double yAxisV){
     // Define key variables
         double power, errorX, errorY, leftPower, rightPower, powerSignificance, errorSignificance, error, errorMin, errorMax;
         maxPower = Math.abs(maxPower);
