@@ -19,8 +19,8 @@ import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
 public class Bot {
     HardwareMap hwmap = null;
     // Motors
-    protected DcMotorEx leftDrive   = null; // todo test extended version of motor on this one
-    protected DcMotor rightDrive, lift, shooter, ziptieIntake, beltIntake = null;
+    protected DcMotorEx shooter = null; // todo test extended version of motor on this one
+    protected DcMotor leftDrive, rightDrive, lift, ziptieIntake, beltIntake = null;
     // Servos
     protected Servo   wingtipLeft, wingtipRight, liftBrake, tightenSide, pushBall, shooterTrigger = null;
     // Sensors
@@ -29,7 +29,9 @@ public class Bot {
     // todo add camera
 
     // Constants
-    protected double  speedLimit   = 0.8;
+    protected double shooterSpeedLimit = 0.8;
+    protected final double  SPEEDLIMIT   = 0.7;
+    protected final double  BOOSTSPEEDLIMIT   = 0.9;
     protected final double DISTANCE_TO_TOP_CM = 2.5; // todo set distance
     protected final double  DISTANCE_TO_GROUND_CM = 35; //todo set distance
     // Servo positions
@@ -54,10 +56,10 @@ public class Bot {
         hwmap = ahwmap;
 
     /*  Initialization of Motors */
-        leftDrive = hwmap.get(DcMotorEx.class,"left_drive");
+        leftDrive = hwmap.get(DcMotor.class,"left_drive");
         rightDrive = hwmap.get(DcMotor.class, "right_drive");
         lift       = hwmap.get(DcMotor.class, "lift");
-        shooter    = hwmap.get(DcMotor.class, "shooter");
+        shooter    = hwmap.get(DcMotorEx.class, "shooter");
         ziptieIntake = hwmap.get(DcMotor.class, "intake");
         beltIntake   = hwmap.get(DcMotor.class, "belt_intake");
 

@@ -67,6 +67,7 @@ public class BasicOpMode_Linear extends LinearOpMode {
     private Toggle tgg = new Toggle();
     private static int controllerId = 0;
     private boolean inProcess = false;
+    private boolean isShooterReady = false;
 
     @Override
     public void runOpMode() {
@@ -89,14 +90,12 @@ public class BasicOpMode_Linear extends LinearOpMode {
         while (opModeIsActive()) {
             double sorterCurrentDistance = robot.distanceSensor.getDistance(DistanceUnit.CM);
 
-
             motorsTests(gamepad1);
             servoControllers(gamepad2);
 
-
-            // if you hold th b button the intake will automatically work
             autoPushBall(sorterCurrentDistance, 500); // 1 second is guess
-
+            //todo test shooter target value before enabling
+//            autoShootBall(gamepad1, 500);
 
 
         // Show the elapsed game time and wheel power.
@@ -104,6 +103,7 @@ public class BasicOpMode_Linear extends LinearOpMode {
             telemetry.addData("Distance sensor: ","%.1f cm", sorterCurrentDistance);
             telemetry.addData("Status", "Run Time: %.1f", runtime.seconds());
             telemetry.addData("Triggers pressed"," left: %.2f right: %.2f", gamepad1.left_trigger, gamepad1.right_trigger);
+            telemetry.addData("Shooter motor velocity", "v: %.3f", robot.shooter.getVelocity());
             telemetry.update();
 
 
@@ -131,15 +131,15 @@ public class BasicOpMode_Linear extends LinearOpMode {
         robot.rightDrive.setPower(rightPower);
     //shooter motor
         if (tgg.toggle(gp.dpad_up)) {
-            robot.speedLimit += (robot.speedLimit < 1.0) ? 0.1 : 0; // increments by 0.1 if limit is under 1.0
+            robot.shooterSpeedLimit += (robot.shooterSpeedLimit < 1.0) ? 0.1 : 0; // increments by 0.1 if limit is under 1.0
         }
         if (tgg.toggle(gp.dpad_down)) {
-            robot.speedLimit -= (robot.speedLimit > 0.1) ? 0.1 : 0; // increments by -0.1 if limit is above 0.1
+            robot.shooterSpeedLimit -= (robot.shooterSpeedLimit > 0.1) ? 0.1 : 0; // increments by -0.1 if limit is above 0.1
         }
 
         // setting speed to shooter motor
         if (gp.x)
-            robot.shooter.setPower(-robot.speedLimit);
+            robot.shooter.setPower(-robot.shooterSpeedLimit);
         else
             robot.shooter.setPower(0);
     // intake motors
@@ -166,7 +166,7 @@ public class BasicOpMode_Linear extends LinearOpMode {
 
     // telemetry data
         telemetry.addData("Drive Speed", "left(%.2f) right(%.2f)", leftPower, rightPower);
-        telemetry.addData("Shooter Speed", "limit(%.2f) actual(%.2f)", robot.speedLimit, robot.shooter.getPower());
+        telemetry.addData("Shooter Speed", "limit(%.2f) actual(%.2f)", robot.shooterSpeedLimit, robot.shooter.getPower());
         telemetry.addData("Intake Motor Speed", "belt: %.2f ziptie intake: %.2f", robot.beltIntake.getPower(), robot.ziptieIntake.getPower());
         telemetry.addData("Lift Motor:", "power(%.2f)", robot.lift.getPower());
     }
@@ -255,7 +255,24 @@ public class BasicOpMode_Linear extends LinearOpMode {
             robot.ziptieIntake.setPower(0);
         }
         telemetry.addData("Servo Timer: ", "%.1f");
-    }/*
+    }
+    //todo test this method
+    private void autoShootBall(Gamepad gp, double time){
+        double currentV = robot.shooter.getVelocity();
+        double targetV = -1;//todo test to find a value for this
+        if(gp.b){
+            if(currentV < targetV){
+                robot.shooter.setVelocity(targetV);
+            }else if(!isShooterReady){
+                robot.shooterTrigger.setPosition(robot.LOAD_TRIGGER_SERVO);
+                isShooterReady = true;
+            }else{
+                sleep((long) time);
+                robot.shooterTrigger.setPosition(robot.LOAD_TRIGGER_SERVO);
+                isShooterReady = true;
+            }
+        }
+    }
     private void driveByVelocity(double inputData, double maxPower, double velocityForward, double velocitySideways){
     // Set up variables
         double power, leftPower, rightPower, forwardV, sidewaysV, threshold, powerPercentWeight, sidewaysPercentWeight;
@@ -281,23 +298,24 @@ public class BasicOpMode_Linear extends LinearOpMode {
         robot.rightDrive.setPower(rightPower);
     }
 // uses x and y velocity to adjust turning in order to center it
-    private void turnByVelocity(double inputData, double maxPower, int turn, double xAxisV, double yAxisV){
-    // Define key variables
+    private void turnByVelocity(double inputData, double maxPower, int turn, double xAxisV, double yAxisV) {
+        // Define key variables
         double power, errorX, errorY, leftPower, rightPower, powerSignificance, errorSignificance, error, errorMin, errorMax;
         maxPower = Math.abs(maxPower);
         powerSignificance = 0.9;    // % weight on the power value
         errorSignificance = (1 - powerSignificance);  // % weight on error value
-        errorMin = (-maxPower * errorSignificance)/2;   // halves weight so that zero is center
-        errorMax = (maxPower * errorSignificance)/2;    // halves weight so that zero is center
-    // Set value ranges
+        errorMin = (-maxPower * errorSignificance) / 2;   // halves weight so that zero is center
+        errorMax = (maxPower * errorSignificance) / 2;    // halves weight so that zero is center
+        // Set value ranges
         power = Range.clip(inputData, 0, maxPower * powerSignificance);
         errorX = Range.clip(xAxisV, errorMin, errorMax);
         errorY = Range.clip(yAxisV, errorMin, errorMax);
-    // main calculation that centers robot while turning
-        error = errorX + errorY*turn;
+        // main calculation that centers robot while turning
+        error = errorX + errorY * turn;
         leftPower = power - error;  // as if error > 0 then leftPowerOutput > rightPowerOutput
         rightPower = power + error; // as if error < 0 then leftPowerOutput < rightPowerOutput
-    // set drive power
+        // set drive power
         robot.leftDrive.setPower(-leftPower * turn);    // turns left on default
-        robot.rightDrive.setPower(rightPower * turn);*/
+        robot.rightDrive.setPower(rightPower * turn);
     }
+}

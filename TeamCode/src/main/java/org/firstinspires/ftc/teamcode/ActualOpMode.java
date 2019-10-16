@@ -86,9 +86,6 @@ public class ActualOpMode extends LinearOpMode {
             playerHussain(gamepad1);
             playerMarek(gamepad2);
 
-
-
-            // if you hold th b button the intake will automatically work
             autoPushBall(sorterCurrentDistance, 500);
 
 
@@ -111,26 +108,25 @@ public class ActualOpMode extends LinearOpMode {
         telemetry.addLine("Brake is activate");
         telemetry.update();
     }
-    // todo fill methods with respective code
+
     private void playerHussain(Gamepad gp){
         drive(gp);
         intake(gp);
-    }  // has drive and intake methods
+    }
     private void playerMarek(Gamepad gp){
         lift(gp);
         shooter(gp);
-    } // has lift and shooter methods
+    }
     private void drive(Gamepad gp){
-        // drive motors
 
         double drive = -gp.left_stick_y;
         double turning  =  gp.right_stick_x;
         double rightPower   = Range.clip(drive - turning, -1.0, 1.0) ;
         double leftPower    = Range.clip(drive + turning, -1.0, 1.0) ;
-        double speedLimit = 0.7;
-        double springSpeed = 0.9;
+        double speedLimit = robot.SPEEDLIMIT;
+        double boostSpeedLimit = robot.BOOSTSPEEDLIMIT;
 
-// dpad contols for drive
+        // dpad controls for drive
         if(gp.dpad_up){
             robot.leftDrive.setPower(speedLimit);
             robot.rightDrive.setPower(speedLimit);
@@ -147,10 +143,12 @@ public class ActualOpMode extends LinearOpMode {
             robot.leftDrive.setPower(speedLimit);
             robot.rightDrive.setPower(-speedLimit);
         }
+    // Boosted driving speed controls
         else if(gp.left_stick_button || gp.right_stick_button){
-            robot.leftDrive.setPower(leftPower * springSpeed);
-            robot.rightDrive.setPower(rightPower * springSpeed);
+            robot.leftDrive.setPower(leftPower * boostSpeedLimit);
+            robot.rightDrive.setPower(rightPower * boostSpeedLimit);
         }
+    // Standard Driving speed controls
         else {
             robot.leftDrive.setPower(leftPower * speedLimit);
             robot.rightDrive.setPower(rightPower * speedLimit);
@@ -170,7 +168,7 @@ public class ActualOpMode extends LinearOpMode {
     }
     private void lift(Gamepad gp){
         // lift motor
-        if(gp.a ) { //&& robot.minHeight.getState()
+        if(gp.a) { //&& robot.minHeight.getState()
             robot.lift.setPower(-0.7);          // going down
         }else if(gp.y && robot.maxHeight.getState()) {
             robot.lift.setPower(0.7);           // going up
@@ -181,15 +179,15 @@ public class ActualOpMode extends LinearOpMode {
     private void shooter(Gamepad gp){
         //shooter motor
         if (tgg.toggle(gp.dpad_up)) {
-            robot.speedLimit += (robot.speedLimit < 1.0) ? 0.1 : 0; // increments by 0.1 if limit is under 1.0
+            robot.shooterSpeedLimit += (robot.shooterSpeedLimit < 1.0) ? 0.1 : 0; // increments by 0.1 if limit is under 1.0
         }
         if (tgg.toggle(gp.dpad_down)) {
-            robot.speedLimit -= (robot.speedLimit > 0.1) ? 0.1 : 0; // increments by -0.1 if limit is above 0.1
+            robot.shooterSpeedLimit -= (robot.shooterSpeedLimit > 0.1) ? 0.1 : 0; // increments by -0.1 if limit is above 0.1
         }
 
         // setting speed to shooter motor
         if (gp.x)
-            robot.shooter.setPower(-robot.speedLimit);
+            robot.shooter.setPower(-robot.shooterSpeedLimit);
         else
             robot.shooter.setPower(0);
     }
@@ -207,10 +205,8 @@ public class ActualOpMode extends LinearOpMode {
             inProcess = false;
         }else if(distance < robot.DISTANCE_TO_GROUND_CM && distance > robot.DISTANCE_TO_TOP_CM){   // moves intake if there is a ball in the belt rails
             robot.beltIntake.setPower(0.5);
-            robot.ziptieIntake.setPower(0.5);
         }else{
             robot.beltIntake.setPower(0);
-            robot.ziptieIntake.setPower(0);
         }
         telemetry.addData("Servo Timer: ", "%.1f", timer.seconds());
     }
