@@ -127,26 +127,33 @@ public class ActualOpMode extends LinearOpMode {
         double turning  =  gp.right_stick_x;
         double rightPower   = Range.clip(drive - turning, -1.0, 1.0) ;
         double leftPower    = Range.clip(drive + turning, -1.0, 1.0) ;
+        double speedLimit = 0.7;
+        double springSpeed = 0.9;
+
 // dpad contols for drive
         if(gp.dpad_up){
-            robot.leftDrive.setPower(1);
-            robot.rightDrive.setPower(1);
+            robot.leftDrive.setPower(speedLimit);
+            robot.rightDrive.setPower(speedLimit);
         }
         else if(gp.dpad_down){
-            robot.leftDrive.setPower(-1);
-            robot.rightDrive.setPower(-1);
+            robot.leftDrive.setPower(-speedLimit);
+            robot.rightDrive.setPower(-speedLimit);
         }
         else if(gp.dpad_left){
-            robot.leftDrive.setPower(-1);
-            robot.rightDrive.setPower(1);
+            robot.leftDrive.setPower(-speedLimit);
+            robot.rightDrive.setPower(speedLimit);
         }
         else if(gp.dpad_right){
-            robot.leftDrive.setPower(1);
-            robot.rightDrive.setPower(-1);
+            robot.leftDrive.setPower(speedLimit);
+            robot.rightDrive.setPower(-speedLimit);
+        }
+        else if(gp.left_stick_button || gp.right_stick_button){
+            robot.leftDrive.setPower(leftPower * springSpeed);
+            robot.rightDrive.setPower(rightPower * springSpeed);
         }
         else {
-            robot.leftDrive.setPower(leftPower);
-            robot.rightDrive.setPower(rightPower);
+            robot.leftDrive.setPower(leftPower * speedLimit);
+            robot.rightDrive.setPower(rightPower * speedLimit);
         }
     }
     private void intake(Gamepad gp){
