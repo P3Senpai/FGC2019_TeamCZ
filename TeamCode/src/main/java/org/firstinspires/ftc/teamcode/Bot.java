@@ -28,12 +28,14 @@ public class Bot {
     protected Rev2mDistanceSensor distanceSensor = null;
     // todo add camera
 
-    // Constants
+    // Key Variables
     protected double shooterSpeedLimit = 0.8;
+    protected int ballHopperQuantity = 0; //todo
+    // Constants
     protected final double  SPEEDLIMIT   = 0.7;
     protected final double  BOOSTSPEEDLIMIT   = 0.9;
-    protected final double DISTANCE_TO_TOP_CM = 2.5; // todo set distance
-    protected final double  DISTANCE_TO_GROUND_CM = 35; //todo set distance
+    protected final double DISTANCE_TO_TOP_CM = 2.5;
+    protected final double  DISTANCE_TO_GROUND_CM = 35;
     // Servo positions
     protected final double LOAD_TRIGGER_SERVO =  0.4078;
     protected final double FIRE_TRIGGER_SERVO =  0.1239;
@@ -64,10 +66,10 @@ public class Bot {
         beltIntake   = hwmap.get(DcMotor.class, "belt_intake");
 
         leftDrive.setDirection(DcMotorSimple.Direction.FORWARD);
-        leftDrive.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);    // release brake after end of program
+        leftDrive.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);    // release brake after end of program
 
         rightDrive.setDirection(DcMotorSimple.Direction.REVERSE);
-        rightDrive.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);   // release brake after end of program
+        rightDrive.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);   // release brake after end of program
 
         lift.setDirection(DcMotorSimple.Direction.FORWARD);
         lift.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);         // redundancy for lift brake system
@@ -84,14 +86,13 @@ public class Bot {
         beltIntake.setPower(0);
 
     /*  Initialization of Servos */
-        wingtipLeft = hwmap.get(Servo.class, "wing_tip_left");      // init: 0.3444 end: 0.8117
-        wingtipRight = hwmap.get(Servo.class, "wing_tip_right");    // init: 0.5056 end: 0.0
-        liftBrake   = hwmap.get(Servo.class, "lift_brake");         // todo find and set starting pos
-        tightenSide = hwmap.get(Servo.class, "tighten_side");       // todo find and set starting pos
-        pushBall    = hwmap.get(Servo.class, "push_ball");          // start: 0.09 fin: 0.345
-        shooterTrigger    = hwmap.get(Servo.class, "shooter");      // load: 0.4078 fire: 0.1239
+        wingtipLeft = hwmap.get(Servo.class, "wing_tip_left");
+        wingtipRight = hwmap.get(Servo.class, "wing_tip_right");
+        liftBrake   = hwmap.get(Servo.class, "lift_brake");
+        tightenSide = hwmap.get(Servo.class, "tighten_side");
+        pushBall    = hwmap.get(Servo.class, "push_ball");
+        shooterTrigger    = hwmap.get(Servo.class, "shooter");
 
-        // Set servo positions
         pushBall.setPosition(OPEN_PUSH_BALL);
         shooterTrigger.setPosition(FIRE_TRIGGER_SERVO); // close the shooter for the balls before we are ready to shoot
         wingtipLeft.setPosition(CLOSED_LEFT_WING);

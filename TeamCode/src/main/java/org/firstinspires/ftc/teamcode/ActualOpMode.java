@@ -89,7 +89,6 @@ public class ActualOpMode extends LinearOpMode {
             autoPushBall(sorterCurrentDistance, 500);
 
 
-
         // Show the elapsed game time and wheel power.
             telemetry.addLine();
             telemetry.addData("Distance sensor: ","%.1f cm", sorterCurrentDistance);
