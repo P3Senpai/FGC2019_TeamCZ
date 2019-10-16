@@ -83,8 +83,8 @@ public class ActualOpMode extends LinearOpMode {
         while (opModeIsActive()) {
             double sorterCurrentDistance = robot.distanceSensor.getDistance(DistanceUnit.CM);
 
-            playerHussain();
-            playerMarek();
+            playerHussain(gamepad1);
+            playerMarek(gamepad2);
 
 
 
@@ -112,24 +112,42 @@ public class ActualOpMode extends LinearOpMode {
         telemetry.update();
     }
     // todo fill methods with respective code
-    private void playerHussain(){
-        drive();
-        intake(gamepad1);
+    private void playerHussain(Gamepad gp){
+        drive(gp);
+        intake(gp);
     }  // has drive and intake methods
-    private void playerMarek(){
-        lift(gamepad2);
-        shooter(gamepad2);
+    private void playerMarek(Gamepad gp){
+        lift(gp);
+        shooter(gp);
     } // has lift and shooter methods
-    private void drive(){
+    private void drive(Gamepad gp){
         // drive motors
 
-        double drive = -gamepad1.left_stick_y;
-        double turning  =  gamepad1.left_stick_x;
+        double drive = -gp.left_stick_y;
+        double turning  =  gp.right_stick_x;
         double rightPower   = Range.clip(drive - turning, -1.0, 1.0) ;
         double leftPower    = Range.clip(drive + turning, -1.0, 1.0) ;
-
-        robot.leftDrive.setPower(leftPower);
-        robot.rightDrive.setPower(rightPower);
+// dpad contols for drive
+        if(gp.dpad_up){
+            robot.leftDrive.setPower(1);
+            robot.rightDrive.setPower(1);
+        }
+        else if(gp.dpad_down){
+            robot.leftDrive.setPower(-1);
+            robot.rightDrive.setPower(-1);
+        }
+        else if(gp.dpad_left){
+            robot.leftDrive.setPower(-1);
+            robot.rightDrive.setPower(1);
+        }
+        else if(gp.dpad_right){
+            robot.leftDrive.setPower(1);
+            robot.rightDrive.setPower(-1);
+        }
+        else {
+            robot.leftDrive.setPower(leftPower);
+            robot.rightDrive.setPower(rightPower);
+        }
     }
     private void intake(Gamepad gp){
         if (gp.right_bumper){

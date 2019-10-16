@@ -301,4 +301,3 @@ public class BasicOpMode_Linear extends LinearOpMode {
         robot.leftDrive.setPower(-leftPower * turn);    // turns left on default
         robot.rightDrive.setPower(rightPower * turn);*/
     }
-
