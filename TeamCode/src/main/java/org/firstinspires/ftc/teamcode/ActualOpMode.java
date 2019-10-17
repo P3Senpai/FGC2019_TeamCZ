@@ -107,12 +107,12 @@ public class ActualOpMode extends LinearOpMode {
     }
 
     private void playerHussain(Gamepad gp){
-        drive(gp);
-        intake(gp);
-    }
-    private void playerMarek(Gamepad gp){
         lift(gp);
         shooter(gp);
+    }
+    private void playerMarek(Gamepad gp){
+        drive(gp);
+        intake(gp);
     }
     private void drive(Gamepad gp){
 
@@ -153,19 +153,19 @@ public class ActualOpMode extends LinearOpMode {
     }
     private void intake(Gamepad gp){
         sorterCurrentDistance = robot.distanceSensor.getDistance(DistanceUnit.CM);
-    // Intakes both ziptie and belt are manual
+    // Manually controls both belt and ziptie intake
         if(sorterCurrentDistance > robot.DISTANCE_TO_GROUND_CM){
             if (gp.right_bumper){
                 robot.ziptieIntake.setPower(0.5);   // ball going in
-                robot.beltIntake.setPower(0.5);
+                robot.beltIntake.setPower(robot.BELT_SPEED);
             }else if (gp.left_bumper){
                 robot.ziptieIntake.setPower(-0.5);  // ball going out
-                robot.beltIntake.setPower(-0.5);
+                robot.beltIntake.setPower(-robot.BELT_SPEED);
             }else{
                 robot.ziptieIntake.setPower(0);
                 robot.beltIntake.setPower(0);
             }
-    // Intakes ziptie is manual AND belt is automatic
+    // Automatically controls belt intake and manually controls ziptie intake
         }else{
             autoPushBall(sorterCurrentDistance, 500);
             if (gp.right_bumper){
@@ -208,14 +208,16 @@ public class ActualOpMode extends LinearOpMode {
         ElapsedTime timer = new ElapsedTime();
         if(distance <= robot.DISTANCE_TO_TOP_CM && !inProcess){  // second condition ensures servo can return
                 //todo add counter for ball limit
+            robot.beltIntake.setPower(0);
             robot.pushBall.setPosition(robot.PUSHED_PUSH_BALL); // pushes ball into hopper
             inProcess = true;
         }else if(inProcess){
             sleep(time);
             robot.pushBall.setPosition(robot.OPEN_PUSH_BALL); // moves servo back
             inProcess = false;
+            robot.beltIntake.setPower(0);
         }else if(distance < robot.DISTANCE_TO_GROUND_CM && distance > robot.DISTANCE_TO_TOP_CM){   // moves intake if there is a ball in the belt rails
-            robot.beltIntake.setPower(0.5);
+            robot.beltIntake.setPower(robot.BELT_SPEED);
         }else{
             robot.beltIntake.setPower(0);
         }

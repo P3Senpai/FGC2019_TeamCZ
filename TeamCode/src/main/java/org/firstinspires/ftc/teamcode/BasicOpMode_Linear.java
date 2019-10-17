@@ -146,10 +146,10 @@ public class BasicOpMode_Linear extends LinearOpMode {
 
         if (gp.right_bumper){
             robot.ziptieIntake.setPower(0.5);   // ball going in
-            robot.beltIntake.setPower(0.5);
+            robot.beltIntake.setPower(robot.BELT_SPEED);
         }else if (gp.left_bumper){
             robot.ziptieIntake.setPower(-0.5);  // ball going out
-            robot.beltIntake.setPower(-0.5);
+            robot.beltIntake.setPower(-robot.BELT_SPEED);
         }else{
             robot.ziptieIntake.setPower(0);
             robot.beltIntake.setPower(0);
@@ -248,7 +248,7 @@ public class BasicOpMode_Linear extends LinearOpMode {
             robot.pushBall.setPosition(robot.OPEN_PUSH_BALL); // moves servo back
             inProcess = false;
         }else if(distance < robot.DISTANCE_TO_GROUND_CM && distance > robot.DISTANCE_TO_TOP_CM){   // moves intake if there is a ball in the belt rails
-            robot.beltIntake.setPower(0.5);
+            robot.beltIntake.setPower(robot.BELT_SPEED);
             robot.ziptieIntake.setPower(0.5);
         }else{
             robot.beltIntake.setPower(0);
