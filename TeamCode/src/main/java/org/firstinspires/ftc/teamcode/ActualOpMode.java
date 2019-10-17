@@ -61,6 +61,7 @@ public class ActualOpMode extends LinearOpMode {
     private Bot robot = new Bot();
     private Toggle tgg = new Toggle();
     private boolean inProcess = false;
+    double sorterCurrentDistance;
 
     @Override
     public void runOpMode() {
@@ -81,13 +82,10 @@ public class ActualOpMode extends LinearOpMode {
 
         // run until the end of the match (driver presses STOP)
         while (opModeIsActive()) {
-            double sorterCurrentDistance = robot.distanceSensor.getDistance(DistanceUnit.CM);
+
 
             playerHussain(gamepad1);
             playerMarek(gamepad2);
-
-            autoPushBall(sorterCurrentDistance, 500);
-
 
         // Show the elapsed game time and wheel power.
             telemetry.addLine();
@@ -122,8 +120,8 @@ public class ActualOpMode extends LinearOpMode {
         double turning  =  gp.right_stick_x;
         double rightPower   = Range.clip(drive - turning, -1.0, 1.0) ;
         double leftPower    = Range.clip(drive + turning, -1.0, 1.0) ;
-        double speedLimit = robot.SPEEDLIMIT;
-        double boostSpeedLimit = robot.BOOSTSPEEDLIMIT;
+        double speedLimit = robot.SPEED_LIMIT;
+        double boostSpeedLimit = robot.BOOST_SPEED_LIMIT;
 
         // dpad controls for drive
         if(gp.dpad_up){
@@ -154,15 +152,29 @@ public class ActualOpMode extends LinearOpMode {
         }
     }
     private void intake(Gamepad gp){
-        if (gp.right_bumper){
-            robot.ziptieIntake.setPower(0.5);   // ball going in
-            robot.beltIntake.setPower(0.5);
-        }else if (gp.left_bumper){
-            robot.ziptieIntake.setPower(-0.5);  // ball going out
-            robot.beltIntake.setPower(-0.5);
+        sorterCurrentDistance = robot.distanceSensor.getDistance(DistanceUnit.CM);
+    // Intakes both ziptie and belt are manual
+        if(sorterCurrentDistance > robot.DISTANCE_TO_GROUND_CM){
+            if (gp.right_bumper){
+                robot.ziptieIntake.setPower(0.5);   // ball going in
+                robot.beltIntake.setPower(0.5);
+            }else if (gp.left_bumper){
+                robot.ziptieIntake.setPower(-0.5);  // ball going out
+                robot.beltIntake.setPower(-0.5);
+            }else{
+                robot.ziptieIntake.setPower(0);
+                robot.beltIntake.setPower(0);
+            }
+    // Intakes ziptie is manual AND belt is automatic
         }else{
-            robot.ziptieIntake.setPower(0);
-            robot.beltIntake.setPower(0);
+            autoPushBall(sorterCurrentDistance, 500);
+            if (gp.right_bumper){
+                robot.ziptieIntake.setPower(0.5);   // ball going in
+            }else if (gp.left_bumper){
+                robot.ziptieIntake.setPower(-0.5);  // ball going out
+            }else{
+                robot.ziptieIntake.setPower(0);
+            }
         }
     }
     private void lift(Gamepad gp){

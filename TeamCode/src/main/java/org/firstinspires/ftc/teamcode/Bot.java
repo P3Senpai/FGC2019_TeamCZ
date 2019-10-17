@@ -32,10 +32,10 @@ public class Bot {
     protected double shooterSpeedLimit = 0.8;
     protected int ballHopperQuantity = 0; //todo
     // Constants
-    protected final double  SPEEDLIMIT   = 0.7;
-    protected final double  BOOSTSPEEDLIMIT   = 0.9;
+    protected final double SPEED_LIMIT = 0.7;
+    protected final double BOOST_SPEED_LIMIT = 0.9;
     protected final double DISTANCE_TO_TOP_CM = 2.5;
-    protected final double  DISTANCE_TO_GROUND_CM = 35;
+    protected final double  DISTANCE_TO_GROUND_CM = 33;
     // Servo positions
     protected final double LOAD_TRIGGER_SERVO =  0.4078;
     protected final double FIRE_TRIGGER_SERVO =  0.1239;
