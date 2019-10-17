@@ -271,8 +271,8 @@ public class BasicOpMode_Linear extends LinearOpMode {
         }
     }
     private boolean percentTolerance(double value, double threshold, double percent){
-        double maxLimit = threshold + (value*percent);
-        double minLimit = threshold - (value*percent);
+        double maxLimit = threshold + (threshold*percent);
+        double minLimit = threshold - (threshold*percent);
         return value <= maxLimit && value >= minLimit;
     }
     private void driveByVelocity(double inputData, double maxPower, double velocityForward, double velocitySideways){
