@@ -256,7 +256,7 @@ public class BasicOpMode_Linear extends LinearOpMode {
         double currentV = robot.shooter.getVelocity();
         double targetV = -1;//todo test to find a value for this
         if(gp.b){
-            if(percentTolerance(currentV, targetV,0.05)){
+            if(robot.percentTolerance(currentV, targetV,0.05)){
                 robot.shooter.setVelocity(targetV);
             }else{
                 if (!isShooterReady) {
@@ -269,11 +269,6 @@ public class BasicOpMode_Linear extends LinearOpMode {
                 }
             }
         }
-    }
-    private boolean percentTolerance(double value, double threshold, double percent){
-        double maxLimit = threshold + (threshold*percent);
-        double minLimit = threshold - (threshold*percent);
-        return value <= maxLimit && value >= minLimit;
     }
     private void driveByVelocity(double inputData, double maxPower, double velocityForward, double velocitySideways){
     // Set up variables

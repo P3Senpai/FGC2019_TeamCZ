@@ -107,5 +107,10 @@ public class Bot {
         distanceSensor = hwmap.get(Rev2mDistanceSensor.class, "distance");
 
     }
+    protected boolean percentTolerance(double value, double threshold, double percent){
+        double maxLimit = threshold + (threshold*percent);
+        double minLimit = threshold - (threshold*percent);
+        return value <= maxLimit && value >= minLimit;
+    }
 }
 
