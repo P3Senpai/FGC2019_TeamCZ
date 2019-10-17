@@ -29,19 +29,14 @@
 
 package org.firstinspires.ftc.teamcode;
 
-import com.qualcomm.ftccommon.FtcEventLoop;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.Gamepad;
-import com.qualcomm.robotcore.hardware.HardwareMap;
-import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
 import com.qualcomm.robotcore.util.Range;
 
 import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
-
-import java.util.HashMap;
 
 
 /**
@@ -261,17 +256,24 @@ public class BasicOpMode_Linear extends LinearOpMode {
         double currentV = robot.shooter.getVelocity();
         double targetV = -1;//todo test to find a value for this
         if(gp.b){
-            if(currentV < targetV){
+            if(percentTolerance(currentV, targetV,0.05)){
                 robot.shooter.setVelocity(targetV);
-            }else if(!isShooterReady){
-                robot.shooterTrigger.setPosition(robot.LOAD_TRIGGER_SERVO);
-                isShooterReady = true;
             }else{
-                sleep((long) time);
-                robot.shooterTrigger.setPosition(robot.LOAD_TRIGGER_SERVO);
-                isShooterReady = true;
+                if (!isShooterReady) {
+                    robot.shooterTrigger.setPosition(robot.LOAD_TRIGGER_SERVO);
+                    isShooterReady = true;
+                } else {
+                    sleep((long) time);
+                    robot.shooterTrigger.setPosition(robot.LOAD_TRIGGER_SERVO);
+                    isShooterReady = true;
+                }
             }
         }
+    }
+    private boolean percentTolerance(double value, double threshold, double percent){
+        double maxLimit = threshold + (value*percent);
+        double minLimit = threshold - (value*percent);
+        return value <= maxLimit && value >= minLimit;
     }
     private void driveByVelocity(double inputData, double maxPower, double velocityForward, double velocitySideways){
     // Set up variables
