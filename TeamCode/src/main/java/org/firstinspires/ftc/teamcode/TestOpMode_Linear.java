@@ -174,6 +174,10 @@ public class TestOpMode_Linear extends LinearOpMode {
             robot.leftWing.setPower(0.1);
             robot.rightWing.setPower(0.1);
         }
+        if(!robot.leftWing.isBusy() && !robot.rightWing.isBusy()){
+            robot.leftWing.setPower(0);
+            robot.rightWing.setPower(0);
+        }
 
 
     // telemetry data
