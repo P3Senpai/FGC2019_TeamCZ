@@ -83,7 +83,6 @@ public class ActualOpMode extends LinearOpMode {
         // run until the end of the match (driver presses STOP)
         while (opModeIsActive()) {
 
-
             playerHussain(gamepad1);
             playerMarek(gamepad2);
 
@@ -106,11 +105,11 @@ public class ActualOpMode extends LinearOpMode {
         telemetry.update();
     }
 
-    private void playerHussain(Gamepad gp){
+    private void playerMarek(Gamepad gp){
         lift(gp);
         shooter(gp);
     }
-    private void playerMarek(Gamepad gp){
+    private void playerHussain(Gamepad gp){
         drive(gp);
         intake(gp);
     }
@@ -182,7 +181,9 @@ public class ActualOpMode extends LinearOpMode {
         if(gp.a) { //&& robot.minHeight.getState()
             robot.lift.setPower(-0.7);          // going down
         }else if(gp.y && robot.maxHeight.getState()) {
-            robot.lift.setPower(0.7);           // going up
+            robot.lift.setPower(0.9);           // going up
+            robot.wingtipLeft.setPosition(robot.CLOSED_LEFT_WING);
+            robot.wingtipRight.setPosition(robot.CLOSED_RIGHT_WING);
         }else {
             robot.lift.setPower(0);
         }
@@ -215,7 +216,6 @@ public class ActualOpMode extends LinearOpMode {
             sleep(time);
             robot.pushBall.setPosition(robot.OPEN_PUSH_BALL); // moves servo back
             inProcess = false;
-            robot.beltIntake.setPower(0);
         }else if(distance < robot.DISTANCE_TO_GROUND_CM && distance > robot.DISTANCE_TO_TOP_CM){   // moves intake if there is a ball in the belt rails
             robot.beltIntake.setPower(robot.BELT_SPEED);
         }else{
