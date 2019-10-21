@@ -182,8 +182,7 @@ public class ActualOpMode extends LinearOpMode {
             robot.lift.setPower(-0.7);          // going down
         }else if(gp.y && robot.maxHeight.getState()) {
             robot.lift.setPower(0.9);           // going up
-            robot.wingtipLeft.setPosition(robot.CLOSED_LEFT_WING);
-            robot.wingtipRight.setPosition(robot.CLOSED_RIGHT_WING);
+            //todo add wing closing code
         }else {
             robot.lift.setPower(0);
         }

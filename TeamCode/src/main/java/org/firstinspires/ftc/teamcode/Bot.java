@@ -62,18 +62,20 @@ public class Bot {
         rightWing   = hwmap.get(DcMotor.class, "right_wing");
 
     // Left and Right wings
-        leftWing.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        rightWing.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        leftWing.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        rightWing.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+//        leftWing.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+//        rightWing.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+//        leftWing.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+//        rightWing.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        leftWing.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        rightWing.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
     // Shooter motor
         shooter.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
     // Left Drive
         leftDrive.setDirection(DcMotorSimple.Direction.FORWARD);
-        leftDrive.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);    // release brake after end of program
+        leftDrive.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);    // release brake after end of program
     // Right Drive
         rightDrive.setDirection(DcMotorSimple.Direction.REVERSE);
-        rightDrive.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);   // release brake after end of program
+        rightDrive.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);   // release brake after end of program
     // Lift Motor
         lift.setDirection(DcMotorSimple.Direction.FORWARD);
         lift.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);         // redundancy for lift brake system

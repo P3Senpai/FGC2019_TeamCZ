@@ -139,11 +139,10 @@ public class TestOpMode_Linear extends LinearOpMode {
         else
             robot.shooter.setPower(0);
     // intake motors
-
-        if (gp.right_bumper){
+        if (gp.dpad_right){
             robot.ziptieIntake.setPower(0.5);   // ball going in
             robot.beltIntake.setPower(robot.BELT_SPEED);
-        }else if (gp.left_bumper){
+        }else if (gp.dpad_left){
             robot.ziptieIntake.setPower(-0.5);  // ball going out
             robot.beltIntake.setPower(-robot.BELT_SPEED);
         }else{
@@ -162,22 +161,41 @@ public class TestOpMode_Linear extends LinearOpMode {
     // Wings
         int leftWingCurrentPos = robot.leftWing.getCurrentPosition();
         int rightWingCurrentPos = robot.rightWing.getCurrentPosition();
-        if(tgg.toggle(gp.dpad_left)){
-            robot.leftWing.setTargetPosition(leftWingCurrentPos + 10);
-            robot.rightWing.setTargetPosition(rightWingCurrentPos + 10);
-            robot.leftWing.setPower(0.1);
-            robot.rightWing.setPower(0.1);
-        }
-        if(tgg.toggle(gp.dpad_right)){
-            robot.leftWing.setTargetPosition(leftWingCurrentPos - 10);
-            robot.rightWing.setTargetPosition(rightWingCurrentPos - 10);
-            robot.leftWing.setPower(0.1);
-            robot.rightWing.setPower(0.1);
-        }
-        if(!robot.leftWing.isBusy() && !robot.rightWing.isBusy()){
+        boolean openWings = robot.leftWing.getTargetPosition() == 1000 && robot.rightWing.getTargetPosition() == 1000;
+        boolean closeWings = robot.leftWing.getTargetPosition() == 0 && robot.rightWing.getTargetPosition() == 0;
+//        if(gp.dpad_left){
+//            robot.leftWing.setTargetPosition(1000);
+//            robot.rightWing.setTargetPosition(1000);
+//        }
+//        if(gp.dpad_right){
+//            robot.leftWing.setTargetPosition(0);
+//            robot.rightWing.setTargetPosition(0);
+//        }
+//        if(!robot.leftWing.isBusy() && !robot.rightWing.isBusy()){
+//            robot.leftWing.setPower(0);
+//            robot.rightWing.setPower(0);
+//        }else if(openWings){
+//            robot.leftWing.setPower(0.2);
+//            robot.rightWing.setPower(0.2);
+//        }else if(closeWings){
+//            robot.leftWing.setPower(-0.2);
+//            robot.rightWing.setPower(-0.2);
+//        }
+        if(gp.right_trigger > 0){
+            robot.leftWing.setPower(0.05);
+        }else if(gp.left_trigger > 0){
+            robot.leftWing.setPower(-0.05);
+        }else{
             robot.leftWing.setPower(0);
+        }
+        if(gp.left_bumper){
+            robot.rightWing.setPower(-0.2);
+        }else if(gp.right_bumper){
+            robot.rightWing.setPower(0.2);
+        }else{
             robot.rightWing.setPower(0);
         }
+
 
 
     // telemetry data
@@ -185,7 +203,9 @@ public class TestOpMode_Linear extends LinearOpMode {
         telemetry.addData("Shooter Speed", "limit(%.2f) actual(%.2f)", robot.shooterSpeedLimit, robot.shooter.getPower());
         telemetry.addData("Intake Motor Speed", "belt: %.2f ziptie intake: %.2f", robot.beltIntake.getPower(), robot.ziptieIntake.getPower());
         telemetry.addData("Lift Motor:", "power(%.2f)", robot.lift.getPower());
-        telemetry.addData("Wings ", "left %0.f right %0.f", (double) robot.leftWing.getCurrentPosition(), (double) robot.rightWing.getCurrentPosition());
+        telemetry.addData("Wings ","left: %4d right: %4d", leftWingCurrentPos, rightWingCurrentPos);
+        telemetry.addData("Wings left ", leftWingCurrentPos);
+
     }
 // tests servos by using multiple virtual controllers
     private void servoControllers(Gamepad gp){
