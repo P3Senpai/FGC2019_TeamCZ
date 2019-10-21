@@ -182,9 +182,9 @@ public class TestOpMode_Linear extends LinearOpMode {
 //            robot.rightWing.setPower(-0.2);
 //        }
         if(gp.right_trigger > 0){
-            robot.leftWing.setPower(0.05);
+            robot.leftWing.setPower(0.1);
         }else if(gp.left_trigger > 0){
-            robot.leftWing.setPower(-0.05);
+            robot.leftWing.setPower(-0.1);
         }else{
             robot.leftWing.setPower(0);
         }

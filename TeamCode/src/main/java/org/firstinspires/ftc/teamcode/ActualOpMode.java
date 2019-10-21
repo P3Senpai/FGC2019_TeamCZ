@@ -105,13 +105,14 @@ public class ActualOpMode extends LinearOpMode {
         telemetry.update();
     }
 
-    private void playerMarek(Gamepad gp){
+    private void playerHussain(Gamepad gp){
         lift(gp);
         shooter(gp);
     }
-    private void playerHussain(Gamepad gp){
+    private void playerMarek(Gamepad gp){
         drive(gp);
         intake(gp);
+        robotLove(gp);
     }
     private void drive(Gamepad gp){
 
@@ -201,6 +202,22 @@ public class ActualOpMode extends LinearOpMode {
             robot.shooter.setPower(-robot.shooterSpeedLimit);
         else
             robot.shooter.setPower(0);
+        if(gp.b)
+            robot.shooterTrigger.setPosition(robot.FIRE_TRIGGER_SERVO);
+        else
+            robot.shooterTrigger.setPosition(robot.LOAD_TRIGGER_SERVO);
+    }
+    private void robotLove(Gamepad gp){
+        if(gp.left_trigger > 0){            // opening wings
+            robot.leftWing.setPower(0.15);
+            robot.rightWing.setPower(0.15);
+        }else if(gp.right_trigger > 0){     // hugging wings
+            robot.leftWing.setPower(-0.15);
+            robot.rightWing.setPower(-0.15);
+        }else{
+            robot.leftWing.setPower(0);
+            robot.rightWing.setPower(0);
+        }
     }
 
 // uses distance sensor to push balls into the hopper
