@@ -29,13 +29,13 @@ public class Bot {
     // todo add camera
 
     // Key Variables
-    protected double shooterSpeedLimit = 0.8;
+    protected double shooterSpeedLimit = 0.7;
     protected int ballHopperQuantity = 0; //todo
     // Constants
     protected final double SPEED_LIMIT = 0.6;
     protected final double BOOST_SPEED_LIMIT = 1;
     protected final double DISTANCE_TO_TOP_CM = 2.5;
-    protected final double DISTANCE_TO_GROUND_CM = 32;
+    protected final double DISTANCE_TO_GROUND_CM = 34;
     protected final double BELT_SPEED = 0.5;
     // Servo positions
     protected final double LOAD_TRIGGER_SERVO =  0.4078;

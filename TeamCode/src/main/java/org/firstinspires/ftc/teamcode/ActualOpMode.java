@@ -83,14 +83,15 @@ public class ActualOpMode extends LinearOpMode {
         // run until the end of the match (driver presses STOP)
         while (opModeIsActive()) {
 
-            playerHussain(gamepad1);
-            playerMarek(gamepad2);
+            playerMarek(gamepad1);
+            playerHussain(gamepad2);
 
         // Show the elapsed game time and wheel power.
             telemetry.addLine();
             telemetry.addData("Distance sensor: ","%.1f cm", sorterCurrentDistance);
             telemetry.addData("Status", "Run Time: %.1f", runtime.seconds());
             telemetry.addData("Triggers pressed"," left: %.2f right: %.2f", gamepad1.left_trigger, gamepad1.right_trigger);
+            telemetry.addData("Amount of micro pollutants: %d", robot.ballHopperQuantity);
             telemetry.update();
 
 
@@ -112,7 +113,7 @@ public class ActualOpMode extends LinearOpMode {
     private void playerMarek(Gamepad gp){
         drive(gp);
         intake(gp);
-        robotLove(gp);
+        robotLove(gp, gp.right_stick_x * 0.25);
     }
     private void drive(Gamepad gp){
 
@@ -179,7 +180,7 @@ public class ActualOpMode extends LinearOpMode {
     }
     private void lift(Gamepad gp){
         // lift motor
-        if(gp.a) { //&& robot.minHeight.getState()
+        if(gp.b) { //&& robot.minHeight.getState()
             robot.lift.setPower(-0.7);          // going down
         }else if(gp.y && robot.maxHeight.getState()) {
             robot.lift.setPower(0.9);           // going up
@@ -189,6 +190,8 @@ public class ActualOpMode extends LinearOpMode {
         }
     }
     private void shooter(Gamepad gp){
+        boolean isTriggerPressed = tgg.toggle(gp.right_trigger > 0);
+
         //shooter motor
         if (tgg.toggle(gp.dpad_up)) {
             robot.shooterSpeedLimit += (robot.shooterSpeedLimit < 1.0) ? 0.1 : 0; // increments by 0.1 if limit is under 1.0
@@ -198,22 +201,30 @@ public class ActualOpMode extends LinearOpMode {
         }
 
         // setting speed to shooter motor
-        if (gp.x)
+        if (gp.x) {
             robot.shooter.setPower(-robot.shooterSpeedLimit);
-        else
+        }else {
             robot.shooter.setPower(0);
-        if(gp.b)
+        }
+
+        if(gp.right_trigger > 0) {
+            if (isTriggerPressed) {         // because this needs to happen once every click and not for the length of time the person is holding the button
+                robot.ballHopperQuantity--;
+            }
             robot.shooterTrigger.setPosition(robot.FIRE_TRIGGER_SERVO);
-        else
+        }else {
             robot.shooterTrigger.setPosition(robot.LOAD_TRIGGER_SERVO);
+        }
+
+
     }
-    private void robotLove(Gamepad gp){
+    private void robotLove(Gamepad gp, double spinner){
         if(gp.left_trigger > 0){            // opening wings
             robot.leftWing.setPower(0.15);
             robot.rightWing.setPower(0.15);
         }else if(gp.right_trigger > 0){     // hugging wings
-            robot.leftWing.setPower(-0.15);
-            robot.rightWing.setPower(-0.15);
+            robot.leftWing.setPower(-0.2 - Math.abs(spinner));
+            robot.rightWing.setPower(-0.2 - Math.abs(spinner));
         }else{
             robot.leftWing.setPower(0);
             robot.rightWing.setPower(0);
@@ -224,7 +235,7 @@ public class ActualOpMode extends LinearOpMode {
     private void autoPushBall(double distance, long time){
         ElapsedTime timer = new ElapsedTime();
         if(distance <= robot.DISTANCE_TO_TOP_CM && !inProcess){  // second condition ensures servo can return
-                //todo add counter for ball limit
+            robot.ballHopperQuantity ++;
             robot.beltIntake.setPower(0);
             robot.pushBall.setPosition(robot.PUSHED_PUSH_BALL); // pushes ball into hopper
             inProcess = true;
