@@ -61,7 +61,7 @@ public class ActualOpMode extends LinearOpMode {
     private Bot robot = new Bot();
     private Toggle tgg = new Toggle();
     private boolean inProcess = false;
-    double sorterCurrentDistance;
+    private double sorterCurrentDistance ;
 
     @Override
     public void runOpMode() {
@@ -154,25 +154,25 @@ public class ActualOpMode extends LinearOpMode {
     }
     private void intake(Gamepad gp){
         sorterCurrentDistance = robot.distanceSensor.getDistance(DistanceUnit.CM);
-    // Manually controls both belt and ziptie intake
+    // Manually controls both belt and zip tie intake
         if(sorterCurrentDistance > robot.DISTANCE_TO_GROUND_CM){
             if (gp.right_bumper){
-                robot.ziptieIntake.setPower(0.5);   // ball going in
-                robot.beltIntake.setPower(robot.BELT_SPEED);
+                robot.ziptieIntake.setPower(robot.INTAKE_SPEED);   // ball going in
+                robot.beltIntake.setPower(robot.INTAKE_SPEED);
             }else if (gp.left_bumper){
-                robot.ziptieIntake.setPower(-0.5);  // ball going out
-                robot.beltIntake.setPower(-robot.BELT_SPEED);
+                robot.ziptieIntake.setPower(-robot.INTAKE_SPEED);  // ball going out
+                robot.beltIntake.setPower(-robot.INTAKE_SPEED);
             }else{
                 robot.ziptieIntake.setPower(0);
                 robot.beltIntake.setPower(0);
             }
-    // Automatically controls belt intake and manually controls ziptie intake
+    // Automatically controls belt intake and manually controls zip tie intake
         }else{
             autoPushBall(sorterCurrentDistance, 500);
             if (gp.right_bumper){
-                robot.ziptieIntake.setPower(0.5);   // ball going in
+                robot.ziptieIntake.setPower(robot.INTAKE_SPEED);   // ball going in
             }else if (gp.left_bumper){
-                robot.ziptieIntake.setPower(-0.5);  // ball going out
+                robot.ziptieIntake.setPower(-robot.INTAKE_SPEED);  // ball going out
             }else{
                 robot.ziptieIntake.setPower(0);
             }
@@ -190,14 +190,14 @@ public class ActualOpMode extends LinearOpMode {
         }
     }
     private void shooter(Gamepad gp){
-        boolean isTriggerPressed = tgg.toggle(gp.right_trigger > 0);
+        boolean isTriggerPressed = tgg.toggle(gp.right_trigger > 0); // defined at top so that the toggle method is always called
 
         //shooter motor
         if (tgg.toggle(gp.dpad_up)) {
-            robot.shooterSpeedLimit += (robot.shooterSpeedLimit < 1.0) ? 0.1 : 0; // increments by 0.1 if limit is under 1.0
+            robot.shooterSpeedLimit += (robot.shooterSpeedLimit < 1.0) ? 0.05 : 0; // increments by 0.05 if limit is under 1.0
         }
         if (tgg.toggle(gp.dpad_down)) {
-            robot.shooterSpeedLimit -= (robot.shooterSpeedLimit > 0.1) ? 0.1 : 0; // increments by -0.1 if limit is above 0.1
+            robot.shooterSpeedLimit -= (robot.shooterSpeedLimit > 0.1) ? 0.05 : 0; // increments by -0.05 if limit is above 0.1
         }
 
         // setting speed to shooter motor
@@ -219,10 +219,10 @@ public class ActualOpMode extends LinearOpMode {
 
     }
     private void robotLove(Gamepad gp, double spinner){
-        if(gp.left_trigger > 0){            // opening wings
+        if(gp.left_trigger > 0){            // opening wings (putting them away into stowed position)
             robot.leftWing.setPower(0.15);
             robot.rightWing.setPower(0.15);
-        }else if(gp.right_trigger > 0){     // hugging wings
+        }else if(gp.right_trigger > 0){     // hugging wings (closing them around the balls)
             robot.leftWing.setPower(-0.2 - Math.abs(spinner));
             robot.rightWing.setPower(-0.2 - Math.abs(spinner));
         }else{
@@ -233,21 +233,19 @@ public class ActualOpMode extends LinearOpMode {
 
 // uses distance sensor to push balls into the hopper
     private void autoPushBall(double distance, long time){
-        ElapsedTime timer = new ElapsedTime();
         if(distance <= robot.DISTANCE_TO_TOP_CM && !inProcess){  // second condition ensures servo can return
-            robot.ballHopperQuantity ++;
-            robot.beltIntake.setPower(0);
+            robot.ballHopperQuantity ++;    // todo see if toggle method required or if this action is done once per loop
+            robot.beltIntake.setPower(0);   // stops belt
             robot.pushBall.setPosition(robot.PUSHED_PUSH_BALL); // pushes ball into hopper
-            inProcess = true;
+            inProcess = true;   // changes the condition
         }else if(inProcess){
-            sleep(time);
+            sleep(time);    // waits for servo to reach end
             robot.pushBall.setPosition(robot.OPEN_PUSH_BALL); // moves servo back
-            inProcess = false;
+            inProcess = false; // changes the condition
         }else if(distance < robot.DISTANCE_TO_GROUND_CM && distance > robot.DISTANCE_TO_TOP_CM){   // moves intake if there is a ball in the belt rails
-            robot.beltIntake.setPower(robot.BELT_SPEED);
+            robot.beltIntake.setPower(robot.INTAKE_SPEED);
         }else{
             robot.beltIntake.setPower(0);
         }
-        telemetry.addData("Servo Timer: ", "%.1f", timer.seconds());
     }
 }

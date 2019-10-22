@@ -36,7 +36,7 @@ public class Bot {
     protected final double BOOST_SPEED_LIMIT = 1;
     protected final double DISTANCE_TO_TOP_CM = 2.5;
     protected final double DISTANCE_TO_GROUND_CM = 34;
-    protected final double BELT_SPEED = 0.5;
+    protected final double INTAKE_SPEED = 0.5;
     // Servo positions
     protected final double LOAD_TRIGGER_SERVO =  0.4078;
     protected final double FIRE_TRIGGER_SERVO =  0.1139;

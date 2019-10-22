@@ -141,10 +141,10 @@ public class TestOpMode_Linear extends LinearOpMode {
     // intake motors
         if (gp.dpad_right){
             robot.ziptieIntake.setPower(0.5);   // ball going in
-            robot.beltIntake.setPower(robot.BELT_SPEED);
+            robot.beltIntake.setPower(robot.INTAKE_SPEED);
         }else if (gp.dpad_left){
             robot.ziptieIntake.setPower(-0.5);  // ball going out
-            robot.beltIntake.setPower(-robot.BELT_SPEED);
+            robot.beltIntake.setPower(-robot.INTAKE_SPEED);
         }else{
             robot.ziptieIntake.setPower(0);
             robot.beltIntake.setPower(0);
@@ -271,7 +271,7 @@ public class TestOpMode_Linear extends LinearOpMode {
             robot.pushBall.setPosition(robot.OPEN_PUSH_BALL); // moves servo back
             inProcess = false;
         }else if(distance < robot.DISTANCE_TO_GROUND_CM && distance > robot.DISTANCE_TO_TOP_CM){   // moves intake if there is a ball in the belt rails
-            robot.beltIntake.setPower(robot.BELT_SPEED);
+            robot.beltIntake.setPower(robot.INTAKE_SPEED);
             robot.ziptieIntake.setPower(0.5);
         }else{
             robot.beltIntake.setPower(0);
