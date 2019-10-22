@@ -98,12 +98,6 @@ public class ActualOpMode extends LinearOpMode {
         // counter needs to go to zero in order for the toggle method to work!!!
             tgg.reset();
         }
-
-    /* Code the happens after the stop button */
-        robot.leftDrive.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-        robot.rightDrive.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-        telemetry.addLine("Brake is activate");
-        telemetry.update();
     }
 
     private void playerHussain(Gamepad gp){
@@ -168,7 +162,7 @@ public class ActualOpMode extends LinearOpMode {
             }
     // Automatically controls belt intake and manually controls zip tie intake
         }else{
-            autoPushBall(sorterCurrentDistance, 500);
+            autoPushBall(sorterCurrentDistance, 600); // todo check if 600 is better than 500
             if (gp.right_bumper){
                 robot.ziptieIntake.setPower(robot.INTAKE_SPEED);   // ball going in
             }else if (gp.left_bumper){

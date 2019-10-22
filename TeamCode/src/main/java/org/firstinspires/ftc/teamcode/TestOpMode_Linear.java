@@ -159,10 +159,10 @@ public class TestOpMode_Linear extends LinearOpMode {
             robot.lift.setPower(0);
         }
     // Wings
-        int leftWingCurrentPos = robot.leftWing.getCurrentPosition();
-        int rightWingCurrentPos = robot.rightWing.getCurrentPosition();
-        boolean openWings = robot.leftWing.getTargetPosition() == 1000 && robot.rightWing.getTargetPosition() == 1000;
-        boolean closeWings = robot.leftWing.getTargetPosition() == 0 && robot.rightWing.getTargetPosition() == 0;
+//        int leftWingCurrentPos = robot.leftWing.getCurrentPosition();
+//        int rightWingCurrentPos = robot.rightWing.getCurrentPosition();
+//        boolean openWings = robot.leftWing.getTargetPosition() == 1000 && robot.rightWing.getTargetPosition() == 1000;
+//        boolean closeWings = robot.leftWing.getTargetPosition() == 0 && robot.rightWing.getTargetPosition() == 0;
 //        if(gp.dpad_left){
 //            robot.leftWing.setTargetPosition(1000);
 //            robot.rightWing.setTargetPosition(1000);
@@ -201,10 +201,9 @@ public class TestOpMode_Linear extends LinearOpMode {
     // telemetry data
         telemetry.addData("Drive Speed", "left(%.2f) right(%.2f)", leftPower, rightPower);
         telemetry.addData("Shooter Speed", "limit(%.2f) actual(%.2f)", robot.shooterSpeedLimit, robot.shooter.getPower());
-        telemetry.addData("Intake Motor Speed", "belt: %.2f ziptie intake: %.2f", robot.beltIntake.getPower(), robot.ziptieIntake.getPower());
+        telemetry.addData("Intake Motor Speed", "belt: %.2f zip tie intake: %.2f", robot.beltIntake.getPower(), robot.ziptieIntake.getPower());
         telemetry.addData("Lift Motor:", "power(%.2f)", robot.lift.getPower());
-        telemetry.addData("Wings ","left: %4d right: %4d", leftWingCurrentPos, rightWingCurrentPos);
-        telemetry.addData("Wings left ", leftWingCurrentPos);
+        telemetry.addData("Limit switch ", robot.maxHeight.getState());
 
     }
 // tests servos by using multiple virtual controllers

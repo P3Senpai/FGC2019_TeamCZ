@@ -30,7 +30,7 @@ public class Bot {
 
     // Key Variables
     protected double shooterSpeedLimit = 0.7;
-    protected int ballHopperQuantity = 0; //todo
+    protected int ballHopperQuantity = 0;
     // Constants
     protected final double SPEED_LIMIT = 0.6;
     protected final double BOOST_SPEED_LIMIT = 1;
@@ -62,10 +62,6 @@ public class Bot {
         rightWing   = hwmap.get(DcMotor.class, "right_wing");
 
     // Left and Right wings
-//        leftWing.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-//        rightWing.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-//        leftWing.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-//        rightWing.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         leftWing.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         rightWing.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
     // Shooter motor
